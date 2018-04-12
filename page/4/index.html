@@ -1787,7 +1787,8 @@
       
         
           
-            <h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><ul>
+            <a id="more"></a>
+<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><ul>
 <li>成员变量(Field) :类体内的变量<ul>
 <li>静态变量：用<code>static</code>修饰，是属于类的。</li>
 <li>实例变量/非静态变量：无<code>static</code>修饰，是属于实例的。</li>
@@ -2030,20 +2031,14 @@
 
       
         
-          
-            <p>Java 虽然是面向对象编程语言，但是为了编程的方便引入了基本数据类型。为了能将这些基本数据类型当成对象操作，Java 为每个基本数据类型引入了对应的包装类型。<br>Java 5开始引入了自动装箱/拆箱机制，使得二者可以相互转换</p>
-<ul>
-<li>boolean—Boolean</li>
-<li>char—Character</li>
-<li>byte—Byte</li>
-<li>short—Short</li>
-<li>int—Integer</li>
-<li>long—Long</li>
-<li>floate—Float</li>
-<li>double—Double</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoUnboxingTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="keyword">new</span> Integer(<span class="number">3</span>);</span><br><span class="line">        integer b = <span class="number">3</span>; <span class="comment">// 将 Int 类型的3自动装箱成 Integer 类型</span></span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">        System.out.println(a == b); <span class="comment">// false 两个引用没有引用同一对象</span></span><br><span class="line">        System.out.println(a == c); <span class="comment">// true a自动拆箱成 int 类型再和 c 比较</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          <p>Java 虽然是面向对象编程语言，但是为了编程的方便引入了基本数据类型。为了能将这些基本数据类型当成对象操作，Java 为每个基本数据类型引入了对应的包装类型。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/12/包装类型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
