@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="byte byte数据类型是8位、有符号的，以二进制补码表示的整数； 最小值是 -128（-2^7）； 最大值是 127（2^7-1）； 默认值是 0； byte类型用在大型数组中节约空间，主要代替整数，因为byte变量占用的空间只有int类型的四分之一； 例子：byte a = 10; byte b = -50     short short 数据类型是 16位、有符号的以二进制补码表示的整数">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本类型Primitive_type">
+<meta property="og:url" content="https://crowthek4.github.io/2018/04/12/基本类型/index.html">
+<meta property="og:site_name" content="清梦船">
+<meta property="og:description" content="byte byte数据类型是8位、有符号的，以二进制补码表示的整数； 最小值是 -128（-2^7）； 最大值是 127（2^7-1）； 默认值是 0； byte类型用在大型数组中节约空间，主要代替整数，因为byte变量占用的空间只有int类型的四分之一； 例子：byte a = 10; byte b = -50     short short 数据类型是 16位、有符号的以二进制补码表示的整数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-12T02:56:58.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基本类型Primitive_type">
+<meta name="twitter:description" content="byte byte数据类型是8位、有符号的，以二进制补码表示的整数； 最小值是 -128（-2^7）； 最大值是 127（2^7-1）； 默认值是 0； byte类型用在大型数组中节约空间，主要代替整数，因为byte变量占用的空间只有int类型的四分之一； 例子：byte a = 10; byte b = -50     short short 数据类型是 16位、有符号的以二进制补码表示的整数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://crowthek4.github.io/2018/04/12/基本类型/"/>
+
+
+
+
+
+  <title>基本类型Primitive_type | 清梦船</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清梦船</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">醉后不知天在水，满船清梦压星河</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/基本类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基本类型Primitive_type</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:25:35+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/12/基本类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/12/基本类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="byte"><a href="#byte" class="headerlink" title="byte"></a>byte</h2><ul>
+<li><code>byte</code>数据类型是8位、有符号的，以二进制补码表示的整数；</li>
+<li>最小值是 -128（-2^7）；</li>
+<li>最大值是 127（2^7-1）；</li>
+<li>默认值是 0；</li>
+<li><code>byte</code>类型用在大型数组中节约空间，主要代替整数，因为<code>byte</code>变量占用的空间只有<code>int</code>类型的四分之一；<blockquote>
+<p>例子：<code>byte a = 10; byte b = -50</code></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="short"><a href="#short" class="headerlink" title="short"></a>short</h2><ul>
+<li>short 数据类型是 16位、有符号的以二进制补码表示的整数</li>
+<li>最小值是 -32768（-2^15）；</li>
+<li>最大值是 32767（2^15 - 1）；</li>
+<li><code>short</code>数据类型也可以像<code>byte</code> 那样节省空间。一个<code>short</code>变量是<code>int</code>型变量所占空间的二分之一；</li>
+<li>默认值是 0；<blockquote>
+<p>例子：<code>short s = 1000; short r = -20000</code></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="int"><a href="#int" class="headerlink" title="int"></a>int</h2><ul>
+<li><code>int</code>数据类型是32位、有符号的以二进制补码表示的整数；</li>
+<li>最小值是 -2,147,483,648（-2^31）；</li>
+<li>最大值是 2,147,483,647（2^31 - 1）；</li>
+<li>通常，整型变量默认为 <code>int</code> 类型；</li>
+<li>默认值是 0 ；<blockquote>
+<p>例子：<code>int a = 100000; int b = -200000</code></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="long"><a href="#long" class="headerlink" title="long"></a>long</h2><ul>
+<li><code>long</code> 数据类型是 64 位、有符号的以二进制补码表示的整数；</li>
+<li>最小值是 -9,223,372,036,854,775,808（-2^63）；</li>
+<li>最大值是 9,223,372,036,854,775,807（2^63 -1）；</li>
+<li>这种类型主要使用在需要比较大整数的系统上；</li>
+<li>默认值是 0L；<blockquote>
+<p>例子： long a = 100000L，Long b = -200000L。</p>
+</blockquote>
+</li>
+</ul>
+<p><em>“L”理论上不分大小写，但是若写成”l”容易与数字”1”混淆，不容易分辩。所以最好大写。</em></p>
+<hr>
+<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2><ul>
+<li><code>float</code> 数据类型是单精度、32位、符合IEEE 754标准的浮点数；</li>
+<li><code>float</code> 在储存大型浮点数组的时候可节省内存空间；</li>
+<li>应加上 f 或 F</li>
+<li>默认值是 0.0f；</li>
+<li>浮点数不能用来表示精确的值，如货币；<blockquote>
+<p>例子：float f1 = 234.5f。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="double"><a href="#double" class="headerlink" title="double"></a>double</h2><ul>
+<li><code>double</code> 数据类型是双精度、64 位、符合IEEE 754标准的浮点数；</li>
+<li>浮点数的默认类型为<code>double</code>类型；</li>
+<li><code>double</code> 类型同样不能表示精确的值，如货币；</li>
+<li>默认值是 0.0d；<blockquote>
+<p>例子：double d1 = 123.4。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h2><ul>
+<li><code>boolean</code>数据类型表示一位的信息；</li>
+<li>只有两个取值：<code>true</code> 和 <code>false</code>；</li>
+<li>这种类型只作为一种标志来记录 <code>true/false</code> 情况；</li>
+<li>默认值是 <code>false</code>；<blockquote>
+<p>例子：boolean one = true。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="char"><a href="#char" class="headerlink" title="char"></a>char</h2><ul>
+<li><code>char</code>类型是一个单一的 16 位 Unicode 字符；</li>
+<li>用单引号赋值</li>
+<li>最小值是 \u0000（即为0）；</li>
+<li>最大值是 \uffff（即为65,535）；</li>
+<li>char 数据类型可以储存任何字符；<blockquote>
+<p>例子：char letter = ‘A’;。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>有些 Unicode 字符可以用一个 <code>char</code> 值描述，另外一些 Unicode 字符则需要两个 char 值</li>
+<li>16位的 <code>char</code> 类型最多只能描述 65536 个代码值，现在已经不够了</li>
+<li><strong>码点</strong> (code point)是编码表中某个字符对应的代码值，采用十六进制书写，前缀 U+。如 A 的码点是 U+0041<ul>
+<li>码点分为17个 <strong>代码级别</strong> (code plane)。第一个代码级别是 <strong>基本的多语言级别</strong> (basic multilingual plane)。码点从 U+0000 到 U+FFFF ，包括经典的 Unicode 代码。其余16个代码级别从 U+10000 到 U+10FFFF，包括一些 <strong>辅助字符</strong> (supplementary character)。</li>
+</ul>
+</li>
+<li>基本的多语言级别中，每个字符用16位表示，称为 <strong>代码单元(code unit)</strong> ，辅助字符采用一对连续的代码单元进行编码。这样构成的编码值落入基本的多语言级别中空闲的 2048 字节内，被称为 <em>替代区域(surrogate area)</em> 。【U+D800 ~ U+DBFF用于第一个代码单元(共1024字节），U+DC00 ~ U+DFFF（共1024字节）用于第二个代码单元】。这样可以知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>关爱咖啡依赖症青年，支持一杯咖啡？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="乌鸦 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="乌鸦 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/12/关键字/" rel="next" title="关键字">
+                <i class="fa fa-chevron-left"></i> 关键字
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/12/接口Interface/" rel="prev" title="接口Interface">
+                接口Interface <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="乌鸦" />
+            
+              <p class="site-author-name" itemprop="name">乌鸦</p>
+              <p class="site-description motion-element" itemprop="description">Dive in Code</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/crowthek4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzf04@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#byte"><span class="nav-number">1.</span> <span class="nav-text">byte</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#short"><span class="nav-number">2.</span> <span class="nav-text">short</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int"><span class="nav-number">3.</span> <span class="nav-text">int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#long"><span class="nav-number">4.</span> <span class="nav-text">long</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float"><span class="nav-number">5.</span> <span class="nav-text">float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#double"><span class="nav-number">6.</span> <span class="nav-text">double</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boolean"><span class="nav-number">7.</span> <span class="nav-text">boolean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char"><span class="nav-number">8.</span> <span class="nav-text">char</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乌鸦</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">I'm a dreams eater</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://crowthek4.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://crowthek4.github.io/2018/04/12/基本类型/';
+          this.page.identifier = '2018/04/12/基本类型/';
+          this.page.title = '基本类型Primitive_type';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://crowthek4.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
