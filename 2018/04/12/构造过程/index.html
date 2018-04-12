@@ -95,12 +95,12 @@
 <meta property="og:site_name" content="清梦船">
 <meta property="og:description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://crowthek4.github.io/2018/04/12/构造过程/构造过程.jpg">
+<meta property="og:image" content="https://crowthek4.github.io/2018/04/12/构造过程/2018/04/12/构造过程/构造过程.jpg">
 <meta property="og:updated_time" content="2018-04-12T02:47:36.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构造过程">
 <meta name="twitter:description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形式">
-<meta name="twitter:image" content="https://crowthek4.github.io/2018/04/12/构造过程/构造过程.jpg">
+<meta name="twitter:image" content="https://crowthek4.github.io/2018/04/12/构造过程/2018/04/12/构造过程/构造过程.jpg">
 
 
 
@@ -110,7 +110,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -363,6 +363,17 @@
 
           
           
+             <span id="/2018/04/12/构造过程/" class="leancloud_visitors" data-flag-title="构造过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -389,7 +400,7 @@
 <li><em>创建对象</em> ：要求 Java 虚拟机分配 <em>堆空间</em> 给新建立的 Dog <em>对象</em>。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。</li>
 <li>连接对象和引用： 将<em>获取 Dog 对象的方法</em>以字节形式放进引用变量中。<br>换言之，引用变量(遥控器)是获得对象的某种神秘方法，而不是变量本身。</li>
 </ol>
-<img src="/2018/04/12/构造过程/构造过程.jpg" title="构造过程">
+<img src="/2018/04/12/构造过程/2018/04/12/构造过程/构造过程.jpg" title="构造过程">
 <p>同一个 Java 虚拟机的引用变量是固定大小。</p>
 <hr>
 <h2 id="对象的初始化过程"><a href="#对象的初始化过程" class="headerlink" title="对象的初始化过程"></a>对象的初始化过程</h2><ol>
@@ -596,7 +607,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -883,6 +894,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sfL7Tzv8j2uUpd10O8XxrLtM-gzGzoHsz", "2CvijbCLJ5cxpteACwjNoQK6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

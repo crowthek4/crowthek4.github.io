@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。一个进程可以有很多线程，每条线程并行执行不同的任务。  创建 Runnable 对象（“工作”）Runnable 是一个接口。写一个类实现该接口，在这个类中定义一条线程要做的事。Runnable th">
+<meta name="description" content="线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。一个进程可以有很多线程，每条线程并行执行不同的任务。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线程">
 <meta property="og:url" content="https://crowthek4.github.io/2018/04/12/线程/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。一个进程可以有很多线程，每条线程并行执行不同的任务。  创建 Runnable 对象（“工作”）Runnable 是一个接口。写一个类实现该接口，在这个类中定义一条线程要做的事。Runnable th">
+<meta property="og:description" content="线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。一个进程可以有很多线程，每条线程并行执行不同的任务。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://crowthek4.github.io/2018/04/12/线程/resources/8D8B9A250B0EC36C4104F78536F1937B.jpg%20=1232x862">
-<meta property="og:updated_time" content="2018-04-12T03:20:18.498Z">
+<meta property="og:updated_time" content="2018-04-12T09:11:16.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程">
-<meta name="twitter:description" content="线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。一个进程可以有很多线程，每条线程并行执行不同的任务。  创建 Runnable 对象（“工作”）Runnable 是一个接口。写一个类实现该接口，在这个类中定义一条线程要做的事。Runnable th">
+<meta name="twitter:description" content="线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。一个进程可以有很多线程，每条线程并行执行不同的任务。">
 <meta name="twitter:image" content="https://crowthek4.github.io/2018/04/12/线程/resources/8D8B9A250B0EC36C4104F78536F1937B.jpg%20=1232x862">
 
 
@@ -110,7 +110,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -363,6 +363,17 @@
 
           
           
+             <span id="/2018/04/12/线程/" class="leancloud_visitors" data-flag-title="线程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -384,6 +395,7 @@
 
       
         <p>线程（thread）是操作系统能够进行<strong>运算调度</strong>的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。<br>一个进程可以有很多线程，每条线程并行执行不同的任务。</p>
+<a id="more"></a>
 <ol>
 <li>创建 <code>Runnable</code> 对象（“工作”）<br><code>Runnable</code> 是一个接口。写一个类实现该接口，在这个类中定义一条线程要做的事。<br><code>Runnable threadJob = new MyRunnable();</code></li>
 <li>创建一个 Thread 对象（“工人”），给它分配 Runnable 对象（“工作”）(NEW 状态)<br><code>Thread myThread = new Thread(threadJob);</code></li>
@@ -411,7 +423,7 @@
 <p>多线程是多任务的一种特别的形式，但多线程使用了更小的资源开销。<br>这里定义和线程相关的另一个术语 - 进程：一个进程包括由操作系统分配的内存空间，包含一个或多个线程。一个线程不能独立的存在，它必须是进程的一部分。一个进程一直运行，直到所有的非守护线程都结束运行后才能结束。<br>多线程能满足程序员编写高效率的程序来达到充分利用 CPU 的目的。</p>
 <hr>
 <h2 id="一个线程的生命周期"><a href="#一个线程的生命周期" class="headerlink" title="一个线程的生命周期"></a>一个线程的生命周期</h2><p>线程是一个动态执行的过程，它也有一个从产生到死亡的过程。<br>下图显示了一个线程完整的生命周期。</p>
-<p><img src="resources/8D8B9A250B0EC36C4104F78536F1937B.jpg =1232x862" alt="IMAGE"></p>
+<p><img src="/2018/04/12/线程/resources/8D8B9A250B0EC36C4104F78536F1937B.jpg =1232x862" alt="IMAGE"></p>
 <ul>
 <li><strong>新建状态(New):</strong><br>使用 <code>new</code> 关键字和 <code>Thread</code> 类或其子类建立一个线程对象后，该线程对象就处于 New 状态。它保持这个状态直到程序 <code>start()</code> 这个线程。</li>
 <li><strong>就绪状态(Runnable):</strong><br>当线程对象调用了 <code>start()</code> 方法之后，该线程就进入 Runnable 状态。就绪状态的线程处于就绪队列中，要等待 JVM 里线程调度器的调度。</li>
@@ -652,7 +664,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -939,6 +951,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sfL7Tzv8j2uUpd10O8XxrLtM-gzGzoHsz", "2CvijbCLJ5cxpteACwjNoQK6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
