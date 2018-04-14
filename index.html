@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/重载与重写/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/b6159bfb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -358,7 +358,218 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/重载与重写/" itemprop="url">重载与重写</a></h1>
+                <a class="post-title-link" href="/posts/b6159bfb/" itemprop="url">Hexo 搭建博客</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-14T00:00:00+08:00">
+                2018-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/建站/" itemprop="url" rel="index">
+                    <span itemprop="name">建站</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/b6159bfb/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/b6159bfb/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/b6159bfb/" class="leancloud_visitors" data-flag-title="Hexo 搭建博客">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  630
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><h3 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1. 安装Node.js"></a>1. 安装<code>Node.js</code></h3><ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Windows</a> </li>
+<li><a href="https://nodejs.org/en" target="_blank" rel="noopener">Mac</a></li>
+</ul>
+<p>安装<code>Node.js</code>会自动安装<code>npm</code></p>
+<h3 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2.安装Git"></a>2.安装<code>Git</code></h3><ul>
+<li><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Windows</a></li>
+<li>Mac<ol>
+<li>安装<code>Homebrew</code>:<code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
+<li>安装<code>Git</code>:<code>brew install git</code></li>
+</ol>
+</li>
+</ul>
+<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装<code>Hexo</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g <span class="comment">#将hexo安装至默认文件夹，使用全局设置下载</span></span><br><span class="line">hexo init blog          <span class="comment">#初始化博客文件夹</span></span><br><span class="line"><span class="built_in">cd</span> blog                 <span class="comment">#进入博客文件夹</span></span><br><span class="line">npm install             <span class="comment">#安装指定模块，json指定</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-常用插件"><a href="#4-常用插件" class="headerlink" title="4.常用插件"></a>4.常用插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #集 成 git 部署工具（需配置站点）</span><br></pre></td></tr></table></figure>
+<h2 id="二、常用命令"><a href="#二、常用命令" class="headerlink" title="二、常用命令"></a>二、常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo n(new) file    #在source/_post下面新建一个file.md文件</span><br><span class="line">hexo g(generate)    #由md文件生成html静态文件</span><br><span class="line">hexo s(server)      #在本地启动http服务以提供本地预览功能</span><br><span class="line">hexo d(deploy)      #部署到git(需要插件)</span><br><span class="line">hexo render &lt;file&gt; -o &lt;ouput&gt; #渲染指定的md，输出为html格式</span><br><span class="line">hexo clean          #清除db.json与public里面的内容</span><br><span class="line">hexo list &lt;type&gt;    #列出指定信息，比如tag，post等等</span><br></pre></td></tr></table></figure>
+<h2 id="三、配置站点"><a href="#三、配置站点" class="headerlink" title="三、配置站点"></a>三、配置站点</h2><h2 id="四、配置主题"><a href="#四、配置主题" class="headerlink" title="四、配置主题"></a>四、配置主题</h2><h2 id="五、写作"><a href="#五、写作" class="headerlink" title="五、写作"></a>五、写作</h2><h3 id="1-头部"><a href="#1-头部" class="headerlink" title="1.头部"></a>1.头部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">date: 2018-04-14 22:55   #日期</span><br><span class="line">status: public           #公开</span><br><span class="line">title: hexo 安装          #文章名</span><br><span class="line">tags: 博客搭建             #标签</span><br><span class="line">categlory: 工具           #文章分类</span><br><span class="line">top: true                #置顶（需要 ）</span><br><span class="line">password: abc            #查看所需密码（需要 ）</span><br><span class="line">abbrlink: xxxxx          #永久唯一链接（需要abbrlink插件）</span><br></pre></td></tr></table></figure>
+<h2 id="六、深度优化"><a href="#六、深度优化" class="headerlink" title="六、深度优化"></a>六、深度优化</h2><h3 id="1-文章链接唯一化"><a href="#1-文章链接唯一化" class="headerlink" title="1.文章链接唯一化"></a>1.文章链接唯一化</h3><p>更改文章题目或者变更文章发布时间时，在默认设置下文章链接会改变，不利于搜索引擎收录，也不利于分享。唯一永久链接才是更好的选择。安装此插件后，不要在 <code>hexo s</code> 模式下更改文章文件名，否则文章将成空白。</p>
+<p><code>npm install hexo-abbrlink --save</code></p>
+<p>在<code>站点配置文件</code>中查找代码<code>permalink</code>:，将其更改为:</p>
+<p><code>permalink: posts/:abbrlink/  # “posts/” 可自行更换</code></p>
+<p>在<code>站点配置文件</code>中添加如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment"># 算法：crc16(default) and crc32 </span></span><br><span class="line">  rep: hex    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure>
+<p>可参照样例以选择：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">crc16 &amp; hex</span><br><span class="line">https://post.zz173.com/posts/66c8.html</span><br><span class="line"></span><br><span class="line">crc16 &amp; dec</span><br><span class="line">https://post.zz173.com/posts/65535.html</span><br><span class="line"></span><br><span class="line">crc32 &amp; hex</span><br><span class="line">https://post.zz173.com/posts/8ddf18fb.html</span><br><span class="line"></span><br><span class="line">crc32 &amp; dec</span><br><span class="line">https://post.zz173.com/posts/1690090958.html</span><br></pre></td></tr></table></figure>
+<h3 id="2-语法优化"><a href="#2-语法优化" class="headerlink" title="2.语法优化"></a>2.语法优化</h3><h4 id="1-引用，角标"><a href="#1-引用，角标" class="headerlink" title="(1)引用，角标"></a>(1)引用，角标</h4><p>添加角标以注明引用（footnotes），可来回跳转<br><code>npm install hexo-footnotes --save</code></p>
+<p>安装完毕确认是否生效，如不生效，在<code>站点配置文件</code>中添加如下代码以手动启用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plubins:</span><br><span class="line">    - hexo-footnotes</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/d1132592/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/d1132592/" itemprop="url">重载与重写</a></h1>
         
 
         <div class="post-meta">
@@ -411,9 +622,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/重载与重写/#comments" itemprop="discussionUrl">
+                <a href="/posts/d1132592/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/重载与重写/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/d1132592/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,7 +632,7 @@
 
           
           
-             <span id="/2018/04/12/重载与重写/" class="leancloud_visitors" data-flag-title="重载与重写">
+             <span id="/posts/d1132592/" class="leancloud_visitors" data-flag-title="重载与重写">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -547,7 +758,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/序列化和反序列化/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/83d613f6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -566,7 +777,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/序列化和反序列化/" itemprop="url">序列化和反序列化</a></h1>
+                <a class="post-title-link" href="/posts/83d613f6/" itemprop="url">序列化和反序列化</a></h1>
         
 
         <div class="post-meta">
@@ -619,9 +830,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/序列化和反序列化/#comments" itemprop="discussionUrl">
+                <a href="/posts/83d613f6/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/序列化和反序列化/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/83d613f6/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -629,7 +840,7 @@
 
           
           
-             <span id="/2018/04/12/序列化和反序列化/" class="leancloud_visitors" data-flag-title="序列化和反序列化">
+             <span id="/posts/83d613f6/" class="leancloud_visitors" data-flag-title="序列化和反序列化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -766,7 +977,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/方法/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/ad01bc3e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -785,7 +996,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/方法/" itemprop="url">方法</a></h1>
+                <a class="post-title-link" href="/posts/ad01bc3e/" itemprop="url">方法</a></h1>
         
 
         <div class="post-meta">
@@ -838,9 +1049,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/方法/#comments" itemprop="discussionUrl">
+                <a href="/posts/ad01bc3e/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/方法/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/ad01bc3e/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -848,7 +1059,7 @@
 
           
           
-             <span id="/2018/04/12/方法/" class="leancloud_visitors" data-flag-title="方法">
+             <span id="/posts/ad01bc3e/" class="leancloud_visitors" data-flag-title="方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -962,7 +1173,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/Switch语句/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/83468082/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -981,7 +1192,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/Switch语句/" itemprop="url">Switch语句</a></h1>
+                <a class="post-title-link" href="/posts/83468082/" itemprop="url">Switch语句</a></h1>
         
 
         <div class="post-meta">
@@ -1012,9 +1223,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/Switch语句/#comments" itemprop="discussionUrl">
+                <a href="/posts/83468082/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/Switch语句/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/83468082/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1022,7 +1233,7 @@
 
           
           
-             <span id="/2018/04/12/Switch语句/" class="leancloud_visitors" data-flag-title="Switch语句">
+             <span id="/posts/83468082/" class="leancloud_visitors" data-flag-title="Switch语句">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1124,7 +1335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/StirngBuilder类/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/6c2d2fbf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -1143,7 +1354,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/StirngBuilder类/" itemprop="url">StirngBuilder类</a></h1>
+                <a class="post-title-link" href="/posts/6c2d2fbf/" itemprop="url">StirngBuilder类</a></h1>
         
 
         <div class="post-meta">
@@ -1174,9 +1385,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/StirngBuilder类/#comments" itemprop="discussionUrl">
+                <a href="/posts/6c2d2fbf/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/StirngBuilder类/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/6c2d2fbf/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1184,7 +1395,7 @@
 
           
           
-             <span id="/2018/04/12/StirngBuilder类/" class="leancloud_visitors" data-flag-title="StirngBuilder类">
+             <span id="/posts/6c2d2fbf/" class="leancloud_visitors" data-flag-title="StirngBuilder类">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1286,7 +1497,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/StringBuffer类/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/5a050e8c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -1305,7 +1516,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/StringBuffer类/" itemprop="url">StringBuffer类</a></h1>
+                <a class="post-title-link" href="/posts/5a050e8c/" itemprop="url">StringBuffer类</a></h1>
         
 
         <div class="post-meta">
@@ -1336,9 +1547,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/StringBuffer类/#comments" itemprop="discussionUrl">
+                <a href="/posts/5a050e8c/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/StringBuffer类/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/5a050e8c/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1346,7 +1557,7 @@
 
           
           
-             <span id="/2018/04/12/StringBuffer类/" class="leancloud_visitors" data-flag-title="StringBuffer类">
+             <span id="/posts/5a050e8c/" class="leancloud_visitors" data-flag-title="StringBuffer类">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1448,7 +1659,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/sleep和wait的区别/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/a944c3fc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -1467,7 +1678,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/sleep和wait的区别/" itemprop="url">sleep和wait的区别</a></h1>
+                <a class="post-title-link" href="/posts/a944c3fc/" itemprop="url">sleep和wait的区别</a></h1>
         
 
         <div class="post-meta">
@@ -1498,9 +1709,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/sleep和wait的区别/#comments" itemprop="discussionUrl">
+                <a href="/posts/a944c3fc/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/sleep和wait的区别/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/a944c3fc/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1508,7 +1719,7 @@
 
           
           
-             <span id="/2018/04/12/sleep和wait的区别/" class="leancloud_visitors" data-flag-title="sleep和wait的区别">
+             <span id="/posts/a944c3fc/" class="leancloud_visitors" data-flag-title="sleep和wait的区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1610,7 +1821,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/Runnable和Thread实现多线程的区别/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/1e9ec59e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -1629,7 +1840,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/Runnable和Thread实现多线程的区别/" itemprop="url">Runnable和Thread实现多线程的区别</a></h1>
+                <a class="post-title-link" href="/posts/1e9ec59e/" itemprop="url">Runnable和Thread实现多线程的区别</a></h1>
         
 
         <div class="post-meta">
@@ -1660,9 +1871,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/Runnable和Thread实现多线程的区别/#comments" itemprop="discussionUrl">
+                <a href="/posts/1e9ec59e/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/Runnable和Thread实现多线程的区别/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/1e9ec59e/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1670,7 +1881,7 @@
 
           
           
-             <span id="/2018/04/12/Runnable和Thread实现多线程的区别/" class="leancloud_visitors" data-flag-title="Runnable和Thread实现多线程的区别">
+             <span id="/posts/1e9ec59e/" class="leancloud_visitors" data-flag-title="Runnable和Thread实现多线程的区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1772,7 +1983,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/Object类/">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/351cfb72/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="乌鸦">
@@ -1791,7 +2002,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/Object类/" itemprop="url">Object类</a></h1>
+                <a class="post-title-link" href="/posts/351cfb72/" itemprop="url">Object类</a></h1>
         
 
         <div class="post-meta">
@@ -1844,9 +2055,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/12/Object类/#comments" itemprop="discussionUrl">
+                <a href="/posts/351cfb72/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/Object类/" itemprop="commentCount"></span>
+                        data-disqus-identifier="posts/351cfb72/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1854,7 +2065,7 @@
 
           
           
-             <span id="/2018/04/12/Object类/" class="leancloud_visitors" data-flag-title="Object类">
+             <span id="/posts/351cfb72/" class="leancloud_visitors" data-flag-title="Object类">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1954,308 +2165,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/2018/04/12/异常处理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/12/异常处理/" itemprop="url">异常处理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:28:11+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/12/异常处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/12/异常处理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/04/12/异常处理/" class="leancloud_visitors" data-flag-title="异常处理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3,270
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>异常是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。<br>比如说，你的代码少了一个分号，那么运行出来结果是提示是错误 <code>java.lang.Error</code>；如果你用 <code>System.out.println(11/0)</code> ，那么你是因为你用0做了除数，会抛出 <code>java.lang.ArithmeticException</code> 的异常。</p>
-<p>异常发生的原因有很多，通常包含以下几大类：</p>
-<ul>
-<li>用户输入了非法数据。</li>
-<li>要打开的文件不存在。</li>
-<li>网络通信时连接中断，或者 JVM 内存溢出。</li>
-<li>这些异常有的是因为用户错误引起，有的是程序错误引起的，还有其它一些是因为物理错误引起的。-</li>
-</ul>
-<p>要理解 Java 异常处理是如何工作的，你需要掌握以下三种类型的异常：</p>
-<p>检查性异常<br>:    最具代表的检查性异常是用户错误或问题引起的异常，这是程序员无法预见的。例如要打开一个不存在文件时，一个异常就发生了，这些异常在编译时不能被简单地忽略。</p>
-<p>运行时异常<br>:    运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。</p>
-<p>错误<br>:    错误不是异常，而是脱离程序员控制的问题。错误在代码中通常被忽略。例如，当栈溢出时，一个错误就发生了，它们在编译也检查不到的。</p>
-<hr>
-<h1 id="Exception-类的层次"><a href="#Exception-类的层次" class="headerlink" title="Exception 类的层次"></a>Exception 类的层次</h1><p>所有的异常类是从 <code>java.lang.Exception</code> 类继承的子类。<br><code>Exception</code> 类是 <code>Throwable</code> 类的子类。除了 <code>Exception</code> 类外，<code>Throwable</code> 还有一个子类 <code>Error</code> 。</p>
-<p>Java 程序通常不捕获错误。错误一般发生在严重故障时，它们在 Java 程序处理的范畴之外。</p>
-<p>Error 用来指示运行时环境发生的错误。</p>
-<p>例如，JVM 内存溢出。一般地，程序不会从错误中恢复。</p>
-<p>异常类有两个主要的子类：<code>IOException</code> 类和 <code>RuntimeException</code> 类。</p>
-<p><img src="https://leanote.com/api/file/getImage?fileId=5aaa4d43ab644125360028fc" alt=""></p>
-<p>在 Java 内置类中(接下来会说明)，有大部分常用检查性和非检查性异常。</p>
-<hr>
-<h1 id="Java-内置异常类"><a href="#Java-内置异常类" class="headerlink" title="Java 内置异常类"></a>Java 内置异常类</h1><p>Java 语言定义了一些异常类在 java.lang 标准包中。</p>
-<p>标准运行时异常类的子类是最常见的异常类。由于 java.lang 包是默认加载到所有的 Java 程序的，所以大部分从运行时异常类继承而来的异常都可以直接使用。</p>
-<p>Java 根据各个类库也定义了一些其他的异常，下面的表中列出了 Java 的非检查性异常。</p>
-<p><code>ArithmeticException</code><br>:    当出现异常的运算条件时，抛出此异常。例如，一个整数”除以零”时，抛出此类的一个实例。</p>
-<p><code>ArrayIndexOutOfBoundsException</code><br>:    用非法索引访问数组时抛出的异常。如果索引为负或大于等于数组大小，则该索引为非法索引。</p>
-<p><code>ArrayStoreException</code><br>:    试图将错误类型的对象存储到一个对象数组时抛出的异常。</p>
-<p><code>ClassCastException</code><br>:    当试图将对象强制转换为不是实例的子类时，抛出该异常。</p>
-<p><code>IllegalArgumentException</code><br>:    抛出的异常表明向方法传递了一个不合法或不正确的参数。</p>
-<p><code>IllegalMonitorStateException</code><br>:    抛出的异常表明某一线程已经试图等待对象的监视器，或者试图通知其他正在等待对象的监视器而本身没有指定监视器的线程。</p>
-<p><code>IllegalStateException</code><br>:    在非法或不适当的时间调用方法时产生的信号。换句话说，即 Java 环境或 Java 应用程序没有处于请求操作所要求的适当状态下。</p>
-<p><code>IllegalThreadStateException</code><br>:    线程没有处于请求操作所要求的适当状态时抛出的异常。</p>
-<p><code>IndexOutOfBoundsException</code><br>:    指示某排序索引（例如对数组、字符串或向量的排序）超出范围时抛出。</p>
-<p><code>NegativeArraySizeException</code><br>:    如果应用程序试图创建大小为负的数组，则抛出该异常。</p>
-<p><code>NullPointerException</code><br>:    当应用程序试图在需要对象的地方使用 null 时，抛出该异常</p>
-<p><code>NumberFormatException</code><br>:    当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常。</p>
-<p><code>SecurityException</code><br>:    由安全管理器抛出的异常，指示存在安全侵犯。</p>
-<p><code>StringIndexOutOfBoundsException</code><br>:    此异常由 String 方法抛出，指示索引或者为负，或者超出字符串的大小。</p>
-<p><code>UnsupportedOperationException</code><br>:    当不支持请求的操作时，抛出该异常。</p>
-<p><strong>下面的表中列出了 Java 定义在 java.lang 包中的检查性异常类。</strong></p>
-<p><code>ClassNotFoundException</code><br>:    应用程序试图加载类时，找不到相应的类，抛出该异常。</p>
-<p><code>CloneNotSupportedException</code><br>:    当调用 Object 类中的 clone 方法克隆对象，但该对象的类无法实现 Cloneable 接口时，抛出该异常。</p>
-<p><code>IllegalAccessException</code><br>:    拒绝访问一个类的时候，抛出该异常。</p>
-<p><code>InstantiationException</code><br>:    当试图使用 Class 类中的 newInstance 方法创建一个类的实例，而指定的类对象因为是一个接口或是一个抽象类而无法实例化时，抛出该异常。</p>
-<p><code>InterruptedException</code><br>:     一个线程被另一个线程中断，抛出该异常。NoSuchFieldException请求的变量不存在NoSuchMethodException请求的方法不存在</p>
-<hr>
-<h1 id="异常方法"><a href="#异常方法" class="headerlink" title="异常方法"></a>异常方法</h1><p>下面的列表是 Throwable 类的主要方法:</p>
-<p><code>.public String getMessage()</code><br>:    返回关于发生的异常的详细信息。这个消息在Throwable 类的构造函数中初始化了。</p>
-<p><code>.public Throwable getCause()</code><br>:    返回一个Throwable 对象代表异常原因。<br><code>.public String toString()</code><br>:    使用getMessage()的结果返回类的串级名字。</p>
-<p><code>.public void printStackTrace()</code><br>:    打印toString()结果和栈层次到System.err，即错误输出流。</p>
-<p><code>.public StackTraceElement [] getStackTrace()</code><br>:    返回一个包含堆栈层次的数组。下标为0的元素代表栈顶，最后一个元素代表方法调用堆栈的栈底。</p>
-<p><code>.public Throwable fillInStackTrace()</code><br>:    用当前的调用栈层次填充Throwable 对象栈层次，添加到栈层次任何先前信息中。</p>
-<hr>
-<h1 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h1><p>使用 try 和 catch 关键字可以捕获异常。try/catch 代码块放在异常可能发生的地方。<br>try/catch代码块中的代码称为保护代码，使用 try/catch 的语法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">    &#125; <span class="keyword">catch</span>(ExceptionName e1) &#123;</span><br><span class="line">    <span class="comment">//Catch 块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Catch 语句包含要捕获异常类型的声明。当保护代码块中发生一个异常时，try 后面的 catch 块就会被检查。<br>如果发生的异常包含在 catch 块中，异常会被传递到该 catch 块，这和传递一个参数到方法是一样。</p>
-<p> <strong>实例</strong></p>
-<p>下面的例子中声明有两个元素的一个数组，当代码试图访问数组的第三个元素的时候就会抛出一个异常。</p>
-<h2 id="ExcepTest-java-文件代码："><a href="#ExcepTest-java-文件代码：" class="headerlink" title="ExcepTest.java 文件代码："></a>ExcepTest.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名 : ExcepTest.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Exception thrown :"</span> + e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"Out of the block"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码编译运行输出结果如下：</p>
-<blockquote>
-<p>Exception thrown :java.lang.ArrayIndexOutOfBoundsException: 3<br>Out of the block</p>
-</blockquote>
-<hr>
-<h2 id="多重捕获块"><a href="#多重捕获块" class="headerlink" title="多重捕获块"></a>多重捕获块</h2><p>一个 try 代码块后面跟随多个 catch 代码块的情况就叫多重捕获。<br>多重捕获块的语法如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码段包含了 3 个 catch块。</p>
-<p>可以在 try 语句后面添加任意数量的 catch 块。</p>
-<p>如果保护代码中发生异常，异常被抛给第一个 catch 块。</p>
-<p>如果抛出异常的数据类型与 ExceptionType1 匹配，它在这里就会被捕获。</p>
-<p>如果不匹配，它会被传递给第二个 catch 块。</p>
-<p>如此，直到异常被捕获或者通过所有的 catch 块。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>该实例展示了怎么使用多重 try/catch。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    file = <span class="keyword">new</span> FileInputStream(fileName);</span><br><span class="line">    x = (<span class="keyword">byte</span>) file.read();</span><br><span class="line">&#125; <span class="keyword">catch</span>(IOException i)&#123;</span><br><span class="line">    i.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">catch</span>(FileNotFoundException f) <span class="comment">//Not valid! &#123; </span></span><br><span class="line">    f.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## throws/throw 关键字：</span><br><span class="line"></span><br><span class="line">如果一个方法没有捕获一个检查性异常，那么该方法必须使用 `<span class="keyword">throws</span>` 关键字来声明。`<span class="keyword">throws</span>` 关键字放在方法签名的尾部。</span><br><span class="line"></span><br><span class="line">也可以使用 `<span class="keyword">throw</span>` 关键字抛出一个异常，无论它是新实例化的还是刚捕获到的。</span><br><span class="line">下面方法的声明抛出一个 RemoteException 异常：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">        <span class="comment">// Method implementation</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RemoteException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Remainder of class definition</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。<br>例如，下面的方法声明抛出 <code>RemoteException</code> 和 <code>InsufficientFundsException</code>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException, InsufficientFundsException </span>&#123;</span><br><span class="line">        <span class="comment">// Method implementation</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Remainder of class definition</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="finally关键字"><a href="#finally关键字" class="headerlink" title="finally关键字"></a><code>finally</code>关键字</h2><p><code>finally</code> 关键字用来创建在 <code>try</code> 代码块后面执行的代码块。</p>
-<p>无论是否发生异常，<code>finally</code> 代码块中的代码总会被执行。</p>
-<p>在 <code>finally</code> 代码块中，可以运行清理类型等收尾善后性质的语句。</p>
-<p><code>finally</code> 代码块出现在 <code>catch</code> 代码块最后，语法如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 实例</span><br><span class="line"></span><br><span class="line">## ExcepTest.java 文件代码：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Exception thrown :"</span> + e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a[<span class="number">0</span>] = <span class="number">6</span>;</span><br><span class="line">            System.out.println(<span class="string">"First element value: "</span> +a[<span class="number">0</span>]);</span><br><span class="line">            System.out.println(<span class="string">"The finally statement is executed"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>Exception thrown :java.lang.ArrayIndexOutOfBoundsException: 3<br>First element value: 6<br>The finally statement is executed</p>
-</blockquote>
-<p>注意下面事项：<br><code>catch</code> 不能独立于 <code>try</code> 存在。<br>在 <code>try/catch</code> 后面添加 <code>finally</code> 块并非强制性要求的。<br><code>try</code> 代码后不能既没 <code>catch</code> 块也没 <code>finally</code> 块。</p>
-<h2 id="try-catch-finally-块之间不能添加任何代码。"><a href="#try-catch-finally-块之间不能添加任何代码。" class="headerlink" title="try, catch, finally 块之间不能添加任何代码。"></a><code>try</code>, <code>catch</code>, <code>finally</code> 块之间不能添加任何代码。</h2><h2 id="声明自定义异常"><a href="#声明自定义异常" class="headerlink" title="声明自定义异常"></a>声明自定义异常</h2><p>在 Java 中你可以自定义异常。编写自己的异常类时需要记住下面的几点。</p>
-<p>所有异常都必须是 <code>Throwable</code> 的子类。<br>如果希望写一个检查性异常类，则需要继承 <code>Exception</code> 类。<br>如果你想写一个运行时异常类，那么需要继承 <code>RuntimeException</code> 类。<br>可以像下面这样定义自己的异常类：</p>
-<p><code>class MyException extends Exception{}</code></p>
-<p>只继承 <code>Exception</code> 类来创建的异常类是检查性异常类。<br>下面的 <code>InsufficientFundsException</code> 类是用户定义的异常类，它继承自 <code>Exception</code>。<br>一个异常类和其它任何类一样，包含有变量和方法。</p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p>以下实例是一个银行账户的模拟，通过银行卡的号码完成识别，可以进行存钱和取钱的操作。</p>
-<h2 id="InsufficientFundsException-java-文件代码："><a href="#InsufficientFundsException-java-文件代码：" class="headerlink" title="InsufficientFundsException.java 文件代码："></a>InsufficientFundsException.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名InsufficientFundsException.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义异常类，继承Exception类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsufficientFundsException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    <span class="comment">//此处的amount用来储存当出现异常（取出钱多于余额时）所缺乏的钱</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InsufficientFundsException</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了展示如何使用我们自定义的异常类，<br>在下面的 <code>CheckingAccount</code> 类中包含一个 <code>withdraw()</code> 方法抛出一个 <code>InsufficientFundsException</code> 异常。</p>
-<h2 id="CheckingAccount-java-文件代码："><a href="#CheckingAccount-java-文件代码：" class="headerlink" title="CheckingAccount.java 文件代码："></a>CheckingAccount.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名称 CheckingAccount.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此类模拟银行账户</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckingAccount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//balance为余额，number为卡号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CheckingAccount</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//方法：存钱</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</span><br><span class="line">        balance += amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：取钱</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> InsufficientFundsException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(amount &lt;= balance) &#123;</span><br><span class="line">            balance -= amount;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">double</span> needs = amount - balance;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InsufficientFundsException(needs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：返回余额</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> balance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：返回卡号</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面的 BankDemo 程序示范了如何调用 CheckingAccount 类的 deposit() 和 withdraw() 方法。</p>
-<h2 id="BankDemo-java-文件代码："><a href="#BankDemo-java-文件代码：" class="headerlink" title="BankDemo.java 文件代码："></a>BankDemo.java 文件代码：</h2><p>//文件名称 BankDemo.java</p>
-<p>public class BankDemo{</p>
-<pre><code>public static void main(String [] args) {
-    CheckingAccount c = new CheckingAccount(101);
-    System.out.println(&quot;Depositing $500...&quot;);
-    c.deposit(500.00);
-
-    try {
-        System.out.println(&quot;\nWithdrawing $100...&quot;);
-        c.withdraw(100.00);
-        System.out.println(&quot;\nWithdrawing $600...&quot;);
-        c.withdraw(600.00);
-    } catch(InsufficientFundsException e) {
-        System.out.println(&quot;Sorry, but you are short $&quot; + e.getAmount());
-        e.printStackTrace();
-    }
-}
-</code></pre><p>}</p>
-<p>编译上面三个文件，并运行程序 BankDemo，得到结果如下所示：</p>
-<blockquote>
-<p>Depositing $500…<br>Withdrawing $100…<br>Withdrawing $600…<br>Sorry, but you are short $200.0<br>InsufficientFundsException<br>at CheckingAccount.withdraw(CheckingAccount.java:25)<br>at BankDemo.main(BankDemo.java:13)</p>
-</blockquote>
-<hr>
-<h2 id="通用异常"><a href="#通用异常" class="headerlink" title="通用异常"></a>通用异常</h2><p>在Java中定义了两种类型的异常和错误。<br>JVM(Java虚拟机) 异常<br>：    由 JVM 抛出的异常或错误。例如：<code>NullPointerException</code> 类，<code>ArrayIndexOutOfBoundsException</code> 类，<code>ClassCastException</code> 类。<br>程序级异常<br>：    由程序或者API程序抛出的异常。例如 <code>IllegalArgumentException</code> 类，<code>IllegalStateException</code> 类。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2310,7 +2219,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2321,7 +2230,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2412,7 +2321,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">27.4k</span>
+    <span title="Site words total count">28.0k</span>
   
 </div>
 

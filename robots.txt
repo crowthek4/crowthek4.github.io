@@ -1,0 +1,16 @@
+#hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://crowzf.com/search.xml
+
+Sitemap: http://crowzf.com/sitemap.xml
+Sitemap: http://crowzf.com/baidusitemap.xml

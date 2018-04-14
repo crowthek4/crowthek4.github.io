@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('本文受密码保护') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="清梦船" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="位操作基础1为真，0为假  与：&amp;amp; 两个位都为 1 时，结果才为 1 或：| 两个位都是 0 时，结果才为 0 异或：^ 两个位相同时为 0，相异为 1 取反：~ 0 变 1，1 变 0 左移：&amp;lt;&amp;lt; 各二进位全部左移若干位，高位丢弃，低位补 0 右移：&amp;gt;&amp;gt; 各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位(算术右移)，有">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="位操作">
+<meta property="og:url" content="https://crowthek4.github.io/posts/6a503052/index.html">
+<meta property="og:site_name" content="清梦船">
+<meta property="og:description" content="位操作基础1为真，0为假  与：&amp;amp; 两个位都为 1 时，结果才为 1 或：| 两个位都是 0 时，结果才为 0 异或：^ 两个位相同时为 0，相异为 1 取反：~ 0 变 1，1 变 0 左移：&amp;lt;&amp;lt; 各二进位全部左移若干位，高位丢弃，低位补 0 右移：&amp;gt;&amp;gt; 各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位(算术右移)，有">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-14T07:23:28.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="位操作">
+<meta name="twitter:description" content="位操作基础1为真，0为假  与：&amp;amp; 两个位都为 1 时，结果才为 1 或：| 两个位都是 0 时，结果才为 0 异或：^ 两个位相同时为 0，相异为 1 取反：~ 0 变 1，1 变 0 左移：&amp;lt;&amp;lt; 各二进位全部左移若干位，高位丢弃，低位补 0 右移：&amp;gt;&amp;gt; 各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位(算术右移)，有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://crowthek4.github.io/posts/6a503052/"/>
+
+
+
+
+
+<link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+
+  <title>位操作 | 清梦船</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清梦船</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">醉后不知天在水，满船清梦压星河</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-留言板">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/6a503052/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">位操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:40+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/6a503052/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/6a503052/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/6a503052/" class="leancloud_visitors" data-flag-title="位操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,972
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="位操作基础"><a href="#位操作基础" class="headerlink" title="位操作基础"></a>位操作基础</h2><p>1为真，0为假</p>
+<ul>
+<li>与：<code>&amp;</code> 两个位都为 1 时，结果才为 1</li>
+<li>或：<code>|</code> 两个位都是 0 时，结果才为 0</li>
+<li>异或：<code>^</code> 两个位相同时为 0，相异为 1</li>
+<li>取反：<code>~</code> 0 变 1，1 变 0</li>
+<li>左移：<code>&lt;&lt;</code> 各二进位全部左移若干位，高位丢弃，低位补 0</li>
+<li>右移：<code>&gt;&gt;</code> 各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位(算术右移)，有的补 0 (逻辑右移)</li>
+</ul>
+<hr>
+<ul>
+<li>在这6种操作符，只有 ~ 取反是单目操作符，其它5种都是双目操作符。</li>
+<li>位操作只能用于整形数据，对 <code>float</code> 和 <code>double</code> 类型进行位操作会被编译器报错。</li>
+<li>位操作符的运算优先级比较低，因为尽量使用括号来确保运算顺序，否则很可能会得到莫明其妙的结果。比如要得到像 1，3，5，9 这些 2^i+1 的数字。写成 <code>int a = 1 &lt;&lt; i + 1</code>; 是不对的，程序会先执行 i + 1，再执行左移操作。应该写成 <code>int a = (1 &lt;&lt; i) + 1</code>;</li>
+<li>另外位操作还有一些复合操作符，如 &amp;=、|=、 ^=、&lt;&lt;=、&gt;&gt;=</li>
+</ul>
+<hr>
+<h2 id="常用位操作小技巧"><a href="#常用位操作小技巧" class="headerlink" title="常用位操作小技巧"></a>常用位操作小技巧</h2><h3 id="判断奇偶数"><a href="#判断奇偶数" class="headerlink" title="判断奇偶数"></a>判断奇偶数</h3><p>只要根据最未位是 0 还是 1 来决定，为 0 就是偶数，为 1 就是奇数。</p>
+<p> <code>if ((a &amp; 1) == 0)</code> </p>
+<h3 id="交换两数"><a href="#交换两数" class="headerlink" title="交换两数"></a>交换两数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
+<p>可以这样理解：</p>
+<ul>
+<li>第一步 a ^= b 即 a = (a ^ b)；</li>
+<li>第二步 b ^= a 即 b = b ^ ( a ^ b)，由于异或运算满足交换律，b ^ ( a ^ b) = b ^ b ^ a。由于一个数和自己异或的结果为 0 并且任何数与 0 异或都会不变的，所以此时 b 被赋上了 a 的值；</li>
+<li>第三步 a ^= b 就是 a = a ^ b，由于前面二步可知 a = ( a ^ b)，b=a，所以 a = a ^ b 即 a = ( a ^ b ) ^ a。故 a 会被赋上 b 的值。</li>
+</ul>
+<h3 id="变换符号"><a href="#变换符号" class="headerlink" title="变换符号"></a>变换符号</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取反后加 1</span></span><br><span class="line"><span class="comment">// 注意计算机以补码表示，因此是对补码取反</span></span><br><span class="line">System.out.println(~a + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="求绝对值"><a href="#求绝对值" class="headerlink" title="求绝对值"></a>求绝对值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// int 是32位，右移31位即可使符号位落入最后一位</span></span><br><span class="line"><span class="keyword">int</span> i = a &gt;&gt; <span class="number">31</span>;</span><br><span class="line">System.out.println(i == <span class="number">0</span> ? a : (~a + <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<p>现在再分析下。对于任何数，与 0 异或都会保持不变，与 -1 即 0xFFFFFFFF 异或就相当于取反。因此，a 与 i 异或后再减 i（因为 i 为 0 或 -1，所以减 i即是要么加 0要么加 1）也可以得到绝对值。所以可以对上面代码优化下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> j = a &gt;&gt; <span class="number">31</span>;</span><br><span class="line">System.out.println((a ^ j) - j);</span><br></pre></td></tr></table></figure>
+<p>注意这种方法没用任何判断表达式.</p>
+<h3 id="位操作与空间压缩"><a href="#位操作与空间压缩" class="headerlink" title="位操作与空间压缩"></a>位操作与空间压缩</h3><p>筛素数(质数)法在这里不就详细介绍了，本文着重对筛素数法所使用的素数表进行优化来减小其空间占用。要压缩素数表的空间占用，可以使用位操作。下面是用筛素数法计算100以内的素数示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">boolean</span>[] flags = <span class="keyword">new</span> <span class="keyword">boolean</span>[max];</span><br><span class="line"><span class="keyword">int</span>[] primes = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">3</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> pi = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt; max ; m ++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!flags[m]) &#123;</span><br><span class="line">		primes[pi++] = m;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n = m; n &lt; max; n += m) &#123;</span><br><span class="line">			flags[n] = <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(primes));</span><br></pre></td></tr></table></figure>
+<p>在上面程序是用bool数组来作标记的，bool型数据占1个字节（8位），因此用位操作来压缩下空间占用将会使空间的占用减少八分之七。</p>
+<h3 id="在数组中把指定位置变为1"><a href="#在数组中把指定位置变为1" class="headerlink" title="在数组中把指定位置变为1"></a>在数组中把指定位置变为1</h3><p>下面考虑下如何在数组中对指定位置1，先考虑如何对一个整数在指定位置上置1。对于一个整数可以通过将 1 向左移位后与其相或来达到在指定位上置1的效果，代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在一个数指定位上置1</span></span><br><span class="line"><span class="keyword">int</span> e = <span class="number">0</span>;</span><br><span class="line">e |= <span class="number">1</span> &lt;&lt; <span class="number">10</span>;</span><br><span class="line">System.out.println(e);</span><br></pre></td></tr></table></figure>
+<h3 id="判断指定位置是0还是1"><a href="#判断指定位置是0还是1" class="headerlink" title="判断指定位置是0还是1"></a>判断指定位置是0还是1</h3><p>同样，可以1向左移位后与原数相与来判断指定位上是0还是1（也可以将原数右移若干位再与1相与）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断指定位上是0还是1</span></span><br><span class="line"><span class="keyword">if</span> ((e &amp; (<span class="number">1</span> &lt;&lt; <span class="number">10</span>)) != <span class="number">0</span>)</span><br><span class="line">System.out.println(<span class="string">"指定位上为1"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">System.out.println(<span class="string">"指定位上为0"</span>);</span><br></pre></td></tr></table></figure>
+<p>扩展到数组上，我们可以采用这种方法，因为数组在内存上也是连续分配的一段空间，完全可以“认为”是一个很长的整数。先写一份测试代码，看看如何在数组中使用位操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] bits = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">40</span> / <span class="number">32</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; <span class="number">40</span>; m += <span class="number">3</span>) &#123;</span><br><span class="line">	bits[m / <span class="number">32</span>] |= (<span class="number">1</span> &lt;&lt; (m % <span class="number">32</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出整个bits</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; <span class="number">40</span>; m++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (((bits[m / <span class="number">32</span>] &gt;&gt; (m % <span class="number">32</span>)) &amp; <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">		System.out.print(<span class="string">'1'</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		System.out.print(<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>log 信息</p>
+<p>1001001001001001001001001001001001001001</p>
+<p>可以看出该数组每 3 个就置成了1，证明我们上面对数组进行位操作的方法是正确的。因此可以将上面筛素数方法改成使用位操作压缩后的筛素数方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] flags2 = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">32</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> [] primes = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">3</span> + <span class="number">1</span>];</span><br><span class="line">pi = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt; max ; m ++) &#123;</span><br><span class="line">	<span class="keyword">if</span> ((((flags2[m / <span class="number">32</span>] &gt;&gt; (m % <span class="number">32</span>)) &amp; <span class="number">1</span>) == <span class="number">0</span>)) &#123;</span><br><span class="line">		primes[pi++] = m;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n = m; n &lt; max; n += m) &#123;</span><br><span class="line">			flags2[n / <span class="number">32</span>] |= (<span class="number">1</span> &lt;&lt; (n % <span class="number">32</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(primes));</span><br></pre></td></tr></table></figure>
+<p>log 信息为</p>
+<p>[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0]</p>
+<h3 id="获取-int-型最大值"><a href="#获取-int-型最大值" class="headerlink" title="获取 int 型最大值"></a>获取 int 型最大值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于优先级关系，括号不可省略</span></span><br><span class="line">System.out.println((<span class="number">1</span> &lt;&lt; <span class="number">31</span>) - <span class="number">1</span>);<span class="comment">// 2147483647， </span></span><br><span class="line">System.out.println(~(<span class="number">1</span> &lt;&lt; <span class="number">31</span>));<span class="comment">// 2147483647</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取-int-型最小值"><a href="#获取-int-型最小值" class="headerlink" title="获取 int 型最小值"></a>获取 int 型最小值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 获得int型最小值</span></span><br><span class="line">System.out.println(<span class="number">1</span> &lt;&lt; <span class="number">31</span>);</span><br><span class="line">System.out.println(<span class="number">1</span> &lt;&lt; -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="获取-long-型最大值"><a href="#获取-long-型最大值" class="headerlink" title="获取 long 型最大值"></a>获取 long 型最大值</h3><p><code>System.out.println(((long)1 &lt;&lt; 127) - 1);</code></p>
+<h3 id="乘以2"><a href="#乘以2" class="headerlink" title="乘以2"></a>乘以2</h3><p><code>System.out.println(10&lt;&lt;1);</code></p>
+<h3 id="除以2（负奇数运算不可用）"><a href="#除以2（负奇数运算不可用）" class="headerlink" title="除以2（负奇数运算不可用）"></a>除以2（负奇数运算不可用）</h3><p><code>System.out.println(10&gt;&gt;1);</code></p>
+<h3 id="乘以-2-的-m-次幂"><a href="#乘以-2-的-m-次幂" class="headerlink" title="乘以 2 的 m 次幂"></a>乘以 2 的 m 次幂</h3><p><code>System.out.println(10&lt;&lt;2);</code></p>
+<h3 id="除以-2-的-m-次幂"><a href="#除以-2-的-m-次幂" class="headerlink" title="除以 2 的 m 次幂"></a>除以 2 的 m 次幂</h3><p><code>System.out.println(16&gt;&gt;2);</code></p>
+<h3 id="判断一个数的奇偶性"><a href="#判断一个数的奇偶性" class="headerlink" title="判断一个数的奇偶性"></a>判断一个数的奇偶性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println((<span class="number">10</span> &amp; <span class="number">1</span>) == <span class="number">1</span>);</span><br><span class="line">System.out.println((<span class="number">9</span> &amp; <span class="number">1</span>) == <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="不用临时变量交换两个数（面试常考）"><a href="#不用临时变量交换两个数（面试常考）" class="headerlink" title="不用临时变量交换两个数（面试常考）"></a>不用临时变量交换两个数（面试常考）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
+<h3 id="取绝对值（某些机器上，效率比n-gt-0-n-n-高）"><a href="#取绝对值（某些机器上，效率比n-gt-0-n-n-高）" class="headerlink" title="取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）"></a>取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = -<span class="number">1</span>;</span><br><span class="line">System.out.println((n ^ (n &gt;&gt; <span class="number">31</span>)) - (n &gt;&gt; <span class="number">31</span>));</span><br><span class="line"><span class="comment">/* n&gt;&gt;31 取得n的符号，若n为正数，n&gt;&gt;31等于0，若n为负数，n&gt;&gt;31等于-1</span></span><br><span class="line"><span class="comment">若n为正数 n^0-0数不变，若n为负数n^-1 需要计算n和-1的补码，异或后再取补码，</span></span><br><span class="line"><span class="comment">结果n变号并且绝对值减1，再减去-1就是绝对值 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）"><a href="#取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）" class="headerlink" title="取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）"></a>取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）</h3><p><code>System.out.println(b&amp;((a-b)&gt;&gt;31) | a&amp;(~(a-b)&gt;&gt;31));</code></p>
+<h3 id="取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）"><a href="#取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）" class="headerlink" title="取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）"></a>取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）</h3><p><code>System.out.println(a&amp;((a-b)&gt;&gt;31) | b&amp;(~(a-b)&gt;&gt;31));</code></p>
+<h3 id="判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。"><a href="#判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。" class="headerlink" title="判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)"></a>判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)</h3><p><code>System.out.println((a ^ b) &gt; 0);</code></p>
+<h3 id="计算2的n次方-n-gt-0"><a href="#计算2的n次方-n-gt-0" class="headerlink" title="计算2的n次方 n &gt; 0"></a>计算2的n次方 n &gt; 0</h3><p><code>System.out.println(2&lt;&lt;(n-1));</code></p>
+<h3 id="判断一个数n是不是2的幂"><a href="#判断一个数n是不是2的幂" class="headerlink" title="判断一个数n是不是2的幂"></a>判断一个数n是不是2的幂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// </span></span><br><span class="line">System.out.println((n &amp; (n - <span class="number">1</span>)) == <span class="number">0</span>);</span><br><span class="line"><span class="comment">/*如果是2的幂，n一定是100... n-1就是1111....</span></span><br><span class="line"><span class="comment">所以做与运算结果为0*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="求两个整数的平均值"><a href="#求两个整数的平均值" class="headerlink" title="求两个整数的平均值"></a>求两个整数的平均值</h3><p><code>System.out.println((a+b) &gt;&gt; 1);</code></p>
+<h3 id="从低位到高位-取n的第m位"><a href="#从低位到高位-取n的第m位" class="headerlink" title="从低位到高位,取n的第m位"></a>从低位到高位,取n的第m位</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">2</span>;</span><br><span class="line">System.out.println((n &gt;&gt; (m-<span class="number">1</span>)) &amp; <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="从低位到高位-将n的第m位置为1"><a href="#从低位到高位-将n的第m位置为1" class="headerlink" title="从低位到高位.将n的第m位置为1"></a>从低位到高位.将n的第m位置为1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(n | (<span class="number">1</span>&lt;&lt;(m-<span class="number">1</span>)));</span><br><span class="line"><span class="comment">/*将1左移m-1位找到第m位，得到000...1...000</span></span><br><span class="line"><span class="comment">n在和这个数做或运算*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="从低位到高位-将n的第m位置为0"><a href="#从低位到高位-将n的第m位置为0" class="headerlink" title="从低位到高位,将n的第m位置为0"></a>从低位到高位,将n的第m位置为0</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(n &amp; ~(<span class="number">0</span>&lt;&lt;(m-<span class="number">1</span>)));</span><br><span class="line"><span class="comment">/* 将1左移m-1位找到第m位，取反后变成111...0...1111</span></span><br><span class="line"><span class="comment">n再和这个数做与运算*/</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+<div style="text-align:center;color: #ccc;font-size:14px;">------ 完 ------</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>关爱咖啡依赖症青年，支持一杯咖啡？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="乌鸦 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="乌鸦 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    乌鸦
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://crowthek4.github.io/posts/6a503052/" title="位操作">https://crowthek4.github.io/posts/6a503052/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/340249a9/" rel="next" title="数组">
+                <i class="fa fa-chevron-left"></i> 数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/95495db/" rel="prev" title="文件操作">
+                文件操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="乌鸦" />
+            
+              <p class="site-author-name" itemprop="name">乌鸦</p>
+              <p class="site-description motion-element" itemprop="description">Dive in Code</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/crowthek4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzf04@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/crowthek4" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#位操作基础"><span class="nav-number">1.</span> <span class="nav-text">位操作基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用位操作小技巧"><span class="nav-number">2.</span> <span class="nav-text">常用位操作小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断奇偶数"><span class="nav-number">2.1.</span> <span class="nav-text">判断奇偶数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换两数"><span class="nav-number">2.2.</span> <span class="nav-text">交换两数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变换符号"><span class="nav-number">2.3.</span> <span class="nav-text">变换符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求绝对值"><span class="nav-number">2.4.</span> <span class="nav-text">求绝对值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位操作与空间压缩"><span class="nav-number">2.5.</span> <span class="nav-text">位操作与空间压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在数组中把指定位置变为1"><span class="nav-number">2.6.</span> <span class="nav-text">在数组中把指定位置变为1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断指定位置是0还是1"><span class="nav-number">2.7.</span> <span class="nav-text">判断指定位置是0还是1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-int-型最大值"><span class="nav-number">2.8.</span> <span class="nav-text">获取 int 型最大值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-int-型最小值"><span class="nav-number">2.9.</span> <span class="nav-text">获取 int 型最小值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-long-型最大值"><span class="nav-number">2.10.</span> <span class="nav-text">获取 long 型最大值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘以2"><span class="nav-number">2.11.</span> <span class="nav-text">乘以2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#除以2（负奇数运算不可用）"><span class="nav-number">2.12.</span> <span class="nav-text">除以2（负奇数运算不可用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘以-2-的-m-次幂"><span class="nav-number">2.13.</span> <span class="nav-text">乘以 2 的 m 次幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#除以-2-的-m-次幂"><span class="nav-number">2.14.</span> <span class="nav-text">除以 2 的 m 次幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断一个数的奇偶性"><span class="nav-number">2.15.</span> <span class="nav-text">判断一个数的奇偶性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不用临时变量交换两个数（面试常考）"><span class="nav-number">2.16.</span> <span class="nav-text">不用临时变量交换两个数（面试常考）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取绝对值（某些机器上，效率比n-gt-0-n-n-高）"><span class="nav-number">2.17.</span> <span class="nav-text">取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）"><span class="nav-number">2.18.</span> <span class="nav-text">取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）"><span class="nav-number">2.19.</span> <span class="nav-text">取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。"><span class="nav-number">2.20.</span> <span class="nav-text">判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算2的n次方-n-gt-0"><span class="nav-number">2.21.</span> <span class="nav-text">计算2的n次方 n &gt; 0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断一个数n是不是2的幂"><span class="nav-number">2.22.</span> <span class="nav-text">判断一个数n是不是2的幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求两个整数的平均值"><span class="nav-number">2.23.</span> <span class="nav-text">求两个整数的平均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从低位到高位-取n的第m位"><span class="nav-number">2.24.</span> <span class="nav-text">从低位到高位,取n的第m位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从低位到高位-将n的第m位置为1"><span class="nav-number">2.25.</span> <span class="nav-text">从低位到高位.将n的第m位置为1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从低位到高位-将n的第m位置为0"><span class="nav-number">2.26.</span> <span class="nav-text">从低位到高位,将n的第m位置为0</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乌鸦</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">28.0k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">I'm a dreams eater</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://crowthek4.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://crowthek4.github.io/posts/6a503052/';
+          this.page.identifier = 'posts/6a503052/';
+          this.page.title = '位操作';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://crowthek4.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sfL7Tzv8j2uUpd10O8XxrLtM-gzGzoHsz", "2CvijbCLJ5cxpteACwjNoQK6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
