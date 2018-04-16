@@ -339,1251 +339,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/28877bf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/28877bf/" itemprop="url">异常处理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:28:11+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/28877bf/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/28877bf/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/28877bf/" class="leancloud_visitors" data-flag-title="异常处理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3,270
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>异常是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。<br>比如说，你的代码少了一个分号，那么运行出来结果是提示是错误 <code>java.lang.Error</code>；如果你用 <code>System.out.println(11/0)</code> ，那么你是因为你用0做了除数，会抛出 <code>java.lang.ArithmeticException</code> 的异常。</p>
-<p>异常发生的原因有很多，通常包含以下几大类：</p>
-<ul>
-<li>用户输入了非法数据。</li>
-<li>要打开的文件不存在。</li>
-<li>网络通信时连接中断，或者 JVM 内存溢出。</li>
-<li>这些异常有的是因为用户错误引起，有的是程序错误引起的，还有其它一些是因为物理错误引起的。-</li>
-</ul>
-<p>要理解 Java 异常处理是如何工作的，你需要掌握以下三种类型的异常：</p>
-<p>检查性异常<br>:    最具代表的检查性异常是用户错误或问题引起的异常，这是程序员无法预见的。例如要打开一个不存在文件时，一个异常就发生了，这些异常在编译时不能被简单地忽略。</p>
-<p>运行时异常<br>:    运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。</p>
-<p>错误<br>:    错误不是异常，而是脱离程序员控制的问题。错误在代码中通常被忽略。例如，当栈溢出时，一个错误就发生了，它们在编译也检查不到的。</p>
-<hr>
-<h1 id="Exception-类的层次"><a href="#Exception-类的层次" class="headerlink" title="Exception 类的层次"></a>Exception 类的层次</h1><p>所有的异常类是从 <code>java.lang.Exception</code> 类继承的子类。<br><code>Exception</code> 类是 <code>Throwable</code> 类的子类。除了 <code>Exception</code> 类外，<code>Throwable</code> 还有一个子类 <code>Error</code> 。</p>
-<p>Java 程序通常不捕获错误。错误一般发生在严重故障时，它们在 Java 程序处理的范畴之外。</p>
-<p>Error 用来指示运行时环境发生的错误。</p>
-<p>例如，JVM 内存溢出。一般地，程序不会从错误中恢复。</p>
-<p>异常类有两个主要的子类：<code>IOException</code> 类和 <code>RuntimeException</code> 类。</p>
-<p><img src="https://leanote.com/api/file/getImage?fileId=5aaa4d43ab644125360028fc" alt=""></p>
-<p>在 Java 内置类中(接下来会说明)，有大部分常用检查性和非检查性异常。</p>
-<hr>
-<h1 id="Java-内置异常类"><a href="#Java-内置异常类" class="headerlink" title="Java 内置异常类"></a>Java 内置异常类</h1><p>Java 语言定义了一些异常类在 java.lang 标准包中。</p>
-<p>标准运行时异常类的子类是最常见的异常类。由于 java.lang 包是默认加载到所有的 Java 程序的，所以大部分从运行时异常类继承而来的异常都可以直接使用。</p>
-<p>Java 根据各个类库也定义了一些其他的异常，下面的表中列出了 Java 的非检查性异常。</p>
-<p><code>ArithmeticException</code><br>:    当出现异常的运算条件时，抛出此异常。例如，一个整数”除以零”时，抛出此类的一个实例。</p>
-<p><code>ArrayIndexOutOfBoundsException</code><br>:    用非法索引访问数组时抛出的异常。如果索引为负或大于等于数组大小，则该索引为非法索引。</p>
-<p><code>ArrayStoreException</code><br>:    试图将错误类型的对象存储到一个对象数组时抛出的异常。</p>
-<p><code>ClassCastException</code><br>:    当试图将对象强制转换为不是实例的子类时，抛出该异常。</p>
-<p><code>IllegalArgumentException</code><br>:    抛出的异常表明向方法传递了一个不合法或不正确的参数。</p>
-<p><code>IllegalMonitorStateException</code><br>:    抛出的异常表明某一线程已经试图等待对象的监视器，或者试图通知其他正在等待对象的监视器而本身没有指定监视器的线程。</p>
-<p><code>IllegalStateException</code><br>:    在非法或不适当的时间调用方法时产生的信号。换句话说，即 Java 环境或 Java 应用程序没有处于请求操作所要求的适当状态下。</p>
-<p><code>IllegalThreadStateException</code><br>:    线程没有处于请求操作所要求的适当状态时抛出的异常。</p>
-<p><code>IndexOutOfBoundsException</code><br>:    指示某排序索引（例如对数组、字符串或向量的排序）超出范围时抛出。</p>
-<p><code>NegativeArraySizeException</code><br>:    如果应用程序试图创建大小为负的数组，则抛出该异常。</p>
-<p><code>NullPointerException</code><br>:    当应用程序试图在需要对象的地方使用 null 时，抛出该异常</p>
-<p><code>NumberFormatException</code><br>:    当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常。</p>
-<p><code>SecurityException</code><br>:    由安全管理器抛出的异常，指示存在安全侵犯。</p>
-<p><code>StringIndexOutOfBoundsException</code><br>:    此异常由 String 方法抛出，指示索引或者为负，或者超出字符串的大小。</p>
-<p><code>UnsupportedOperationException</code><br>:    当不支持请求的操作时，抛出该异常。</p>
-<p><strong>下面的表中列出了 Java 定义在 java.lang 包中的检查性异常类。</strong></p>
-<p><code>ClassNotFoundException</code><br>:    应用程序试图加载类时，找不到相应的类，抛出该异常。</p>
-<p><code>CloneNotSupportedException</code><br>:    当调用 Object 类中的 clone 方法克隆对象，但该对象的类无法实现 Cloneable 接口时，抛出该异常。</p>
-<p><code>IllegalAccessException</code><br>:    拒绝访问一个类的时候，抛出该异常。</p>
-<p><code>InstantiationException</code><br>:    当试图使用 Class 类中的 newInstance 方法创建一个类的实例，而指定的类对象因为是一个接口或是一个抽象类而无法实例化时，抛出该异常。</p>
-<p><code>InterruptedException</code><br>:     一个线程被另一个线程中断，抛出该异常。NoSuchFieldException请求的变量不存在NoSuchMethodException请求的方法不存在</p>
-<hr>
-<h1 id="异常方法"><a href="#异常方法" class="headerlink" title="异常方法"></a>异常方法</h1><p>下面的列表是 Throwable 类的主要方法:</p>
-<p><code>.public String getMessage()</code><br>:    返回关于发生的异常的详细信息。这个消息在Throwable 类的构造函数中初始化了。</p>
-<p><code>.public Throwable getCause()</code><br>:    返回一个Throwable 对象代表异常原因。<br><code>.public String toString()</code><br>:    使用getMessage()的结果返回类的串级名字。</p>
-<p><code>.public void printStackTrace()</code><br>:    打印toString()结果和栈层次到System.err，即错误输出流。</p>
-<p><code>.public StackTraceElement [] getStackTrace()</code><br>:    返回一个包含堆栈层次的数组。下标为0的元素代表栈顶，最后一个元素代表方法调用堆栈的栈底。</p>
-<p><code>.public Throwable fillInStackTrace()</code><br>:    用当前的调用栈层次填充Throwable 对象栈层次，添加到栈层次任何先前信息中。</p>
-<hr>
-<h1 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h1><p>使用 try 和 catch 关键字可以捕获异常。try/catch 代码块放在异常可能发生的地方。<br>try/catch代码块中的代码称为保护代码，使用 try/catch 的语法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">    &#125; <span class="keyword">catch</span>(ExceptionName e1) &#123;</span><br><span class="line">    <span class="comment">//Catch 块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Catch 语句包含要捕获异常类型的声明。当保护代码块中发生一个异常时，try 后面的 catch 块就会被检查。<br>如果发生的异常包含在 catch 块中，异常会被传递到该 catch 块，这和传递一个参数到方法是一样。</p>
-<p> <strong>实例</strong></p>
-<p>下面的例子中声明有两个元素的一个数组，当代码试图访问数组的第三个元素的时候就会抛出一个异常。</p>
-<h2 id="ExcepTest-java-文件代码："><a href="#ExcepTest-java-文件代码：" class="headerlink" title="ExcepTest.java 文件代码："></a>ExcepTest.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名 : ExcepTest.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Exception thrown :"</span> + e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"Out of the block"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码编译运行输出结果如下：</p>
-<blockquote>
-<p>Exception thrown :java.lang.ArrayIndexOutOfBoundsException: 3<br>Out of the block</p>
-</blockquote>
-<hr>
-<h2 id="多重捕获块"><a href="#多重捕获块" class="headerlink" title="多重捕获块"></a>多重捕获块</h2><p>一个 try 代码块后面跟随多个 catch 代码块的情况就叫多重捕获。<br>多重捕获块的语法如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码段包含了 3 个 catch块。</p>
-<p>可以在 try 语句后面添加任意数量的 catch 块。</p>
-<p>如果保护代码中发生异常，异常被抛给第一个 catch 块。</p>
-<p>如果抛出异常的数据类型与 ExceptionType1 匹配，它在这里就会被捕获。</p>
-<p>如果不匹配，它会被传递给第二个 catch 块。</p>
-<p>如此，直到异常被捕获或者通过所有的 catch 块。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>该实例展示了怎么使用多重 try/catch。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    file = <span class="keyword">new</span> FileInputStream(fileName);</span><br><span class="line">    x = (<span class="keyword">byte</span>) file.read();</span><br><span class="line">&#125; <span class="keyword">catch</span>(IOException i)&#123;</span><br><span class="line">    i.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">catch</span>(FileNotFoundException f) <span class="comment">//Not valid! &#123; </span></span><br><span class="line">    f.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## throws/throw 关键字：</span><br><span class="line"></span><br><span class="line">如果一个方法没有捕获一个检查性异常，那么该方法必须使用 `<span class="keyword">throws</span>` 关键字来声明。`<span class="keyword">throws</span>` 关键字放在方法签名的尾部。</span><br><span class="line"></span><br><span class="line">也可以使用 `<span class="keyword">throw</span>` 关键字抛出一个异常，无论它是新实例化的还是刚捕获到的。</span><br><span class="line">下面方法的声明抛出一个 RemoteException 异常：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">        <span class="comment">// Method implementation</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RemoteException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Remainder of class definition</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。<br>例如，下面的方法声明抛出 <code>RemoteException</code> 和 <code>InsufficientFundsException</code>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException, InsufficientFundsException </span>&#123;</span><br><span class="line">        <span class="comment">// Method implementation</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Remainder of class definition</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="finally关键字"><a href="#finally关键字" class="headerlink" title="finally关键字"></a><code>finally</code>关键字</h2><p><code>finally</code> 关键字用来创建在 <code>try</code> 代码块后面执行的代码块。</p>
-<p>无论是否发生异常，<code>finally</code> 代码块中的代码总会被执行。</p>
-<p>在 <code>finally</code> 代码块中，可以运行清理类型等收尾善后性质的语句。</p>
-<p><code>finally</code> 代码块出现在 <code>catch</code> 代码块最后，语法如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### 实例</span><br><span class="line"></span><br><span class="line">## ExcepTest.java 文件代码：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Exception thrown :"</span> + e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a[<span class="number">0</span>] = <span class="number">6</span>;</span><br><span class="line">            System.out.println(<span class="string">"First element value: "</span> +a[<span class="number">0</span>]);</span><br><span class="line">            System.out.println(<span class="string">"The finally statement is executed"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>Exception thrown :java.lang.ArrayIndexOutOfBoundsException: 3<br>First element value: 6<br>The finally statement is executed</p>
-</blockquote>
-<p>注意下面事项：<br><code>catch</code> 不能独立于 <code>try</code> 存在。<br>在 <code>try/catch</code> 后面添加 <code>finally</code> 块并非强制性要求的。<br><code>try</code> 代码后不能既没 <code>catch</code> 块也没 <code>finally</code> 块。</p>
-<h2 id="try-catch-finally-块之间不能添加任何代码。"><a href="#try-catch-finally-块之间不能添加任何代码。" class="headerlink" title="try, catch, finally 块之间不能添加任何代码。"></a><code>try</code>, <code>catch</code>, <code>finally</code> 块之间不能添加任何代码。</h2><h2 id="声明自定义异常"><a href="#声明自定义异常" class="headerlink" title="声明自定义异常"></a>声明自定义异常</h2><p>在 Java 中你可以自定义异常。编写自己的异常类时需要记住下面的几点。</p>
-<p>所有异常都必须是 <code>Throwable</code> 的子类。<br>如果希望写一个检查性异常类，则需要继承 <code>Exception</code> 类。<br>如果你想写一个运行时异常类，那么需要继承 <code>RuntimeException</code> 类。<br>可以像下面这样定义自己的异常类：</p>
-<p><code>class MyException extends Exception{}</code></p>
-<p>只继承 <code>Exception</code> 类来创建的异常类是检查性异常类。<br>下面的 <code>InsufficientFundsException</code> 类是用户定义的异常类，它继承自 <code>Exception</code>。<br>一个异常类和其它任何类一样，包含有变量和方法。</p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p>以下实例是一个银行账户的模拟，通过银行卡的号码完成识别，可以进行存钱和取钱的操作。</p>
-<h2 id="InsufficientFundsException-java-文件代码："><a href="#InsufficientFundsException-java-文件代码：" class="headerlink" title="InsufficientFundsException.java 文件代码："></a>InsufficientFundsException.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名InsufficientFundsException.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义异常类，继承Exception类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsufficientFundsException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    <span class="comment">//此处的amount用来储存当出现异常（取出钱多于余额时）所缺乏的钱</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InsufficientFundsException</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了展示如何使用我们自定义的异常类，<br>在下面的 <code>CheckingAccount</code> 类中包含一个 <code>withdraw()</code> 方法抛出一个 <code>InsufficientFundsException</code> 异常。</p>
-<h2 id="CheckingAccount-java-文件代码："><a href="#CheckingAccount-java-文件代码：" class="headerlink" title="CheckingAccount.java 文件代码："></a>CheckingAccount.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名称 CheckingAccount.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此类模拟银行账户</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckingAccount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//balance为余额，number为卡号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CheckingAccount</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//方法：存钱</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</span><br><span class="line">        balance += amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：取钱</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> InsufficientFundsException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(amount &lt;= balance) &#123;</span><br><span class="line">            balance -= amount;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">double</span> needs = amount - balance;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InsufficientFundsException(needs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：返回余额</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> balance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：返回卡号</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面的 BankDemo 程序示范了如何调用 CheckingAccount 类的 deposit() 和 withdraw() 方法。</p>
-<h2 id="BankDemo-java-文件代码："><a href="#BankDemo-java-文件代码：" class="headerlink" title="BankDemo.java 文件代码："></a>BankDemo.java 文件代码：</h2><p>//文件名称 BankDemo.java</p>
-<p>public class BankDemo{</p>
-<pre><code>public static void main(String [] args) {
-    CheckingAccount c = new CheckingAccount(101);
-    System.out.println(&quot;Depositing $500...&quot;);
-    c.deposit(500.00);
-
-    try {
-        System.out.println(&quot;\nWithdrawing $100...&quot;);
-        c.withdraw(100.00);
-        System.out.println(&quot;\nWithdrawing $600...&quot;);
-        c.withdraw(600.00);
-    } catch(InsufficientFundsException e) {
-        System.out.println(&quot;Sorry, but you are short $&quot; + e.getAmount());
-        e.printStackTrace();
-    }
-}
-</code></pre><p>}</p>
-<p>编译上面三个文件，并运行程序 BankDemo，得到结果如下所示：</p>
-<blockquote>
-<p>Depositing $500…<br>Withdrawing $100…<br>Withdrawing $600…<br>Sorry, but you are short $200.0<br>InsufficientFundsException<br>at CheckingAccount.withdraw(CheckingAccount.java:25)<br>at BankDemo.main(BankDemo.java:13)</p>
-</blockquote>
-<hr>
-<h2 id="通用异常"><a href="#通用异常" class="headerlink" title="通用异常"></a>通用异常</h2><p>在Java中定义了两种类型的异常和错误。<br>JVM(Java虚拟机) 异常<br>：    由 JVM 抛出的异常或错误。例如：<code>NullPointerException</code> 类，<code>ArrayIndexOutOfBoundsException</code> 类，<code>ClassCastException</code> 类。<br>程序级异常<br>：    由程序或者API程序抛出的异常。例如 <code>IllegalArgumentException</code> 类，<code>IllegalStateException</code> 类。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/600c4239/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/600c4239/" itemprop="url">HashCode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:27:59+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/600c4239/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/600c4239/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/600c4239/" class="leancloud_visitors" data-flag-title="HashCode">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,356
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="HashCode的特性"><a href="#HashCode的特性" class="headerlink" title="HashCode的特性"></a>HashCode的特性</h2><p>（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。<br>（2）两个对象相同，则 <code>.equals()</code> 方法返回 true ，HashCode 相同。<br>（3）两个对象的 HashCode 相同，两个对象却不一定相同， <code>.equals()</code> 不一定为 true。<br>（4）如果对象的 <code>.equals()</code> 方法被重写，那么对象的 HashCode 也尽量重写。</p>
-<hr>
-<h2 id="HashCode作用"><a href="#HashCode作用" class="headerlink" title="HashCode作用"></a>HashCode作用</h2><p>Java中的集合有两类，一类是List，再有一类是Set。前者集合内的元素是有序的，元素可以重复；后者元素无序，但元素不可重复。 </p>
-<p><code>.equals()</code> 方法可用于保证元素不重复，但如果每增加一个元素就检查一次，若集合中现在已经有1000个元素，那么第1001个元素加入集合时，就要调用1000次 <code>.equals()</code> 方法。这显然会大大降低效率。 于是，Java 采用了哈希表的原理。</p>
-<p>哈希算法也称为散列算法，是将数据依特定算法直接指定到一个地址上。<br>这样一来，当集合要添加新的元素时，先调用这个元素的 HashCode 方法，就一下子能定位到它应该放置的物理位置上。</p>
-<p>（1）如果这个位置上没有元素，它就可以直接存储在这个位置上；<br>（2）如果这个位置上已经有元素了，就调用它的 <code>.equals()</code> 方法与新元素进行比较，相同的话就不存了，散列到其他地址上；<br>（3）（HashCode 相同，<code>.equals()</code> 的结果）不相同的话，也就是发生了Hash key 相同导致冲突的情况，那么就在这个 Hash key 的地方产生一个链表，将所有产生相同 HashCode 的对象放到这个单链表上去，串在一起（很少出现）。这样一来实际调用 <code>.equals()</code> 方法的次数就大大降低了，几乎只需要一两次。 </p>
-<p>从 Object 角度看，JVM 每 <code>new</code> 一个 Object，它都会将这个 Object 丢到一个 Hash 表中去，这样的话，下次做 Object 的比较或者取这个对象的时候（读取过程），它会根据对象的 HashCode 再从 Hash 表中取这个对象。这样做的目的是提高取对象的效率。若 HashCode 相同再去调用 <code>.equals()</code>。</p>
-<hr>
-<h2 id="HashCode实践"><a href="#HashCode实践" class="headerlink" title="HashCode实践"></a>HashCode实践</h2><p>HashCode 是用于查找使用的，而 <code>.equals()</code> 是用于比较两个对象是否相等的。</p>
-<p>例如内存中有这样的位置 ：<br><code>0  1  2  3  4  5  6  7</code><br>而我有个类，这个类有个字段叫ID，我要把这个类存放在以上8个位置之一，如果不用 HashCode 而任意存放，那么当查找时就需要到这八个位置里挨个去找，或者用二分法一类的算法。  </p>
-<p>但以上问题如果用 HashCode 就会使效率提高很多。  定义我们的 HashCode 为 ID％8，比如我们的 ID 为9，9除8的余数为1，那么我们就把该类存在1这个位置，如果 ID 是13，求得的余数是5，那么我们就把该类放在5这个位置。依此类推。  </p>
-<p>但是如果两个类有相同的 HashCode ，例如9除以8和17除以8的余数都是1，也就是说，我们先通过 HashCode 来判断两个类是否存放某个桶里，但这个桶里可能有很多类，那么我们就需要再通过 <code>.equals()</code> 在这个桶里找到我们要的类。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashTest</span> </span>&#123;    </span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getI</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">		<span class="keyword">return</span> i;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setI</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;    </span><br><span class="line">		<span class="keyword">this</span>.i = i;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">		<span class="keyword">return</span> i % <span class="number">10</span>;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;    </span><br><span class="line">		HashTest a = <span class="keyword">new</span> HashTest();    </span><br><span class="line">		HashTest b = <span class="keyword">new</span> HashTest();    </span><br><span class="line">		a.setI(<span class="number">1</span>);    </span><br><span class="line">		b.setI(<span class="number">1</span>);    </span><br><span class="line">		Set&lt;HashTest&gt; set = <span class="keyword">new</span> HashSet&lt;HashTest&gt;();    </span><br><span class="line">		set.add(a);    </span><br><span class="line">		set.add(b);    </span><br><span class="line">		System.out.println(a.hashCode() == b.hashCode());    </span><br><span class="line">		System.out.println(a.equals(b));    </span><br><span class="line">		System.out.println(set);    </span><br><span class="line">	&#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<blockquote>
-<p>true<br>false  </p>
-</blockquote>
-<p>以上这个示例，我们只是重写了 HashCode 方法，从上面的结果可以看出，虽然两个对象的 HashCode 相等，但是实际上两个对象并不是相等，因为我们没有重写 <code>.equals()</code> 方法，那么就会调用 Object 默认的 <code>.equals()</code> 方法，显示这是两个不同的对象。</p>
-<p>这里我们将生成的对象放到了 HashSet 中，而 HashSet 中只能够存放唯一的对象，也就是相同的（适用于 <code>.equals()</code> 方法）的对象只会存放一个，但是这里实际上是两个对象ab都被放到了 HashSet 中，这样 HashSet 就失去了他本身的意义了。</p>
-<p>下面我们继续重写equals方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashTest</span> </span>&#123;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getI</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">return</span> i;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setI</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">this</span>.i = i;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object object)</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">if</span> (object == <span class="keyword">null</span>) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">if</span> (object == <span class="keyword">this</span>) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">if</span> (!(object <span class="keyword">instanceof</span> HashTest)) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        HashTest other = (HashTest) object;    </span><br><span class="line">        <span class="keyword">if</span> (other.getI() == <span class="keyword">this</span>.getI()) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">return</span> i % <span class="number">10</span>;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;    </span><br><span class="line">        HashTest a = <span class="keyword">new</span> HashTest();    </span><br><span class="line">        HashTest b = <span class="keyword">new</span> HashTest();    </span><br><span class="line">        a.setI(<span class="number">1</span>);    </span><br><span class="line">        b.setI(<span class="number">1</span>);    </span><br><span class="line">        Set&lt;HashTest&gt; set = <span class="keyword">new</span> HashSet&lt;HashTest&gt;();    </span><br><span class="line">        set.add(a);    </span><br><span class="line">        set.add(b);    </span><br><span class="line">        System.out.println(a.hashCode() == b.hashCode());    </span><br><span class="line">        System.out.println(a.equals(b));    </span><br><span class="line">        System.out.println(set);    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果如下所示。<br>从结果我们可以看出，现在两个对象就完全相等了，HashSet中也只存放了一份对象。</p>
-<blockquote>
-<p>true<br>true  </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/7c31d16f/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/7c31d16f/" itemprop="url">数组列表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:27:53+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/7c31d16f/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/7c31d16f/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/7c31d16f/" class="leancloud_visitors" data-flag-title="数组列表">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/fc81fbfd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/fc81fbfd/" itemprop="url">字符串</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:27:46+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/fc81fbfd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/fc81fbfd/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/fc81fbfd/" class="leancloud_visitors" data-flag-title="字符串">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  237
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="字符串-String类"><a href="#字符串-String类" class="headerlink" title="字符串 String类"></a>字符串 String类</h2><ul>
-<li>不可变的，不能修改。以便于编译器可以实现字符串共享</li>
-<li>通过提取子串再拼接新串的方法间接修改。</li>
-<li>检测字符串相等使用 <code>s.equals(t)</code> 方法</li>
-<li>不区分大小写检测字符串相等使用 <code>s.equalsIgnoreCase(t)</code> 方法</li>
-<li>不能用 <code>==</code> 检测字符串是否相等。<code>==</code> 只检测两个字符串是否在内存的同一个位置上。<code>.equals()</code> 检测二者在内存中的值是否相同。</li>
-<li><code>.length()</code> 方法返回字符串所需的代码单元数量</li>
-<li><code>.codePointCound(0, s.length())</code> 返回码点数量，即实际长度。</li>
-<li><code>.charAt(n)</code> 返回位置 n 的代码单元</li>
-</ul>
-<hr>
-<h2 id="String、StringBuffer与StringBuilder的区别"><a href="#String、StringBuffer与StringBuilder的区别" class="headerlink" title="String、StringBuffer与StringBuilder的区别"></a>String、StringBuffer与StringBuilder的区别</h2><ul>
-<li>String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象</li>
-<li>StringBuffer 和 StringBuilder 底层是 char[] 实现的</li>
-<li>StringBuffer 是线程安全的，而 StringBuilder 是线程不安全的</li>
-<li>StringBuilder 比 StringBuffer 有速度优势</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/704e6497/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/704e6497/" itemprop="url">整数溢出</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:27:37+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/704e6497/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/704e6497/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/704e6497/" class="leancloud_visitors" data-flag-title="整数溢出">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  160
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。</p>
-<p>防止溢出的办法是无符号右移一位？？</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/e29258ce/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/e29258ce/" itemprop="url">栈帧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:27:30+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/e29258ce/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/e29258ce/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/e29258ce/" class="leancloud_visitors" data-flag-title="栈帧">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  74
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一个方法从调用开始到执行完成，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。<br>栈帧不会被线程共享，也就是说当前栈帧中存在的对象就可以判定为是不会回收的对象</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/af55460a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1718,7 +473,8 @@
       
         
           
-            <h2 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h2><ul>
+            <a id="more"></a>
+<h2 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h2><ul>
 <li>存取速度快</li>
 <li>局部变量</li>
 <li>方法栈区内的引用变量</li>
@@ -1734,6 +490,7 @@
         
       
     </div>
+
     
     
     
@@ -1913,7 +670,8 @@
       
         
           
-            <p>当在一个源文件中定义多个类，并且还有<code>import</code>语句和<code>package</code>语句时，要特别注意这些规则。</p>
+            <a id="more"></a>
+<p>当在一个源文件中定义多个类，并且还有<code>import</code>语句和<code>package</code>语句时，要特别注意这些规则。</p>
 <ul>
 <li>一个源文件中<strong>只能有一个</strong><code>public</code>类</li>
 <li>一个源文件可以有多个非<code>public</code>类</li>
@@ -1929,6 +687,7 @@
         
       
     </div>
+
     
     
     
@@ -2108,7 +867,8 @@
       
         
           
-            <h2 id="非访问控制修饰符"><a href="#非访问控制修饰符" class="headerlink" title="非访问控制修饰符 :"></a>非访问控制修饰符 :</h2><table>
+            <a id="more"></a>
+<h2 id="非访问控制修饰符"><a href="#非访问控制修饰符" class="headerlink" title="非访问控制修饰符 :"></a>非访问控制修饰符 :</h2><table>
 <thead>
 <tr>
 <th>final</th>
@@ -2171,6 +931,7 @@
         
       
     </div>
+
     
     
     
@@ -2360,6 +1121,1346 @@
         
       
     </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/95495db/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/95495db/" itemprop="url">文件操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:43+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/95495db/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/95495db/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/95495db/" class="leancloud_visitors" data-flag-title="文件操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  132
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="创建文件对象"><a href="#创建文件对象" class="headerlink" title="创建文件对象"></a>创建文件对象</h2><p><code>File f = new File(&quot;MyCode.txt&quot;);</code></p>
+<hr>
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File dir = <span class="keyword">new</span> File(<span class="string">"Chapter7"</span>);`</span><br><span class="line">dir.mkdir();</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="列出文件夹中的内容"><a href="#列出文件夹中的内容" class="headerlink" title="列出文件夹中的内容"></a>列出文件夹中的内容</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dir.isDirectory()) &#123;</span><br><span class="line">    String[] dirContents = dir.list();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dirContents.length; i++) &#123;</span><br><span class="line">        System.out.println(dirContents[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="得到文件或文件夹的绝对路径"><a href="#得到文件或文件夹的绝对路径" class="headerlink" title="得到文件或文件夹的绝对路径"></a>得到文件或文件夹的绝对路径</h2><p><code>System.out.println(dir.getAbsolutePath());</code></p>
+<hr>
+<h2 id="删除文件或文件夹（成功则返回true）"><a href="#删除文件或文件夹（成功则返回true）" class="headerlink" title="删除文件或文件夹（成功则返回true）**"></a>删除文件或文件夹（成功则返回true）**</h2><p><code>boolean isDeleted = f.delete();</code></p>
+<p>文件对象代表文件或文件夹在磁盘上的文件名和路径，不代表能够访问文件的内容！</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/6a503052/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/6a503052/" itemprop="url">位操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:40+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/6a503052/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/6a503052/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/6a503052/" class="leancloud_visitors" data-flag-title="位操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,972
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="位操作基础"><a href="#位操作基础" class="headerlink" title="位操作基础"></a>位操作基础</h2><p>1为真，0为假</p>
+<ul>
+<li>与：<code>&amp;</code> 两个位都为 1 时，结果才为 1</li>
+<li>或：<code>|</code> 两个位都是 0 时，结果才为 0</li>
+<li>异或：<code>^</code> 两个位相同时为 0，相异为 1</li>
+<li>取反：<code>~</code> 0 变 1，1 变 0</li>
+<li>左移：<code>&lt;&lt;</code> 各二进位全部左移若干位，高位丢弃，低位补 0</li>
+<li>右移：<code>&gt;&gt;</code> 各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位(算术右移)，有的补 0 (逻辑右移)</li>
+</ul>
+<hr>
+<ul>
+<li>在这6种操作符，只有 ~ 取反是单目操作符，其它5种都是双目操作符。</li>
+<li>位操作只能用于整形数据，对 <code>float</code> 和 <code>double</code> 类型进行位操作会被编译器报错。</li>
+<li>位操作符的运算优先级比较低，因为尽量使用括号来确保运算顺序，否则很可能会得到莫明其妙的结果。比如要得到像 1，3，5，9 这些 2^i+1 的数字。写成 <code>int a = 1 &lt;&lt; i + 1</code>; 是不对的，程序会先执行 i + 1，再执行左移操作。应该写成 <code>int a = (1 &lt;&lt; i) + 1</code>;</li>
+<li>另外位操作还有一些复合操作符，如 &amp;=、|=、 ^=、&lt;&lt;=、&gt;&gt;=</li>
+</ul>
+<hr>
+<h2 id="常用位操作小技巧"><a href="#常用位操作小技巧" class="headerlink" title="常用位操作小技巧"></a>常用位操作小技巧</h2><h3 id="判断奇偶数"><a href="#判断奇偶数" class="headerlink" title="判断奇偶数"></a>判断奇偶数</h3><p>只要根据最未位是 0 还是 1 来决定，为 0 就是偶数，为 1 就是奇数。</p>
+<p> <code>if ((a &amp; 1) == 0)</code> </p>
+<h3 id="交换两数"><a href="#交换两数" class="headerlink" title="交换两数"></a>交换两数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
+<p>可以这样理解：</p>
+<ul>
+<li>第一步 a ^= b 即 a = (a ^ b)；</li>
+<li>第二步 b ^= a 即 b = b ^ ( a ^ b)，由于异或运算满足交换律，b ^ ( a ^ b) = b ^ b ^ a。由于一个数和自己异或的结果为 0 并且任何数与 0 异或都会不变的，所以此时 b 被赋上了 a 的值；</li>
+<li>第三步 a ^= b 就是 a = a ^ b，由于前面二步可知 a = ( a ^ b)，b=a，所以 a = a ^ b 即 a = ( a ^ b ) ^ a。故 a 会被赋上 b 的值。</li>
+</ul>
+<h3 id="变换符号"><a href="#变换符号" class="headerlink" title="变换符号"></a>变换符号</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取反后加 1</span></span><br><span class="line"><span class="comment">// 注意计算机以补码表示，因此是对补码取反</span></span><br><span class="line">System.out.println(~a + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="求绝对值"><a href="#求绝对值" class="headerlink" title="求绝对值"></a>求绝对值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// int 是32位，右移31位即可使符号位落入最后一位</span></span><br><span class="line"><span class="keyword">int</span> i = a &gt;&gt; <span class="number">31</span>;</span><br><span class="line">System.out.println(i == <span class="number">0</span> ? a : (~a + <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<p>现在再分析下。对于任何数，与 0 异或都会保持不变，与 -1 即 0xFFFFFFFF 异或就相当于取反。因此，a 与 i 异或后再减 i（因为 i 为 0 或 -1，所以减 i即是要么加 0要么加 1）也可以得到绝对值。所以可以对上面代码优化下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> j = a &gt;&gt; <span class="number">31</span>;</span><br><span class="line">System.out.println((a ^ j) - j);</span><br></pre></td></tr></table></figure>
+<p>注意这种方法没用任何判断表达式.</p>
+<h3 id="位操作与空间压缩"><a href="#位操作与空间压缩" class="headerlink" title="位操作与空间压缩"></a>位操作与空间压缩</h3><p>筛素数(质数)法在这里不就详细介绍了，本文着重对筛素数法所使用的素数表进行优化来减小其空间占用。要压缩素数表的空间占用，可以使用位操作。下面是用筛素数法计算100以内的素数示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">boolean</span>[] flags = <span class="keyword">new</span> <span class="keyword">boolean</span>[max];</span><br><span class="line"><span class="keyword">int</span>[] primes = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">3</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> pi = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt; max ; m ++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!flags[m]) &#123;</span><br><span class="line">		primes[pi++] = m;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n = m; n &lt; max; n += m) &#123;</span><br><span class="line">			flags[n] = <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(primes));</span><br></pre></td></tr></table></figure>
+<p>在上面程序是用bool数组来作标记的，bool型数据占1个字节（8位），因此用位操作来压缩下空间占用将会使空间的占用减少八分之七。</p>
+<h3 id="在数组中把指定位置变为1"><a href="#在数组中把指定位置变为1" class="headerlink" title="在数组中把指定位置变为1"></a>在数组中把指定位置变为1</h3><p>下面考虑下如何在数组中对指定位置1，先考虑如何对一个整数在指定位置上置1。对于一个整数可以通过将 1 向左移位后与其相或来达到在指定位上置1的效果，代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在一个数指定位上置1</span></span><br><span class="line"><span class="keyword">int</span> e = <span class="number">0</span>;</span><br><span class="line">e |= <span class="number">1</span> &lt;&lt; <span class="number">10</span>;</span><br><span class="line">System.out.println(e);</span><br></pre></td></tr></table></figure>
+<h3 id="判断指定位置是0还是1"><a href="#判断指定位置是0还是1" class="headerlink" title="判断指定位置是0还是1"></a>判断指定位置是0还是1</h3><p>同样，可以1向左移位后与原数相与来判断指定位上是0还是1（也可以将原数右移若干位再与1相与）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断指定位上是0还是1</span></span><br><span class="line"><span class="keyword">if</span> ((e &amp; (<span class="number">1</span> &lt;&lt; <span class="number">10</span>)) != <span class="number">0</span>)</span><br><span class="line">System.out.println(<span class="string">"指定位上为1"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">System.out.println(<span class="string">"指定位上为0"</span>);</span><br></pre></td></tr></table></figure>
+<p>扩展到数组上，我们可以采用这种方法，因为数组在内存上也是连续分配的一段空间，完全可以“认为”是一个很长的整数。先写一份测试代码，看看如何在数组中使用位操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] bits = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">40</span> / <span class="number">32</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; <span class="number">40</span>; m += <span class="number">3</span>) &#123;</span><br><span class="line">	bits[m / <span class="number">32</span>] |= (<span class="number">1</span> &lt;&lt; (m % <span class="number">32</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出整个bits</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; <span class="number">40</span>; m++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (((bits[m / <span class="number">32</span>] &gt;&gt; (m % <span class="number">32</span>)) &amp; <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">		System.out.print(<span class="string">'1'</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		System.out.print(<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>log 信息</p>
+<p>1001001001001001001001001001001001001001</p>
+<p>可以看出该数组每 3 个就置成了1，证明我们上面对数组进行位操作的方法是正确的。因此可以将上面筛素数方法改成使用位操作压缩后的筛素数方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] flags2 = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">32</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> [] primes = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">3</span> + <span class="number">1</span>];</span><br><span class="line">pi = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt; max ; m ++) &#123;</span><br><span class="line">	<span class="keyword">if</span> ((((flags2[m / <span class="number">32</span>] &gt;&gt; (m % <span class="number">32</span>)) &amp; <span class="number">1</span>) == <span class="number">0</span>)) &#123;</span><br><span class="line">		primes[pi++] = m;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n = m; n &lt; max; n += m) &#123;</span><br><span class="line">			flags2[n / <span class="number">32</span>] |= (<span class="number">1</span> &lt;&lt; (n % <span class="number">32</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(primes));</span><br></pre></td></tr></table></figure>
+<p>log 信息为</p>
+<p>[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0]</p>
+<h3 id="获取-int-型最大值"><a href="#获取-int-型最大值" class="headerlink" title="获取 int 型最大值"></a>获取 int 型最大值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于优先级关系，括号不可省略</span></span><br><span class="line">System.out.println((<span class="number">1</span> &lt;&lt; <span class="number">31</span>) - <span class="number">1</span>);<span class="comment">// 2147483647， </span></span><br><span class="line">System.out.println(~(<span class="number">1</span> &lt;&lt; <span class="number">31</span>));<span class="comment">// 2147483647</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取-int-型最小值"><a href="#获取-int-型最小值" class="headerlink" title="获取 int 型最小值"></a>获取 int 型最小值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 获得int型最小值</span></span><br><span class="line">System.out.println(<span class="number">1</span> &lt;&lt; <span class="number">31</span>);</span><br><span class="line">System.out.println(<span class="number">1</span> &lt;&lt; -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="获取-long-型最大值"><a href="#获取-long-型最大值" class="headerlink" title="获取 long 型最大值"></a>获取 long 型最大值</h3><p><code>System.out.println(((long)1 &lt;&lt; 127) - 1);</code></p>
+<h3 id="乘以2"><a href="#乘以2" class="headerlink" title="乘以2"></a>乘以2</h3><p><code>System.out.println(10&lt;&lt;1);</code></p>
+<h3 id="除以2（负奇数运算不可用）"><a href="#除以2（负奇数运算不可用）" class="headerlink" title="除以2（负奇数运算不可用）"></a>除以2（负奇数运算不可用）</h3><p><code>System.out.println(10&gt;&gt;1);</code></p>
+<h3 id="乘以-2-的-m-次幂"><a href="#乘以-2-的-m-次幂" class="headerlink" title="乘以 2 的 m 次幂"></a>乘以 2 的 m 次幂</h3><p><code>System.out.println(10&lt;&lt;2);</code></p>
+<h3 id="除以-2-的-m-次幂"><a href="#除以-2-的-m-次幂" class="headerlink" title="除以 2 的 m 次幂"></a>除以 2 的 m 次幂</h3><p><code>System.out.println(16&gt;&gt;2);</code></p>
+<h3 id="判断一个数的奇偶性"><a href="#判断一个数的奇偶性" class="headerlink" title="判断一个数的奇偶性"></a>判断一个数的奇偶性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println((<span class="number">10</span> &amp; <span class="number">1</span>) == <span class="number">1</span>);</span><br><span class="line">System.out.println((<span class="number">9</span> &amp; <span class="number">1</span>) == <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="不用临时变量交换两个数（面试常考）"><a href="#不用临时变量交换两个数（面试常考）" class="headerlink" title="不用临时变量交换两个数（面试常考）"></a>不用临时变量交换两个数（面试常考）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
+<h3 id="取绝对值（某些机器上，效率比n-gt-0-n-n-高）"><a href="#取绝对值（某些机器上，效率比n-gt-0-n-n-高）" class="headerlink" title="取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）"></a>取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = -<span class="number">1</span>;</span><br><span class="line">System.out.println((n ^ (n &gt;&gt; <span class="number">31</span>)) - (n &gt;&gt; <span class="number">31</span>));</span><br><span class="line"><span class="comment">/* n&gt;&gt;31 取得n的符号，若n为正数，n&gt;&gt;31等于0，若n为负数，n&gt;&gt;31等于-1</span></span><br><span class="line"><span class="comment">若n为正数 n^0-0数不变，若n为负数n^-1 需要计算n和-1的补码，异或后再取补码，</span></span><br><span class="line"><span class="comment">结果n变号并且绝对值减1，再减去-1就是绝对值 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）"><a href="#取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）" class="headerlink" title="取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）"></a>取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）</h3><p><code>System.out.println(b&amp;((a-b)&gt;&gt;31) | a&amp;(~(a-b)&gt;&gt;31));</code></p>
+<h3 id="取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）"><a href="#取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）" class="headerlink" title="取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）"></a>取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）</h3><p><code>System.out.println(a&amp;((a-b)&gt;&gt;31) | b&amp;(~(a-b)&gt;&gt;31));</code></p>
+<h3 id="判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。"><a href="#判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。" class="headerlink" title="判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)"></a>判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)</h3><p><code>System.out.println((a ^ b) &gt; 0);</code></p>
+<h3 id="计算2的n次方-n-gt-0"><a href="#计算2的n次方-n-gt-0" class="headerlink" title="计算2的n次方 n &gt; 0"></a>计算2的n次方 n &gt; 0</h3><p><code>System.out.println(2&lt;&lt;(n-1));</code></p>
+<h3 id="判断一个数n是不是2的幂"><a href="#判断一个数n是不是2的幂" class="headerlink" title="判断一个数n是不是2的幂"></a>判断一个数n是不是2的幂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// </span></span><br><span class="line">System.out.println((n &amp; (n - <span class="number">1</span>)) == <span class="number">0</span>);</span><br><span class="line"><span class="comment">/*如果是2的幂，n一定是100... n-1就是1111....</span></span><br><span class="line"><span class="comment">所以做与运算结果为0*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="求两个整数的平均值"><a href="#求两个整数的平均值" class="headerlink" title="求两个整数的平均值"></a>求两个整数的平均值</h3><p><code>System.out.println((a+b) &gt;&gt; 1);</code></p>
+<h3 id="从低位到高位-取n的第m位"><a href="#从低位到高位-取n的第m位" class="headerlink" title="从低位到高位,取n的第m位"></a>从低位到高位,取n的第m位</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">2</span>;</span><br><span class="line">System.out.println((n &gt;&gt; (m-<span class="number">1</span>)) &amp; <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="从低位到高位-将n的第m位置为1"><a href="#从低位到高位-将n的第m位置为1" class="headerlink" title="从低位到高位.将n的第m位置为1"></a>从低位到高位.将n的第m位置为1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(n | (<span class="number">1</span>&lt;&lt;(m-<span class="number">1</span>)));</span><br><span class="line"><span class="comment">/*将1左移m-1位找到第m位，得到000...1...000</span></span><br><span class="line"><span class="comment">n在和这个数做或运算*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="从低位到高位-将n的第m位置为0"><a href="#从低位到高位-将n的第m位置为0" class="headerlink" title="从低位到高位,将n的第m位置为0"></a>从低位到高位,将n的第m位置为0</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(n &amp; ~(<span class="number">0</span>&lt;&lt;(m-<span class="number">1</span>)));</span><br><span class="line"><span class="comment">/* 将1左移m-1位找到第m位，取反后变成111...0...1111</span></span><br><span class="line"><span class="comment">n再和这个数做与运算*/</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/28239a8d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/28239a8d/" itemprop="url">面向对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:33+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/28239a8d/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/28239a8d/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/28239a8d/" class="leancloud_visitors" data-flag-title="面向对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  904
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="抽象-Abstract"><a href="#抽象-Abstract" class="headerlink" title="抽象 Abstract"></a>抽象 Abstract</h2><p>将一类对象的共同特征总结出来构造类的过程。</p>
+<hr>
+<p>##继承</p>
+<p>子类从父类处继承信息</p>
+<p>继承性是子类共享其父类数据和方法的机制。它由类的派生功能体现。一个类直接继承其他类的全部描述，同时可修改和扩充。继承具有传递性。继承分为单继承（一个子类有一父类）和多重继承（一个类有多个父类）。类的对象是各自封闭的，如果没继承性机制，则类的对象中的数据、方法就会出现大量重复。继承不仅支持系统的可重用性，而且还促进系统的可扩充性。</p>
+<hr>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>隐藏具体操作，只提供简单的编程接口和返回数据</p>
+<p>封装是一种信息隐蔽技术，它体现于类的说明，是对象的重要特性。封装使数据和加工该数据的方法（函数）封装为一个整体，以实现独立性很强的模块，使得用户只能见到对象的外特性（对象能接受哪些消息，具有哪些处理能力），而对象的内特性（保存内部状态的私有数据和实现加工能力的算法）对用户是隐蔽的。封装的目的在于把对象的设计者和对象的使用者分开，使用者不必知晓其行为实现的细节，只须用设计者提供的消息来访问该对象。</p>
+<p><strong>Getter 返回实例变量的值</strong><br><strong>Setter 设定实例变量的值</strong></p>
+<p>为了避免数据泄露，导致变量的值可以通过点运算符来存取，应该使用 Setter 来给实例设置变量。强迫所有变量都必须调用 Setter 才能获取值。</p>
+<p>实例变量应设置为 private<br>Setter 和 Getter 设置为 public</p>
+<hr>
+<h2 id="多态-Polymorphism"><a href="#多态-Polymorphism" class="headerlink" title="多态 Polymorphism"></a>多态 Polymorphism</h2><p>子类对象可以直接赋给父类变量，但运行时依然表现出子类的行为特征。这意味着同一个类型的对象在执行同一方法时，可能表现出多种行为特征<br>建立一个装父类的数组，可以放入不同的子类对象，每个子类对象对父类的同一方法可作出不同响应<br>将父类作为方法的参数类型，或返回值类型，或数组类型，来避免为每一个子类创建新的方法<br>多态意味着多种形态。一个对象既是所属类的实例，也是 Object 类的实例</p>
+<p>对象根据所接收的消息而做出动作。同一消息被不同的对象接受时可产生完全不同的行动，这种现象称为多态性。利用多态性用户可发送一个通用的信息，而将所有的实现细节都留给接受消息的对象自行决定，如是，同一消息即可调用不同的方法。例如：同样是 run 方法，飞鸟调用时是飞，野兽调用时是奔跑。多态性的实现受到继承性的支持，利用类继承的层次关系，把具有通用功能的协议存放在类层次中尽可能高的地方，而将实现这一功能的不同方法置于较低层次，这样，在这些低层次上生成的对象就能给通用消息以不同的响应。在 OOPL 中可通过在派生类中重定义基类函数（定义为重载函数或虚函数）来实现多态性。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/79666db/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/79666db/" itemprop="url">数据结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:19+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/79666db/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/79666db/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/79666db/" class="leancloud_visitors" data-flag-title="数据结构">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,425
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>链表是一种数据结构，和数组同级。比如，Java 中我们使用的 ArrayList，其实现原理是数组。而 LinkedList 的实现原理就是链表了。链表在进行循环遍历时效率不高，但是插入和删除时优势明显。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt; </span></span><br><span class="line"><span class="class">	<span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt; </span></span><br><span class="line"><span class="class">	<span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>,<span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>LinkedList继承自AbstractSequenceList，实现了 List、Deque、Cloneable、java.io.Serializable接口。AbstractSequenceList 提供了 List 接口骨干性的实现以减少实现 List 接口的复杂度，Deque 接口定义了双端队列的操作。<br>单向链表是一种线性表，实际上是由节点（Node）组成的，一个链表拥有不定数量的节点。其数据在内存中存储是不连续的，它存储的数据分散在内存中，每个结点只能也只有它能知道下一个结点的存储位置。由N各节点（Node）组成单向链表，每一个 Node 记录本 Node 的数据及下一个 Node 。向外暴露的只有一个头节点（Head），我们对链表的所有操作，都是直接或者间接地通过其头节点来进行的。<br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfd" alt=""><br>上图中最左边的节点即为头节点（Head），（头节点也可以包含数据）。新增节点出现在头节点右侧，紧挨头节点。<br>引用是引用下一个节点而非下一个节点的对象。因为有着不断的引用，所以头节点就可以操作所有节点了。<br>下图描述了单向链表存储情况。存储是分散的，每一个节点只要记录下一节点，就把所有数据串了起来，形成了一个单向链表。<br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfa" alt=""><br>节点（Node）是由一个需要储存的对象及对下一个节点的引用组成的。也就是说，节点拥有两个成员：储存的对象、对下一个节点的引用。下面图是具体的说明：<br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cf9" alt=""><br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfc" alt=""><br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfb" alt=""></p>
+<hr>
+<h3 id="单项链表的实现"><a href="#单项链表的实现" class="headerlink" title="单项链表的实现"></a>单项链表的实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkList</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="comment">// 定义头节点</span></span><br><span class="line">	LinkList&lt;T&gt; head;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 定义节点类</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="链表的应用"><a href="#链表的应用" class="headerlink" title="链表的应用"></a>链表的应用</h3><h4 id="查找单链表的中间节点"><a href="#查找单链表的中间节点" class="headerlink" title="查找单链表的中间节点"></a>查找单链表的中间节点</h4><p>采用快慢指针的方式查找单链表的中间节点，快指针一次走两步，慢指针一次走一步，当快指针走完时，慢指针刚好到达中间节点。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 查找单链表的中间节点</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">SearchMid</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node p = <span class="keyword">this</span>.head, q = <span class="keyword">this</span>.head;</span><br><span class="line">	<span class="keyword">while</span> (p != <span class="keyword">null</span> &amp;&amp; p.next != <span class="keyword">null</span> &amp;&amp; p.next.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		p = p.next.next;</span><br><span class="line">		q = q.next;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"Mid:"</span> + q.data);</span><br><span class="line">	<span class="keyword">return</span> q;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="查找倒数第k个元素"><a href="#查找倒数第k个元素" class="headerlink" title="查找倒数第k个元素"></a>查找倒数第k个元素</h4><p>采用两个指针P1,P2，P1先前移K步，然后P1、P2同时移动，当p1移动到尾部时，P2所指位置的元素即倒数第k个元素 。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 查找倒数 第k个元素</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> k</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">findElem</span><span class="params">(Node head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (k &lt; <span class="number">1</span> || k &gt; <span class="keyword">this</span>.length()) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Node p1 = head;</span><br><span class="line">	Node p2 = head;</span><br><span class="line">	<span class="comment">// 前移k步</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">		p1 = p1.next;</span><br><span class="line">	<span class="keyword">while</span> (p1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">		p1 = p1.next;</span><br><span class="line">		p2 = p2.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="对链表进行排序"><a href="#对链表进行排序" class="headerlink" title="对链表进行排序"></a>对链表进行排序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 排序</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Node <span class="title">orderList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Node nextNode = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">		Node curNode = head;</span><br><span class="line">		<span class="keyword">while</span> (curNode.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">			nextNode = curNode.next;</span><br><span class="line">			<span class="keyword">while</span> (nextNode != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (curNode.data &gt; nextNode.data) &#123;</span><br><span class="line">					tmp = curNode.data;</span><br><span class="line">					curNode.data = nextNode.data;</span><br><span class="line">					nextNode.data = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">			nextNode = nextNode.next;</span><br><span class="line">		&#125;</span><br><span class="line">		curNode = curNode.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="删除链表中的重复节点"><a href="#删除链表中的重复节点" class="headerlink" title="删除链表中的重复节点"></a>删除链表中的重复节点</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 删除重复节点</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteDuplecate</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node p = head;</span><br><span class="line">	<span class="keyword">while</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">		Node q = p;</span><br><span class="line">		<span class="keyword">while</span> (q.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p.data == q.next.data) &#123;</span><br><span class="line">				q.next = q.next.next;</span><br><span class="line">			&#125; <span class="keyword">else</span></span><br><span class="line">				q = q.next;</span><br><span class="line">		&#125;</span><br><span class="line">		p = p.next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="从尾到头输出单链表，采用递归方式实现"><a href="#从尾到头输出单链表，采用递归方式实现" class="headerlink" title="从尾到头输出单链表，采用递归方式实现"></a>从尾到头输出单链表，采用递归方式实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 从尾到头输出单链表，采用递归方式实现</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> pListHead</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printListReversely</span><span class="params">(Node pListHead)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pListHead != <span class="keyword">null</span>) &#123;</span><br><span class="line">		printListReversely(pListHead.next);</span><br><span class="line">		System.out.println(<span class="string">"printListReversely:"</span> + pListHead.data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="判断链表是否有环，有环情况下找出环的入口节点"><a href="#判断链表是否有环，有环情况下找出环的入口节点" class="headerlink" title="判断链表是否有环，有环情况下找出环的入口节点"></a>判断链表是否有环，有环情况下找出环的入口节点</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 判断链表是否有环，单向链表有环时，尾节点相同</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">IsLoop</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node fast = head, slow = head;</span><br><span class="line">	<span class="keyword">if</span> (fast == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		fast = fast.next.next;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		<span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">			System.out.println(<span class="string">"该链表有环"</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> !(fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 找出链表环的入口</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">FindLoopPort</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node fast = head, slow = head;</span><br><span class="line">	<span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		fast = fast.next.next;</span><br><span class="line">		<span class="keyword">if</span> (slow == fast)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	slow = head;</span><br><span class="line">	<span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		fast = fast.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="添加节点的方法很明显违反了单链表先进后出的原则"><a href="#添加节点的方法很明显违反了单链表先进后出的原则" class="headerlink" title="添加节点的方法很明显违反了单链表先进后出的原则"></a>添加节点的方法很明显违反了单链表先进后出的原则</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNode</span><span class="params">(<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">	Node newNode = <span class="keyword">new</span> Node(d);</span><br><span class="line">	newNode.next = head;</span><br><span class="line">	head = newNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>Java 5.0引入了枚举，枚举限制变量只能是预先设定好的值。使用枚举可以减少代码中的bug。</p>
+<p>例如，我们为果汁店设计一个程序，它将限制果汁为小杯、中杯、大杯。这就意味着它不允许顾客点除了这三种尺寸外的果汁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FreshJuice</span> </span>&#123;</span><br><span class="line">   <span class="keyword">enum</span> FreshJuiceSize&#123; SMALL, MEDIUM , LARGE &#125;</span><br><span class="line">   FreshJuiceSize size;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FreshJuiceTest</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">      FreshJuice juice = <span class="keyword">new</span> FreshJuice();</span><br><span class="line">      juice.size = FreshJuice.FreshJuiceSize.MEDIUM  ;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：枚举可以单独声明或者声明在类里面。方法、变量、构造函数也可以在枚举中定义。</p>
+<hr>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p><strong>JAVA 数组是静态的，声明后长度不可改变，仅数值可改变</strong></p>
+<p>数组初始化的两种方式</p>
+<ul>
+<li>静态初始化：初始化时由程序员显式指定每个数组元素的初始值，由系统决定数组长度。</li>
+<li>动态初始化：初始化时程序员只指定数组长度，由系统为数组元素分配初始值。</li>
+</ul>
+<p>【初始化数组时，不要同时使用静态和动态方法】</p>
+<p><strong>数组变量是引用变量</strong><br>数组变量不是数组本身，它指向堆内存中的数组对象。改变数组变量所引用的数组，可以造成数组长度可变的假象</p>
+<p>多维数组<br>即数组套数组<br><code>int[][]</code></p>
+<hr>
+<h2 id="数组列表-ArrayList"><a href="#数组列表-ArrayList" class="headerlink" title="数组列表 ArrayList"></a>数组列表 ArrayList</h2><p>ArrayList 类扩展 AbstractList，并实现了 List 接口。支持 ArrayList 动态数组根据需要可以增长。</p>
+<p>标准的 Java 数组是一个固定长度的。创建数组后，他们不能生长或缩小，这意味着必须事先知道数组将容纳多少元素。</p>
+<p>数组列表是用初始大小创建。但添加元素时，会自动放大。删除元素时，会自动缩小。</p>
+<p><code>ArrayList</code>是泛型类，应指定其内部所保存的元素类型。使用<code>&lt;类型&gt;</code>接在<code>ArrayList</code>后面</p>
+<h3 id="构造函数。"><a href="#构造函数。" class="headerlink" title="构造函数。"></a>构造函数。</h3><ul>
+<li><p><code>ArrayList&lt;E&gt;()</code><br>构造一个空数组列表</p>
+</li>
+<li><p><code>ArrayList&lt;E&gt;(int initalCapacity)</code></p>
+</li>
+<li><p>用指定容量构造一个空数组列表</p>
+</li>
+<li><p><code>ArrayList(Collection c)</code><br>建立一个与集合c 的元素初始化一个数组列表。</p>
+</li>
+</ul>
+<p><strong>菱形语法</strong><br><code>ArrayList&lt;Employee&gt; staff = new ArrayList&lt;Employee&gt;()</code><br>`ArrayList<employee> staff = new ArrayList&lt;&gt;(); </employee></p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>除了从它的父类继承的方法，ArrayList中定义了以下方法：</p>
+<ul>
+<li><p><code>void add(int index, Object element)</code><br>插入指定位置的索引在此列表中的指定元素。如果指定的索引超出<code>range (index &lt; 0 || index &gt; size())</code>，抛出<code>IndexOutOfBoundsException</code>异常。</p>
+</li>
+<li><p><code>boolean add(Object o)</code><br>将指定的元素添加到ArrayList的末尾，永远返回<code>ture</code>。</p>
+</li>
+<li><p><code>void ensureCapacity(int Capacity)</code><br>确保ArrayList在不重新分配存储空间的情况下就能够保存给定数量的元素。</p>
+</li>
+<li><p><code>void trimToSize()</code><br>将ArrayList的存储容量削减到当前尺寸。</p>
+</li>
+<li><p><code>boolean addAll(Collection c)</code><br>所有追加指定<code>collection</code>中的元素添加到此列表的结尾，因为它们是由指定<code>collection</code>的迭代器返回的顺序。，如果指定集合为<code>null</code>，抛出<code>NullPointerException</code>异常。</p>
+</li>
+<li><p><code>boolean addAll(int index, Collection c)</code><br>插入所有指定集合中的元素插入此列表，开始在指定的位置。抛出NullPointerException异常，如果指定集合为null。</p>
+</li>
+<li><p><code>void clear()</code><br>移除此列表中的元素。</p>
+</li>
+<li><p><code>Object clone()</code><br>返回此ArrayList浅表副本。</p>
+</li>
+<li><p><code>boolean contains(Object o)</code><br>如果此列表包含指定的元素返回true。更正式地说，当且仅当此列表包含至少一个元素e，使得返回true (o==null ? e==null : o.equals(e)).</p>
+</li>
+<li><p><code>Object get(int index)</code><br>返回此列表中指定位置的元素。抛出IndexOutOfBoundsException异常，如果指定的索引超出range (index &lt; 0 || index &gt;= size()).</p>
+</li>
+<li><p><code>int indexOf(Object o)</code><br>返回索引中的指定元素第一次出现的这个名单，或者-1，如果列表中不包含该元素。</p>
+</li>
+<li><p><code>int lastIndexOf(Object o)</code><br>返回索引中的指定元素中最后出现的这个名单，或者-1，如果列表中不包含该元素。</p>
+</li>
+<li><p><code>Object remove(int index)</code><br>移除元素在此列表中的指定位置。如果索引超出 range (index &lt; 0 || index &gt;= size()) 抛出一个IndexOutOfBoundsException。</p>
+</li>
+<li><p><code>protected void removeRange(int fromIndex, int toIndex)</code><br>从这个列表中删除所有索引为fromIndex（包括）和toIndex，独占的元素。</p>
+</li>
+<li><p><code>Object set(int index, Object element)</code><br>替换元素在与指定元素在此列表中的指定位置。抛出IndexOutOfBoundsException异常，如果指定的索引超出 range (index &lt; 0 || index &gt;= size()).</p>
+</li>
+<li><p><code>int size()</code><br>返回此列表中的元素数。</p>
+</li>
+<li><p><code>Object[] toArray()</code><br>返回包含所有在此列表中正确的顺序元素的数组。抛出NullPointerException异常如果指定数组为null。</p>
+</li>
+<li><p><code>Object[] toArray(Object[] a)</code><br>返回包含所有在此列表中正确的顺序元素的数组;返回数组的运行时类型是指定数组。</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/fe8a6aab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/fe8a6aab/" itemprop="url">垃圾回收器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:15+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/fe8a6aab/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/fe8a6aab/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/fe8a6aab/" class="leancloud_visitors" data-flag-title="垃圾回收器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  479
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。</p>
+<p>1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片</p>
+<p>2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率</p>
+<p>3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到达对象复制到另一半空间，再清空正在使用的空间的全部对象。这种方法适用于短生存期的对象，持续复制长生存期的对象则导致效率降低。</p>
+<p>4.分代回收发：把内存空间分为两个或者多个域，如年轻代和老年代，年轻代的特点是对象会很快被回收，因此在年轻代使用效率比较高的算法。当一个对象经过几次回收后依然存活，对象就会被放入称为老年的内存空间，老年代则采取标记-压缩算法</p>
+<p>5.引用计数（最简单古老的方法）：指将资源（可以是对象、内存或磁盘空间等等）的被引用次数保存起来，当被引用次数变为零时就将其释放的过程</p>
+<p>6.对象引用遍历（现在大多数 JVM 使用的方法）：对象引用遍历从一组对象开始，沿着整个对象图上的每条链接，递归确定可到达（reachable）的对象。如果某对象不能从这些根对象的一个（至少一个）到达，则将它作为垃圾收集</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/179f63b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/179f63b0/" itemprop="url">静态变量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:00+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/179f63b0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/179f63b0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/179f63b0/" class="leancloud_visitors" data-flag-title="静态变量">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  647
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h2><ul>
+<li><p>静态变量只有在第一次加载类的时候才会被初始化，而不是每次创建实例都初始化。因此对于该类的所有实例，值都相同。静态变量是所有实例共享的，相同的值。某个对象修改了静态变量的值后，其他对象访问改静态变量得到的是修改后的值。</p>
+</li>
+<li><p>实例变量：每个实例独占一个，1000个对象有1000个实例变量，属于对象。</p>
+</li>
+<li><p>静态变量：每个类只有一个，1000个对象共享同1个，属于类。即使没有对象，也存在着。</p>
+</li>
+<li><p>创建对象前，静态变量必须被初始化完毕。</p>
+</li>
+<li><p>调用类中的静态方法前，静态变量必须被初始化完毕。</p>
+</li>
+<li><p>通过类名（而非对象名）访问静态变量。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> playerCounst; <span class="comment">// int 类型默认值为0</span></span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Player</span><span class="params">(String n)</span> </span>&#123;</span><br><span class="line">		    name = n;</span><br><span class="line">		    playerCount++;</span><br><span class="line">	    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlayerTestDrive</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            System.out.pintln(Player.playerCount);</span><br><span class="line">            Player one = <span class="keyword">new</span> Player(<span class="string">"Tiger Woods"</span>);</span><br><span class="line">            Systen.out.println(Player.playerCount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><ul>
+<li>静态方法不能对实例进行操作，不能使用实例变量的值。因此调用静态方法时，不需要对象，直接使用类名。</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = Math.round(<span class="number">42.2</span>);</span><br><span class="line"><span class="keyword">int</span> y = Math.min(<span class="number">56</span>, <span class="number">12</span>);</span><br><span class="line"><span class="keyword">int</span> z = Math.abs(-<span class="number">343</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>需要静态方法的场合：</p>
+<ul>
+<li>一个方法不需要访问对象状态，其所有参数都是通过显示参数提供（例如：Math.pow)。</li>
+<li>一个方法只需要访问类的静态变量。</li>
+<li><p>使用静态工厂方法来构造对象。</p>
+</li>
+<li><p>静态方法可以在堆内存中没有类的实例的情况下调用。</p>
+</li>
+<li>静态方法可以访问静态变量。</li>
+<li><p>但使用引用变量调用静态方法是允许的，这会造成混淆。不推荐。</p>
+</li>
+<li><p>拥有静态方法的类不应该被初始化，这可以通过把构造器声明为 Private 来实现。但不意味着无法被初始化，例如拥有 main 方法的类。</p>
+</li>
+<li><p>静态方法不能调用非静态方法，因为非静态方法通常会有实例变量。即使方法中没有使用实例变量也不可以。避免日后会修改该方法导致使用实例变量，或子类重写该方法导致使用实例变量。</p>
+</li>
+</ul>
+<hr>
+<h2 id="静态工厂方法"><a href="#静态工厂方法" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h2><p>不通过<code>new</code>，而是用一个静态方法来对外提供自身实例的方法。</p>
+<p>Fragment </p>
+<p>静态工厂方法的优势</p>
+
+          
+        
+      
+    </div>
+
     
     
     
@@ -2396,7 +2497,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2446,7 +2547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2548,7 +2649,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 

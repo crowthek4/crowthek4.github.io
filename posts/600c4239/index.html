@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="HashCode的特性（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。（2）两个对象相同，则 .equals() 方法返回 true ，HashCode 相同。（3）两个对象的 HashCode 相同，两个对象却不一定相同， .equals() 不一定为 true。（4）如果对象的 .equals() 方">
+<meta name="description" content="HashCode的特性（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。（2）两个对象相同，则 .equals() 方法返回 true ，HashCode 相同。（3）两个对象的 HashCode 相同，两个对象却不一定相同， .equals() 不一定为 true。（4）如果对象的 .equals()">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HashCode">
 <meta property="og:url" content="https://crowthek4.github.io/posts/600c4239/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="HashCode的特性（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。（2）两个对象相同，则 .equals() 方法返回 true ，HashCode 相同。（3）两个对象的 HashCode 相同，两个对象却不一定相同， .equals() 不一定为 true。（4）如果对象的 .equals() 方">
+<meta property="og:description" content="HashCode的特性（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。（2）两个对象相同，则 .equals() 方法返回 true ，HashCode 相同。（3）两个对象的 HashCode 相同，两个对象却不一定相同， .equals() 不一定为 true。（4）如果对象的 .equals()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-14T07:23:28.024Z">
+<meta property="og:updated_time" content="2018-04-16T15:05:56.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashCode">
-<meta name="twitter:description" content="HashCode的特性（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。（2）两个对象相同，则 .equals() 方法返回 true ，HashCode 相同。（3）两个对象的 HashCode 相同，两个对象却不一定相同， .equals() 不一定为 true。（4）如果对象的 .equals() 方">
+<meta name="twitter:description" content="HashCode的特性（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。（2）两个对象相同，则 .equals() 方法返回 true ，HashCode 相同。（3）两个对象的 HashCode 相同，两个对象却不一定相同， .equals() 不一定为 true。（4）如果对象的 .equals()">
 
 
 
@@ -469,7 +469,8 @@
       
 
       
-        <h2 id="HashCode的特性"><a href="#HashCode的特性" class="headerlink" title="HashCode的特性"></a>HashCode的特性</h2><p>（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。<br>（2）两个对象相同，则 <code>.equals()</code> 方法返回 true ，HashCode 相同。<br>（3）两个对象的 HashCode 相同，两个对象却不一定相同， <code>.equals()</code> 不一定为 true。<br>（4）如果对象的 <code>.equals()</code> 方法被重写，那么对象的 HashCode 也尽量重写。</p>
+        <a id="more"></a>
+<h2 id="HashCode的特性"><a href="#HashCode的特性" class="headerlink" title="HashCode的特性"></a>HashCode的特性</h2><p>（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。<br>（2）两个对象相同，则 <code>.equals()</code> 方法返回 true ，HashCode 相同。<br>（3）两个对象的 HashCode 相同，两个对象却不一定相同， <code>.equals()</code> 不一定为 true。<br>（4）如果对象的 <code>.equals()</code> 方法被重写，那么对象的 HashCode 也尽量重写。</p>
 <hr>
 <h2 id="HashCode作用"><a href="#HashCode作用" class="headerlink" title="HashCode作用"></a>HashCode作用</h2><p>Java中的集合有两类，一类是List，再有一类是Set。前者集合内的元素是有序的，元素可以重复；后者元素无序，但元素不可重复。 </p>
 <p><code>.equals()</code> 方法可用于保证元素不重复，但如果每增加一个元素就检查一次，若集合中现在已经有1000个元素，那么第1001个元素加入集合时，就要调用1000次 <code>.equals()</code> 方法。这显然会大大降低效率。 于是，Java 采用了哈希表的原理。</p>
@@ -497,6 +498,7 @@
 
       
     </div>
+
     
     
     
@@ -579,8 +581,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/7c31d16f/" rel="next" title="数组列表">
-                <i class="fa fa-chevron-left"></i> 数组列表
+              <a href="/posts/fc81fbfd/" rel="next" title="字符串 String 类型">
+                <i class="fa fa-chevron-left"></i> 字符串 String 类型
               </a>
             
           </div>
@@ -682,7 +684,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -800,7 +802,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 

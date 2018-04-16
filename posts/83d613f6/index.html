@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以">
+<meta name="description" content="Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="序列化和反序列化">
 <meta property="og:url" content="https://crowthek4.github.io/posts/83d613f6/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以">
+<meta property="og:description" content="Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-14T07:23:28.044Z">
+<meta property="og:updated_time" content="2018-04-16T15:08:03.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="序列化和反序列化">
-<meta name="twitter:description" content="Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以">
+<meta name="twitter:description" content="Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可">
 
 
 
@@ -469,7 +469,8 @@
       
 
       
-        <p>Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
+        <a id="more"></a>
+<p>Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
 <p>将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。</p>
 <p>整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以在另一个完全不同的平台上反序列化该对象。</p>
 <p>类 ObjectInputStream 和 ObjectOutputStream 是高层次的数据流，它们包含序列化和反序列化对象的方法。<br>ObjectOutputStream 类包含很多写方法来写各种数据类型，但是一个特别的方法例外：<br>public final void writeObject(Object x) throws IOException</p>
@@ -507,6 +508,7 @@
 
       
     </div>
+
     
     
     
@@ -692,7 +694,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -810,7 +812,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 

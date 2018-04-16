@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。 1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片 2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率 3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到">
+<meta name="description" content="失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。 1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片 2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率 3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="垃圾回收器">
 <meta property="og:url" content="https://crowthek4.github.io/posts/fe8a6aab/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。 1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片 2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率 3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到">
+<meta property="og:description" content="失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。 1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片 2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率 3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-14T07:23:28.038Z">
+<meta property="og:updated_time" content="2018-04-16T15:07:09.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="垃圾回收器">
-<meta name="twitter:description" content="失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。 1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片 2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率 3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到">
+<meta name="twitter:description" content="失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。 1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片 2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率 3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可">
 
 
 
@@ -469,7 +469,8 @@
       
 
       
-        <p>失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。</p>
+        <a id="more"></a>
+<p>失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。</p>
 <p>1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片</p>
 <p>2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率</p>
 <p>3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到达对象复制到另一半空间，再清空正在使用的空间的全部对象。这种方法适用于短生存期的对象，持续复制长生存期的对象则导致效率降低。</p>
@@ -479,6 +480,7 @@
 
       
     </div>
+
     
     
     
@@ -655,7 +657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -757,7 +759,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 

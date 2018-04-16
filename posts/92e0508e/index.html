@@ -99,20 +99,18 @@
 
 
 
-<meta name="description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形式">
+<meta name="description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构造过程">
 <meta property="og:url" content="https://crowthek4.github.io/posts/92e0508e/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形式">
+<meta property="og:description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://crowthek4.github.io/posts/92e0508e/posts/92e0508e/构造过程.jpg">
-<meta property="og:updated_time" content="2018-04-14T07:23:28.053Z">
+<meta property="og:updated_time" content="2018-04-16T15:09:23.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构造过程">
-<meta name="twitter:description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形式">
-<meta name="twitter:image" content="https://crowthek4.github.io/posts/92e0508e/posts/92e0508e/构造过程.jpg">
+<meta name="twitter:description" content="内存分配Dog myDog = new Dog();  声明一个引用变量 ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。 创建对象 ：要求 Java 虚拟机分配 堆空间 给新建立的 Dog 对象。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。 连接对象和引用： 将获取 Dog 对象的方法以字节形">
 
 
 
@@ -471,13 +469,14 @@
       
 
       
-        <h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p><code>Dog myDog = new Dog();</code></p>
+        <a id="more"></a>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p><code>Dog myDog = new Dog();</code></p>
 <ol>
 <li><em>声明一个引用变量</em> ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。</li>
 <li><em>创建对象</em> ：要求 Java 虚拟机分配 <em>堆空间</em> 给新建立的 Dog <em>对象</em>。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。</li>
 <li>连接对象和引用： 将<em>获取 Dog 对象的方法</em>以字节形式放进引用变量中。<br>换言之，引用变量(遥控器)是获得对象的某种神秘方法，而不是变量本身。</li>
 </ol>
-<img src="/posts/92e0508e/posts/92e0508e/构造过程.jpg" title="构造过程">
+
 <p>同一个 Java 虚拟机的引用变量是固定大小。</p>
 <hr>
 <h2 id="对象的初始化过程"><a href="#对象的初始化过程" class="headerlink" title="对象的初始化过程"></a>对象的初始化过程</h2><ol>
@@ -519,12 +518,13 @@
 </blockquote>
 <p>当变量的编译时类型和运行时类型不同时</p>
 <ul>
-<li></li>
+<li>​</li>
 </ul>
 <hr>
 <h2 id="特殊情况下父类调用被子类重写的方法"><a href="#特殊情况下父类调用被子类重写的方法" class="headerlink" title="特殊情况下父类调用被子类重写的方法"></a>特殊情况下父类调用被子类重写的方法</h2>
       
     </div>
+
     
     
     
@@ -710,7 +710,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -828,7 +828,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 

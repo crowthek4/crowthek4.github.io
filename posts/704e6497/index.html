@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。 防止溢出的办法是无符号">
+<meta name="description" content="Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。 防止溢出的办法是无符">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整数溢出">
 <meta property="og:url" content="https://crowthek4.github.io/posts/704e6497/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。 防止溢出的办法是无符号">
+<meta property="og:description" content="Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。 防止溢出的办法是无符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-14T07:23:28.051Z">
+<meta property="og:updated_time" content="2018-04-16T15:09:12.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="整数溢出">
-<meta name="twitter:description" content="Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。 防止溢出的办法是无符号">
+<meta name="twitter:description" content="Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。 防止溢出的办法是无符">
 
 
 
@@ -469,11 +469,13 @@
       
 
       
-        <p>Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。</p>
+        <a id="more"></a>
+<p>Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。</p>
 <p>防止溢出的办法是无符号右移一位？？</p>
 
       
     </div>
+
     
     
     
@@ -566,8 +568,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/fc81fbfd/" rel="prev" title="字符串">
-                字符串 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/fc81fbfd/" rel="prev" title="字符串 String 类型">
+                字符串 String 类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,7 +652,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +754,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 

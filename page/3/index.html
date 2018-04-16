@@ -339,1659 +339,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/95495db/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/95495db/" itemprop="url">文件操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:43+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/95495db/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/95495db/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/95495db/" class="leancloud_visitors" data-flag-title="文件操作">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  132
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="创建文件对象"><a href="#创建文件对象" class="headerlink" title="创建文件对象"></a>创建文件对象</h2><p><code>File f = new File(&quot;MyCode.txt&quot;);</code></p>
-<hr>
-<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File dir = <span class="keyword">new</span> File(<span class="string">"Chapter7"</span>);`</span><br><span class="line">dir.mkdir();</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="列出文件夹中的内容"><a href="#列出文件夹中的内容" class="headerlink" title="列出文件夹中的内容"></a>列出文件夹中的内容</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dir.isDirectory()) &#123;</span><br><span class="line">    String[] dirContents = dir.list();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dirContents.length; i++) &#123;</span><br><span class="line">        System.out.println(dirContents[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="得到文件或文件夹的绝对路径"><a href="#得到文件或文件夹的绝对路径" class="headerlink" title="得到文件或文件夹的绝对路径"></a>得到文件或文件夹的绝对路径</h2><p><code>System.out.println(dir.getAbsolutePath());</code></p>
-<hr>
-<h2 id="删除文件或文件夹（成功则返回true）"><a href="#删除文件或文件夹（成功则返回true）" class="headerlink" title="删除文件或文件夹（成功则返回true）**"></a>删除文件或文件夹（成功则返回true）**</h2><p><code>boolean isDeleted = f.delete();</code></p>
-<p>文件对象代表文件或文件夹在磁盘上的文件名和路径，不代表能够访问文件的内容！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/6a503052/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/6a503052/" itemprop="url">位操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:40+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/6a503052/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/6a503052/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/6a503052/" class="leancloud_visitors" data-flag-title="位操作">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,972
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="位操作基础"><a href="#位操作基础" class="headerlink" title="位操作基础"></a>位操作基础</h2><p>1为真，0为假</p>
-<ul>
-<li>与：<code>&amp;</code> 两个位都为 1 时，结果才为 1</li>
-<li>或：<code>|</code> 两个位都是 0 时，结果才为 0</li>
-<li>异或：<code>^</code> 两个位相同时为 0，相异为 1</li>
-<li>取反：<code>~</code> 0 变 1，1 变 0</li>
-<li>左移：<code>&lt;&lt;</code> 各二进位全部左移若干位，高位丢弃，低位补 0</li>
-<li>右移：<code>&gt;&gt;</code> 各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位(算术右移)，有的补 0 (逻辑右移)</li>
-</ul>
-<hr>
-<ul>
-<li>在这6种操作符，只有 ~ 取反是单目操作符，其它5种都是双目操作符。</li>
-<li>位操作只能用于整形数据，对 <code>float</code> 和 <code>double</code> 类型进行位操作会被编译器报错。</li>
-<li>位操作符的运算优先级比较低，因为尽量使用括号来确保运算顺序，否则很可能会得到莫明其妙的结果。比如要得到像 1，3，5，9 这些 2^i+1 的数字。写成 <code>int a = 1 &lt;&lt; i + 1</code>; 是不对的，程序会先执行 i + 1，再执行左移操作。应该写成 <code>int a = (1 &lt;&lt; i) + 1</code>;</li>
-<li>另外位操作还有一些复合操作符，如 &amp;=、|=、 ^=、&lt;&lt;=、&gt;&gt;=</li>
-</ul>
-<hr>
-<h2 id="常用位操作小技巧"><a href="#常用位操作小技巧" class="headerlink" title="常用位操作小技巧"></a>常用位操作小技巧</h2><h3 id="判断奇偶数"><a href="#判断奇偶数" class="headerlink" title="判断奇偶数"></a>判断奇偶数</h3><p>只要根据最未位是 0 还是 1 来决定，为 0 就是偶数，为 1 就是奇数。</p>
-<p> <code>if ((a &amp; 1) == 0)</code> </p>
-<h3 id="交换两数"><a href="#交换两数" class="headerlink" title="交换两数"></a>交换两数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
-<p>可以这样理解：</p>
-<ul>
-<li>第一步 a ^= b 即 a = (a ^ b)；</li>
-<li>第二步 b ^= a 即 b = b ^ ( a ^ b)，由于异或运算满足交换律，b ^ ( a ^ b) = b ^ b ^ a。由于一个数和自己异或的结果为 0 并且任何数与 0 异或都会不变的，所以此时 b 被赋上了 a 的值；</li>
-<li>第三步 a ^= b 就是 a = a ^ b，由于前面二步可知 a = ( a ^ b)，b=a，所以 a = a ^ b 即 a = ( a ^ b ) ^ a。故 a 会被赋上 b 的值。</li>
-</ul>
-<h3 id="变换符号"><a href="#变换符号" class="headerlink" title="变换符号"></a>变换符号</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取反后加 1</span></span><br><span class="line"><span class="comment">// 注意计算机以补码表示，因此是对补码取反</span></span><br><span class="line">System.out.println(~a + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="求绝对值"><a href="#求绝对值" class="headerlink" title="求绝对值"></a>求绝对值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// int 是32位，右移31位即可使符号位落入最后一位</span></span><br><span class="line"><span class="keyword">int</span> i = a &gt;&gt; <span class="number">31</span>;</span><br><span class="line">System.out.println(i == <span class="number">0</span> ? a : (~a + <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
-<p>现在再分析下。对于任何数，与 0 异或都会保持不变，与 -1 即 0xFFFFFFFF 异或就相当于取反。因此，a 与 i 异或后再减 i（因为 i 为 0 或 -1，所以减 i即是要么加 0要么加 1）也可以得到绝对值。所以可以对上面代码优化下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> j = a &gt;&gt; <span class="number">31</span>;</span><br><span class="line">System.out.println((a ^ j) - j);</span><br></pre></td></tr></table></figure>
-<p>注意这种方法没用任何判断表达式.</p>
-<h3 id="位操作与空间压缩"><a href="#位操作与空间压缩" class="headerlink" title="位操作与空间压缩"></a>位操作与空间压缩</h3><p>筛素数(质数)法在这里不就详细介绍了，本文着重对筛素数法所使用的素数表进行优化来减小其空间占用。要压缩素数表的空间占用，可以使用位操作。下面是用筛素数法计算100以内的素数示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">boolean</span>[] flags = <span class="keyword">new</span> <span class="keyword">boolean</span>[max];</span><br><span class="line"><span class="keyword">int</span>[] primes = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">3</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> pi = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt; max ; m ++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!flags[m]) &#123;</span><br><span class="line">		primes[pi++] = m;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n = m; n &lt; max; n += m) &#123;</span><br><span class="line">			flags[n] = <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(primes));</span><br></pre></td></tr></table></figure>
-<p>在上面程序是用bool数组来作标记的，bool型数据占1个字节（8位），因此用位操作来压缩下空间占用将会使空间的占用减少八分之七。</p>
-<h3 id="在数组中把指定位置变为1"><a href="#在数组中把指定位置变为1" class="headerlink" title="在数组中把指定位置变为1"></a>在数组中把指定位置变为1</h3><p>下面考虑下如何在数组中对指定位置1，先考虑如何对一个整数在指定位置上置1。对于一个整数可以通过将 1 向左移位后与其相或来达到在指定位上置1的效果，代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在一个数指定位上置1</span></span><br><span class="line"><span class="keyword">int</span> e = <span class="number">0</span>;</span><br><span class="line">e |= <span class="number">1</span> &lt;&lt; <span class="number">10</span>;</span><br><span class="line">System.out.println(e);</span><br></pre></td></tr></table></figure>
-<h3 id="判断指定位置是0还是1"><a href="#判断指定位置是0还是1" class="headerlink" title="判断指定位置是0还是1"></a>判断指定位置是0还是1</h3><p>同样，可以1向左移位后与原数相与来判断指定位上是0还是1（也可以将原数右移若干位再与1相与）。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断指定位上是0还是1</span></span><br><span class="line"><span class="keyword">if</span> ((e &amp; (<span class="number">1</span> &lt;&lt; <span class="number">10</span>)) != <span class="number">0</span>)</span><br><span class="line">System.out.println(<span class="string">"指定位上为1"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">System.out.println(<span class="string">"指定位上为0"</span>);</span><br></pre></td></tr></table></figure>
-<p>扩展到数组上，我们可以采用这种方法，因为数组在内存上也是连续分配的一段空间，完全可以“认为”是一个很长的整数。先写一份测试代码，看看如何在数组中使用位操作：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] bits = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">40</span> / <span class="number">32</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; <span class="number">40</span>; m += <span class="number">3</span>) &#123;</span><br><span class="line">	bits[m / <span class="number">32</span>] |= (<span class="number">1</span> &lt;&lt; (m % <span class="number">32</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出整个bits</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; <span class="number">40</span>; m++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (((bits[m / <span class="number">32</span>] &gt;&gt; (m % <span class="number">32</span>)) &amp; <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">		System.out.print(<span class="string">'1'</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		System.out.print(<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>log 信息</p>
-<p>1001001001001001001001001001001001001001</p>
-<p>可以看出该数组每 3 个就置成了1，证明我们上面对数组进行位操作的方法是正确的。因此可以将上面筛素数方法改成使用位操作压缩后的筛素数方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] flags2 = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">32</span> + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> [] primes = <span class="keyword">new</span> <span class="keyword">int</span>[max / <span class="number">3</span> + <span class="number">1</span>];</span><br><span class="line">pi = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt; max ; m ++) &#123;</span><br><span class="line">	<span class="keyword">if</span> ((((flags2[m / <span class="number">32</span>] &gt;&gt; (m % <span class="number">32</span>)) &amp; <span class="number">1</span>) == <span class="number">0</span>)) &#123;</span><br><span class="line">		primes[pi++] = m;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n = m; n &lt; max; n += m) &#123;</span><br><span class="line">			flags2[n / <span class="number">32</span>] |= (<span class="number">1</span> &lt;&lt; (n % <span class="number">32</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(primes));</span><br></pre></td></tr></table></figure>
-<p>log 信息为</p>
-<p>[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 0, 0, 0, 0, 0, 0, 0, 0, 0]</p>
-<h3 id="获取-int-型最大值"><a href="#获取-int-型最大值" class="headerlink" title="获取 int 型最大值"></a>获取 int 型最大值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于优先级关系，括号不可省略</span></span><br><span class="line">System.out.println((<span class="number">1</span> &lt;&lt; <span class="number">31</span>) - <span class="number">1</span>);<span class="comment">// 2147483647， </span></span><br><span class="line">System.out.println(~(<span class="number">1</span> &lt;&lt; <span class="number">31</span>));<span class="comment">// 2147483647</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取-int-型最小值"><a href="#获取-int-型最小值" class="headerlink" title="获取 int 型最小值"></a>获取 int 型最小值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 获得int型最小值</span></span><br><span class="line">System.out.println(<span class="number">1</span> &lt;&lt; <span class="number">31</span>);</span><br><span class="line">System.out.println(<span class="number">1</span> &lt;&lt; -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="获取-long-型最大值"><a href="#获取-long-型最大值" class="headerlink" title="获取 long 型最大值"></a>获取 long 型最大值</h3><p><code>System.out.println(((long)1 &lt;&lt; 127) - 1);</code></p>
-<h3 id="乘以2"><a href="#乘以2" class="headerlink" title="乘以2"></a>乘以2</h3><p><code>System.out.println(10&lt;&lt;1);</code></p>
-<h3 id="除以2（负奇数运算不可用）"><a href="#除以2（负奇数运算不可用）" class="headerlink" title="除以2（负奇数运算不可用）"></a>除以2（负奇数运算不可用）</h3><p><code>System.out.println(10&gt;&gt;1);</code></p>
-<h3 id="乘以-2-的-m-次幂"><a href="#乘以-2-的-m-次幂" class="headerlink" title="乘以 2 的 m 次幂"></a>乘以 2 的 m 次幂</h3><p><code>System.out.println(10&lt;&lt;2);</code></p>
-<h3 id="除以-2-的-m-次幂"><a href="#除以-2-的-m-次幂" class="headerlink" title="除以 2 的 m 次幂"></a>除以 2 的 m 次幂</h3><p><code>System.out.println(16&gt;&gt;2);</code></p>
-<h3 id="判断一个数的奇偶性"><a href="#判断一个数的奇偶性" class="headerlink" title="判断一个数的奇偶性"></a>判断一个数的奇偶性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println((<span class="number">10</span> &amp; <span class="number">1</span>) == <span class="number">1</span>);</span><br><span class="line">System.out.println((<span class="number">9</span> &amp; <span class="number">1</span>) == <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="不用临时变量交换两个数（面试常考）"><a href="#不用临时变量交换两个数（面试常考）" class="headerlink" title="不用临时变量交换两个数（面试常考）"></a>不用临时变量交换两个数（面试常考）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
-<h3 id="取绝对值（某些机器上，效率比n-gt-0-n-n-高）"><a href="#取绝对值（某些机器上，效率比n-gt-0-n-n-高）" class="headerlink" title="取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）"></a>取绝对值（某些机器上，效率比n&gt;0 ? n:-n 高）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = -<span class="number">1</span>;</span><br><span class="line">System.out.println((n ^ (n &gt;&gt; <span class="number">31</span>)) - (n &gt;&gt; <span class="number">31</span>));</span><br><span class="line"><span class="comment">/* n&gt;&gt;31 取得n的符号，若n为正数，n&gt;&gt;31等于0，若n为负数，n&gt;&gt;31等于-1</span></span><br><span class="line"><span class="comment">若n为正数 n^0-0数不变，若n为负数n^-1 需要计算n和-1的补码，异或后再取补码，</span></span><br><span class="line"><span class="comment">结果n变号并且绝对值减1，再减去-1就是绝对值 */</span></span><br></pre></td></tr></table></figure>
-<h3 id="取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）"><a href="#取两个数的最大值（某些机器上，效率比a-gt-b-a-b高）" class="headerlink" title="取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）"></a>取两个数的最大值（某些机器上，效率比a&gt;b ? a:b高）</h3><p><code>System.out.println(b&amp;((a-b)&gt;&gt;31) | a&amp;(~(a-b)&gt;&gt;31));</code></p>
-<h3 id="取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）"><a href="#取两个数的最小值（某些机器上，效率比a-gt-b-b-a高）" class="headerlink" title="取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）"></a>取两个数的最小值（某些机器上，效率比a&gt;b ? b:a高）</h3><p><code>System.out.println(a&amp;((a-b)&gt;&gt;31) | b&amp;(~(a-b)&gt;&gt;31));</code></p>
-<h3 id="判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。"><a href="#判断符号是否相同-true-表示-x和y有相同的符号，-false表示x，y有相反的符号。" class="headerlink" title="判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)"></a>判断符号是否相同(true 表示 x和y有相同的符号， false表示x，y有相反的符号。)</h3><p><code>System.out.println((a ^ b) &gt; 0);</code></p>
-<h3 id="计算2的n次方-n-gt-0"><a href="#计算2的n次方-n-gt-0" class="headerlink" title="计算2的n次方 n &gt; 0"></a>计算2的n次方 n &gt; 0</h3><p><code>System.out.println(2&lt;&lt;(n-1));</code></p>
-<h3 id="判断一个数n是不是2的幂"><a href="#判断一个数n是不是2的幂" class="headerlink" title="判断一个数n是不是2的幂"></a>判断一个数n是不是2的幂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// </span></span><br><span class="line">System.out.println((n &amp; (n - <span class="number">1</span>)) == <span class="number">0</span>);</span><br><span class="line"><span class="comment">/*如果是2的幂，n一定是100... n-1就是1111....</span></span><br><span class="line"><span class="comment">所以做与运算结果为0*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="求两个整数的平均值"><a href="#求两个整数的平均值" class="headerlink" title="求两个整数的平均值"></a>求两个整数的平均值</h3><p><code>System.out.println((a+b) &gt;&gt; 1);</code></p>
-<h3 id="从低位到高位-取n的第m位"><a href="#从低位到高位-取n的第m位" class="headerlink" title="从低位到高位,取n的第m位"></a>从低位到高位,取n的第m位</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">2</span>;</span><br><span class="line">System.out.println((n &gt;&gt; (m-<span class="number">1</span>)) &amp; <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="从低位到高位-将n的第m位置为1"><a href="#从低位到高位-将n的第m位置为1" class="headerlink" title="从低位到高位.将n的第m位置为1"></a>从低位到高位.将n的第m位置为1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(n | (<span class="number">1</span>&lt;&lt;(m-<span class="number">1</span>)));</span><br><span class="line"><span class="comment">/*将1左移m-1位找到第m位，得到000...1...000</span></span><br><span class="line"><span class="comment">n在和这个数做或运算*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="从低位到高位-将n的第m位置为0"><a href="#从低位到高位-将n的第m位置为0" class="headerlink" title="从低位到高位,将n的第m位置为0"></a>从低位到高位,将n的第m位置为0</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(n &amp; ~(<span class="number">0</span>&lt;&lt;(m-<span class="number">1</span>)));</span><br><span class="line"><span class="comment">/* 将1左移m-1位找到第m位，取反后变成111...0...1111</span></span><br><span class="line"><span class="comment">n再和这个数做与运算*/</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/340249a9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/340249a9/" itemprop="url">数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:35+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/340249a9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/340249a9/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/340249a9/" class="leancloud_visitors" data-flag-title="数组">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/28239a8d/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/28239a8d/" itemprop="url">面向对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:33+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/28239a8d/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/28239a8d/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/28239a8d/" class="leancloud_visitors" data-flag-title="面向对象">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  904
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="抽象-Abstract"><a href="#抽象-Abstract" class="headerlink" title="抽象 Abstract"></a>抽象 Abstract</h2><p>将一类对象的共同特征总结出来构造类的过程。</p>
-<hr>
-<p>##继承</p>
-<p>子类从父类处继承信息</p>
-<p>继承性是子类共享其父类数据和方法的机制。它由类的派生功能体现。一个类直接继承其他类的全部描述，同时可修改和扩充。继承具有传递性。继承分为单继承（一个子类有一父类）和多重继承（一个类有多个父类）。类的对象是各自封闭的，如果没继承性机制，则类的对象中的数据、方法就会出现大量重复。继承不仅支持系统的可重用性，而且还促进系统的可扩充性。</p>
-<hr>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>隐藏具体操作，只提供简单的编程接口和返回数据</p>
-<p>封装是一种信息隐蔽技术，它体现于类的说明，是对象的重要特性。封装使数据和加工该数据的方法（函数）封装为一个整体，以实现独立性很强的模块，使得用户只能见到对象的外特性（对象能接受哪些消息，具有哪些处理能力），而对象的内特性（保存内部状态的私有数据和实现加工能力的算法）对用户是隐蔽的。封装的目的在于把对象的设计者和对象的使用者分开，使用者不必知晓其行为实现的细节，只须用设计者提供的消息来访问该对象。</p>
-<p><strong>Getter 返回实例变量的值</strong><br><strong>Setter 设定实例变量的值</strong></p>
-<p>为了避免数据泄露，导致变量的值可以通过点运算符来存取，应该使用 Setter 来给实例设置变量。强迫所有变量都必须调用 Setter 才能获取值。</p>
-<p>实例变量应设置为 private<br>Setter 和 Getter 设置为 public</p>
-<hr>
-<h2 id="多态-Polymorphism"><a href="#多态-Polymorphism" class="headerlink" title="多态 Polymorphism"></a>多态 Polymorphism</h2><p>子类对象可以直接赋给父类变量，但运行时依然表现出子类的行为特征。这意味着同一个类型的对象在执行同一方法时，可能表现出多种行为特征<br>建立一个装父类的数组，可以放入不同的子类对象，每个子类对象对父类的同一方法可作出不同响应<br>将父类作为方法的参数类型，或返回值类型，或数组类型，来避免为每一个子类创建新的方法<br>多态意味着多种形态。一个对象既是所属类的实例，也是 Object 类的实例</p>
-<p>对象根据所接收的消息而做出动作。同一消息被不同的对象接受时可产生完全不同的行动，这种现象称为多态性。利用多态性用户可发送一个通用的信息，而将所有的实现细节都留给接受消息的对象自行决定，如是，同一消息即可调用不同的方法。例如：同样是 run 方法，飞鸟调用时是飞，野兽调用时是奔跑。多态性的实现受到继承性的支持，利用类继承的层次关系，把具有通用功能的协议存放在类层次中尽可能高的地方，而将实现这一功能的不同方法置于较低层次，这样，在这些低层次上生成的对象就能给通用消息以不同的响应。在 OOPL 中可通过在派生类中重定义基类函数（定义为重载函数或虚函数）来实现多态性。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/633a03ca/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/633a03ca/" itemprop="url">枚举</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:24+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/633a03ca/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/633a03ca/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/633a03ca/" class="leancloud_visitors" data-flag-title="枚举">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/79666db/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/79666db/" itemprop="url">数据结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:19+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/79666db/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/79666db/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/79666db/" class="leancloud_visitors" data-flag-title="数据结构">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,425
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>链表是一种数据结构，和数组同级。比如，Java 中我们使用的 ArrayList，其实现原理是数组。而 LinkedList 的实现原理就是链表了。链表在进行循环遍历时效率不高，但是插入和删除时优势明显。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt; </span></span><br><span class="line"><span class="class">	<span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt; </span></span><br><span class="line"><span class="class">	<span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>,<span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123; &#125;</span><br></pre></td></tr></table></figure></p>
-<p>LinkedList继承自AbstractSequenceList，实现了 List、Deque、Cloneable、java.io.Serializable接口。AbstractSequenceList 提供了 List 接口骨干性的实现以减少实现 List 接口的复杂度，Deque 接口定义了双端队列的操作。<br>单向链表是一种线性表，实际上是由节点（Node）组成的，一个链表拥有不定数量的节点。其数据在内存中存储是不连续的，它存储的数据分散在内存中，每个结点只能也只有它能知道下一个结点的存储位置。由N各节点（Node）组成单向链表，每一个 Node 记录本 Node 的数据及下一个 Node 。向外暴露的只有一个头节点（Head），我们对链表的所有操作，都是直接或者间接地通过其头节点来进行的。<br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfd" alt=""><br>上图中最左边的节点即为头节点（Head），（头节点也可以包含数据）。新增节点出现在头节点右侧，紧挨头节点。<br>引用是引用下一个节点而非下一个节点的对象。因为有着不断的引用，所以头节点就可以操作所有节点了。<br>下图描述了单向链表存储情况。存储是分散的，每一个节点只要记录下一节点，就把所有数据串了起来，形成了一个单向链表。<br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfa" alt=""><br>节点（Node）是由一个需要储存的对象及对下一个节点的引用组成的。也就是说，节点拥有两个成员：储存的对象、对下一个节点的引用。下面图是具体的说明：<br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cf9" alt=""><br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfc" alt=""><br><img src="https://leanote.com/api/file/getImage?fileId=5aaa4964ab6441234a001cfb" alt=""></p>
-<hr>
-<h3 id="单项链表的实现"><a href="#单项链表的实现" class="headerlink" title="单项链表的实现"></a>单项链表的实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkList</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="comment">// 定义头节点</span></span><br><span class="line">	LinkList&lt;T&gt; head;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 定义节点类</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="链表的应用"><a href="#链表的应用" class="headerlink" title="链表的应用"></a>链表的应用</h3><h4 id="查找单链表的中间节点"><a href="#查找单链表的中间节点" class="headerlink" title="查找单链表的中间节点"></a>查找单链表的中间节点</h4><p>采用快慢指针的方式查找单链表的中间节点，快指针一次走两步，慢指针一次走一步，当快指针走完时，慢指针刚好到达中间节点。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 查找单链表的中间节点</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">SearchMid</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node p = <span class="keyword">this</span>.head, q = <span class="keyword">this</span>.head;</span><br><span class="line">	<span class="keyword">while</span> (p != <span class="keyword">null</span> &amp;&amp; p.next != <span class="keyword">null</span> &amp;&amp; p.next.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		p = p.next.next;</span><br><span class="line">		q = q.next;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"Mid:"</span> + q.data);</span><br><span class="line">	<span class="keyword">return</span> q;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="查找倒数第k个元素"><a href="#查找倒数第k个元素" class="headerlink" title="查找倒数第k个元素"></a>查找倒数第k个元素</h4><p>采用两个指针P1,P2，P1先前移K步，然后P1、P2同时移动，当p1移动到尾部时，P2所指位置的元素即倒数第k个元素 。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 查找倒数 第k个元素</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> k</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">findElem</span><span class="params">(Node head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (k &lt; <span class="number">1</span> || k &gt; <span class="keyword">this</span>.length()) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Node p1 = head;</span><br><span class="line">	Node p2 = head;</span><br><span class="line">	<span class="comment">// 前移k步</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">		p1 = p1.next;</span><br><span class="line">	<span class="keyword">while</span> (p1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">		p1 = p1.next;</span><br><span class="line">		p2 = p2.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="对链表进行排序"><a href="#对链表进行排序" class="headerlink" title="对链表进行排序"></a>对链表进行排序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 排序</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Node <span class="title">orderList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Node nextNode = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">		Node curNode = head;</span><br><span class="line">		<span class="keyword">while</span> (curNode.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">			nextNode = curNode.next;</span><br><span class="line">			<span class="keyword">while</span> (nextNode != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (curNode.data &gt; nextNode.data) &#123;</span><br><span class="line">					tmp = curNode.data;</span><br><span class="line">					curNode.data = nextNode.data;</span><br><span class="line">					nextNode.data = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">			nextNode = nextNode.next;</span><br><span class="line">		&#125;</span><br><span class="line">		curNode = curNode.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="删除链表中的重复节点"><a href="#删除链表中的重复节点" class="headerlink" title="删除链表中的重复节点"></a>删除链表中的重复节点</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 删除重复节点</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteDuplecate</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node p = head;</span><br><span class="line">	<span class="keyword">while</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">		Node q = p;</span><br><span class="line">		<span class="keyword">while</span> (q.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p.data == q.next.data) &#123;</span><br><span class="line">				q.next = q.next.next;</span><br><span class="line">			&#125; <span class="keyword">else</span></span><br><span class="line">				q = q.next;</span><br><span class="line">		&#125;</span><br><span class="line">		p = p.next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="从尾到头输出单链表，采用递归方式实现"><a href="#从尾到头输出单链表，采用递归方式实现" class="headerlink" title="从尾到头输出单链表，采用递归方式实现"></a>从尾到头输出单链表，采用递归方式实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 从尾到头输出单链表，采用递归方式实现</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> pListHead</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printListReversely</span><span class="params">(Node pListHead)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pListHead != <span class="keyword">null</span>) &#123;</span><br><span class="line">		printListReversely(pListHead.next);</span><br><span class="line">		System.out.println(<span class="string">"printListReversely:"</span> + pListHead.data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="判断链表是否有环，有环情况下找出环的入口节点"><a href="#判断链表是否有环，有环情况下找出环的入口节点" class="headerlink" title="判断链表是否有环，有环情况下找出环的入口节点"></a>判断链表是否有环，有环情况下找出环的入口节点</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 判断链表是否有环，单向链表有环时，尾节点相同</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">IsLoop</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node fast = head, slow = head;</span><br><span class="line">	<span class="keyword">if</span> (fast == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		fast = fast.next.next;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		<span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">			System.out.println(<span class="string">"该链表有环"</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> !(fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 找出链表环的入口</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">	* <span class="doctag">@param</span> head</span></span><br><span class="line"><span class="comment">	* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">FindLoopPort</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">	Node fast = head, slow = head;</span><br><span class="line">	<span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		fast = fast.next.next;</span><br><span class="line">		<span class="keyword">if</span> (slow == fast)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	slow = head;</span><br><span class="line">	<span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">		slow = slow.next;</span><br><span class="line">		fast = fast.next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="添加节点的方法很明显违反了单链表先进后出的原则"><a href="#添加节点的方法很明显违反了单链表先进后出的原则" class="headerlink" title="添加节点的方法很明显违反了单链表先进后出的原则"></a>添加节点的方法很明显违反了单链表先进后出的原则</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNode</span><span class="params">(<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">	Node newNode = <span class="keyword">new</span> Node(d);</span><br><span class="line">	newNode.next = head;</span><br><span class="line">	head = newNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>Java 5.0引入了枚举，枚举限制变量只能是预先设定好的值。使用枚举可以减少代码中的bug。</p>
-<p>例如，我们为果汁店设计一个程序，它将限制果汁为小杯、中杯、大杯。这就意味着它不允许顾客点除了这三种尺寸外的果汁。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FreshJuice</span> </span>&#123;</span><br><span class="line">   <span class="keyword">enum</span> FreshJuiceSize&#123; SMALL, MEDIUM , LARGE &#125;</span><br><span class="line">   FreshJuiceSize size;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FreshJuiceTest</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">      FreshJuice juice = <span class="keyword">new</span> FreshJuice();</span><br><span class="line">      juice.size = FreshJuice.FreshJuiceSize.MEDIUM  ;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：枚举可以单独声明或者声明在类里面。方法、变量、构造函数也可以在枚举中定义。</p>
-<hr>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p><strong>JAVA 数组是静态的，声明后长度不可改变，仅数值可改变</strong></p>
-<p>数组初始化的两种方式</p>
-<ul>
-<li>静态初始化：初始化时由程序员显式指定每个数组元素的初始值，由系统决定数组长度。</li>
-<li>动态初始化：初始化时程序员只指定数组长度，由系统为数组元素分配初始值。</li>
-</ul>
-<p>【初始化数组时，不要同时使用静态和动态方法】</p>
-<p><strong>数组变量是引用变量</strong><br>数组变量不是数组本身，它指向堆内存中的数组对象。改变数组变量所引用的数组，可以造成数组长度可变的假象</p>
-<p>多维数组<br>即数组套数组<br><code>int[][]</code></p>
-<hr>
-<h2 id="数组列表-ArrayList"><a href="#数组列表-ArrayList" class="headerlink" title="数组列表 ArrayList"></a>数组列表 ArrayList</h2><p>ArrayList 类扩展 AbstractList，并实现了 List 接口。支持 ArrayList 动态数组根据需要可以增长。</p>
-<p>标准的 Java 数组是一个固定长度的。创建数组后，他们不能生长或缩小，这意味着必须事先知道数组将容纳多少元素。</p>
-<p>数组列表是用初始大小创建。但添加元素时，会自动放大。删除元素时，会自动缩小。</p>
-<p><code>ArrayList</code>是泛型类，应指定其内部所保存的元素类型。使用<code>&lt;类型&gt;</code>接在<code>ArrayList</code>后面</p>
-<h3 id="构造函数。"><a href="#构造函数。" class="headerlink" title="构造函数。"></a>构造函数。</h3><ul>
-<li><p><code>ArrayList&lt;E&gt;()</code><br>构造一个空数组列表</p>
-</li>
-<li><p><code>ArrayList&lt;E&gt;(int initalCapacity)</code></p>
-</li>
-<li><p>用指定容量构造一个空数组列表</p>
-</li>
-<li><p><code>ArrayList(Collection c)</code><br>建立一个与集合c 的元素初始化一个数组列表。</p>
-</li>
-</ul>
-<p><strong>菱形语法</strong><br><code>ArrayList&lt;Employee&gt; staff = new ArrayList&lt;Employee&gt;()</code><br>`ArrayList<employee> staff = new ArrayList&lt;&gt;(); </employee></p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>除了从它的父类继承的方法，ArrayList中定义了以下方法：</p>
-<ul>
-<li><p><code>void add(int index, Object element)</code><br>插入指定位置的索引在此列表中的指定元素。如果指定的索引超出<code>range (index &lt; 0 || index &gt; size())</code>，抛出<code>IndexOutOfBoundsException</code>异常。</p>
-</li>
-<li><p><code>boolean add(Object o)</code><br>将指定的元素添加到ArrayList的末尾，永远返回<code>ture</code>。</p>
-</li>
-<li><p><code>void ensureCapacity(int Capacity)</code><br>确保ArrayList在不重新分配存储空间的情况下就能够保存给定数量的元素。</p>
-</li>
-<li><p><code>void trimToSize()</code><br>将ArrayList的存储容量削减到当前尺寸。</p>
-</li>
-<li><p><code>boolean addAll(Collection c)</code><br>所有追加指定<code>collection</code>中的元素添加到此列表的结尾，因为它们是由指定<code>collection</code>的迭代器返回的顺序。，如果指定集合为<code>null</code>，抛出<code>NullPointerException</code>异常。</p>
-</li>
-<li><p><code>boolean addAll(int index, Collection c)</code><br>插入所有指定集合中的元素插入此列表，开始在指定的位置。抛出NullPointerException异常，如果指定集合为null。</p>
-</li>
-<li><p><code>void clear()</code><br>移除此列表中的元素。</p>
-</li>
-<li><p><code>Object clone()</code><br>返回此ArrayList浅表副本。</p>
-</li>
-<li><p><code>boolean contains(Object o)</code><br>如果此列表包含指定的元素返回true。更正式地说，当且仅当此列表包含至少一个元素e，使得返回true (o==null ? e==null : o.equals(e)).</p>
-</li>
-<li><p><code>Object get(int index)</code><br>返回此列表中指定位置的元素。抛出IndexOutOfBoundsException异常，如果指定的索引超出range (index &lt; 0 || index &gt;= size()).</p>
-</li>
-<li><p><code>int indexOf(Object o)</code><br>返回索引中的指定元素第一次出现的这个名单，或者-1，如果列表中不包含该元素。</p>
-</li>
-<li><p><code>int lastIndexOf(Object o)</code><br>返回索引中的指定元素中最后出现的这个名单，或者-1，如果列表中不包含该元素。</p>
-</li>
-<li><p><code>Object remove(int index)</code><br>移除元素在此列表中的指定位置。如果索引超出 range (index &lt; 0 || index &gt;= size()) 抛出一个IndexOutOfBoundsException。</p>
-</li>
-<li><p><code>protected void removeRange(int fromIndex, int toIndex)</code><br>从这个列表中删除所有索引为fromIndex（包括）和toIndex，独占的元素。</p>
-</li>
-<li><p><code>Object set(int index, Object element)</code><br>替换元素在与指定元素在此列表中的指定位置。抛出IndexOutOfBoundsException异常，如果指定的索引超出 range (index &lt; 0 || index &gt;= size()).</p>
-</li>
-<li><p><code>int size()</code><br>返回此列表中的元素数。</p>
-</li>
-<li><p><code>Object[] toArray()</code><br>返回包含所有在此列表中正确的顺序元素的数组。抛出NullPointerException异常如果指定数组为null。</p>
-</li>
-<li><p><code>Object[] toArray(Object[] a)</code><br>返回包含所有在此列表中正确的顺序元素的数组;返回数组的运行时类型是指定数组。</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/fe8a6aab/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/fe8a6aab/" itemprop="url">垃圾回收器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:15+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/fe8a6aab/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/fe8a6aab/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/fe8a6aab/" class="leancloud_visitors" data-flag-title="垃圾回收器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  479
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。</p>
-<p>1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片</p>
-<p>2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率</p>
-<p>3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到达对象复制到另一半空间，再清空正在使用的空间的全部对象。这种方法适用于短生存期的对象，持续复制长生存期的对象则导致效率降低。</p>
-<p>4.分代回收发：把内存空间分为两个或者多个域，如年轻代和老年代，年轻代的特点是对象会很快被回收，因此在年轻代使用效率比较高的算法。当一个对象经过几次回收后依然存活，对象就会被放入称为老年的内存空间，老年代则采取标记-压缩算法</p>
-<p>5.引用计数（最简单古老的方法）：指将资源（可以是对象、内存或磁盘空间等等）的被引用次数保存起来，当被引用次数变为零时就将其释放的过程</p>
-<p>6.对象引用遍历（现在大多数 JVM 使用的方法）：对象引用遍历从一组对象开始，沿着整个对象图上的每条链接，递归确定可到达（reachable）的对象。如果某对象不能从这些根对象的一个（至少一个）到达，则将它作为垃圾收集</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/179f63b0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="乌鸦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="清梦船">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/179f63b0/" itemprop="url">静态变量</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:26:00+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/posts/179f63b0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="posts/179f63b0/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/posts/179f63b0/" class="leancloud_visitors" data-flag-title="静态变量">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  647
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h2><ul>
-<li><p>静态变量只有在第一次加载类的时候才会被初始化，而不是每次创建实例都初始化。因此对于该类的所有实例，值都相同。静态变量是所有实例共享的，相同的值。某个对象修改了静态变量的值后，其他对象访问改静态变量得到的是修改后的值。</p>
-</li>
-<li><p>实例变量：每个实例独占一个，1000个对象有1000个实例变量，属于对象。</p>
-</li>
-<li><p>静态变量：每个类只有一个，1000个对象共享同1个，属于类。即使没有对象，也存在着。</p>
-</li>
-<li><p>创建对象前，静态变量必须被初始化完毕。</p>
-</li>
-<li><p>调用类中的静态方法前，静态变量必须被初始化完毕。</p>
-</li>
-<li><p>通过类名（而非对象名）访问静态变量。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> playerCounst; <span class="comment">// int 类型默认值为0</span></span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Player</span><span class="params">(String n)</span> </span>&#123;</span><br><span class="line">		    name = n;</span><br><span class="line">		    playerCount++;</span><br><span class="line">	    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlayerTestDrive</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            System.out.pintln(Player.playerCount);</span><br><span class="line">            Player one = <span class="keyword">new</span> Player(<span class="string">"Tiger Woods"</span>);</span><br><span class="line">            Systen.out.println(Player.playerCount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><ul>
-<li>静态方法不能对实例进行操作，不能使用实例变量的值。因此调用静态方法时，不需要对象，直接使用类名。</li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = Math.round(<span class="number">42.2</span>);</span><br><span class="line"><span class="keyword">int</span> y = Math.min(<span class="number">56</span>, <span class="number">12</span>);</span><br><span class="line"><span class="keyword">int</span> z = Math.abs(-<span class="number">343</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>需要静态方法的场合：</p>
-<ul>
-<li>一个方法不需要访问对象状态，其所有参数都是通过显示参数提供（例如：Math.pow)。</li>
-<li>一个方法只需要访问类的静态变量。</li>
-<li><p>使用静态工厂方法来构造对象。</p>
-</li>
-<li><p>静态方法可以在堆内存中没有类的实例的情况下调用。</p>
-</li>
-<li>静态方法可以访问静态变量。</li>
-<li><p>但使用引用变量调用静态方法是允许的，这会造成混淆。不推荐。</p>
-</li>
-<li><p>拥有静态方法的类不应该被初始化，这可以通过把构造器声明为 Private 来实现。但不意味着无法被初始化，例如拥有 main 方法的类。</p>
-</li>
-<li><p>静态方法不能调用非静态方法，因为非静态方法通常会有实例变量。即使方法中没有使用实例变量也不可以。避免日后会修改该方法导致使用实例变量，或子类重写该方法导致使用实例变量。</p>
-</li>
-</ul>
-<hr>
-<h2 id="静态工厂方法"><a href="#静态工厂方法" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h2><p>不通过<code>new</code>，而是用一个静态方法来对外提供自身实例的方法。</p>
-<p>Fragment </p>
-<p>静态工厂方法的优势</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/990f7b7d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2099,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,731
+                  1,729
                 </span>
               
 
@@ -2126,7 +473,8 @@
       
         
           
-            <p>接口（英文：Interface），在 JAVA 编程语言中是一个抽象类型，是抽象方法的集合，接口通常以 <code>interface</code> 来声明。一个类通过实现接口的方式，从而实现接口的抽象方法</p>
+            <a id="more"></a>
+<p>接口（Interface），在 JAVA 编程语言中是一个抽象类型，是抽象方法的集合，接口通常以 <code>interface</code> 来声明。一个类通过实现接口的方式，从而实现接口的抽象方法</p>
 <ul>
 <li>用于强调某个类应实现的功能。</li>
 <li>接口并不是类，无法被实例化。</li>
@@ -2179,7 +527,7 @@
 <li>类在实现接口的方法时，不能抛出强制性异常，只能在接口中，或者继承接口的抽象类中抛出该强制性异常。</li>
 <li>类在重写方法时要保持一致的方法名，并且应该保持相同或者相兼容的返回值类型。</li>
 <li>如果实现接口的类是抽象类，那么就没必要实现该接口的方法。</li>
-<li></li>
+<li>​</li>
 </ul>
 <hr>
 <p>在实现接口的时候，也要注意一些规则：</p>
@@ -2207,6 +555,7 @@
         
       
     </div>
+
     
     
     
@@ -2386,7 +735,8 @@
       
         
           
-            <h2 id="byte"><a href="#byte" class="headerlink" title="byte"></a>byte</h2><ul>
+            <a id="more"></a>
+<h2 id="byte"><a href="#byte" class="headerlink" title="byte"></a>byte</h2><ul>
 <li><code>byte</code>数据类型是8位、有符号的，以二进制补码表示的整数；</li>
 <li>最小值是 -128（-2^7）；</li>
 <li>最大值是 127（2^7-1）；</li>
@@ -2486,6 +836,2020 @@
         
       
     </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/fe7c7d2d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/fe7c7d2d/" itemprop="url">关键字</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:25:25+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/fe7c7d2d/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/fe7c7d2d/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/fe7c7d2d/" class="leancloud_visitors" data-flag-title="关键字">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  289
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>下面列出了Java保留字。这些保留字不能用于常量、变量、和任何标识符的名称。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">访问控制</td>
+<td style="text-align:center">private</td>
+<td style="text-align:center">私有的</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">protected</td>
+<td style="text-align:center">受保护的</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">public</td>
+<td style="text-align:center">公共的</td>
+</tr>
+<tr>
+<td style="text-align:center">类、方法和变量修饰符</td>
+<td style="text-align:center">abstract</td>
+<td style="text-align:center">声明抽象</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">class</td>
+<td style="text-align:center">类</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">extends</td>
+<td style="text-align:center">扩允,继承</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">final</td>
+<td style="text-align:center">最终值,不可改变的</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">implements</td>
+<td style="text-align:center">实现（接口）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">interface</td>
+<td style="text-align:center">接口</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">native</td>
+<td style="text-align:center">本地，原生方法（非Java实现）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">new</td>
+<td style="text-align:center">新,创建</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">static</td>
+<td style="text-align:center">静态</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">strictfp</td>
+<td style="text-align:center">严格,精准</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">synchronized</td>
+<td style="text-align:center">线程,同步</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">transient</td>
+<td style="text-align:center">短暂</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">volatile</td>
+<td style="text-align:center">易失</td>
+</tr>
+<tr>
+<td style="text-align:center">程序控制语句</td>
+<td style="text-align:center">break</td>
+<td style="text-align:center">跳出循环</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">case</td>
+<td style="text-align:center">定义一个值以供switch选择</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">continue</td>
+<td style="text-align:center">继续</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">default</td>
+<td style="text-align:center">默认</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">do</td>
+<td style="text-align:center">运行</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">else</td>
+<td style="text-align:center">否则</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">for</td>
+<td style="text-align:center">循环</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">if</td>
+<td style="text-align:center">如果</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">instanceof</td>
+<td style="text-align:center">实例</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">return</td>
+<td style="text-align:center">返回</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">switch</td>
+<td style="text-align:center">根据值选择执行</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">while</td>
+<td style="text-align:center">循环</td>
+</tr>
+<tr>
+<td style="text-align:center">错误处理</td>
+<td style="text-align:center">assert</td>
+<td style="text-align:center">断言表达式是否为真</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">catch</td>
+<td style="text-align:center">捕捉异常</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">finally</td>
+<td style="text-align:center">有没有异常都执行</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">throw</td>
+<td style="text-align:center">抛出一个异常对象</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">throws</td>
+<td style="text-align:center">声明一个异常可能被抛出</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">try</td>
+<td style="text-align:center">捕获异常</td>
+</tr>
+<tr>
+<td style="text-align:center">包相关</td>
+<td style="text-align:center">import</td>
+<td style="text-align:center">引入</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">package</td>
+<td style="text-align:center">包</td>
+</tr>
+<tr>
+<td style="text-align:center">基本类型</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">布尔型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">字节型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">char</td>
+<td style="text-align:center">字符型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">双精度浮点</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">单精度浮点</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">整型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">long</td>
+<td style="text-align:center">长整型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">short</td>
+<td style="text-align:center">短整型</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">null</td>
+<td style="text-align:center">空</td>
+</tr>
+<tr>
+<td style="text-align:center">变量引用</td>
+<td style="text-align:center">super</td>
+<td style="text-align:center">父类,超类</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">this</td>
+<td style="text-align:center">本类</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">无返回值</td>
+</tr>
+<tr>
+<td style="text-align:center">保留关键字</td>
+<td style="text-align:center">goto</td>
+<td style="text-align:center">是关键字，但不能使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">const</td>
+<td style="text-align:center">是关键字，但不能使用</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/92e0508e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/92e0508e/" itemprop="url">构造过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:25:21+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/92e0508e/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/92e0508e/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/92e0508e/" class="leancloud_visitors" data-flag-title="构造过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,089
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p><code>Dog myDog = new Dog();</code></p>
+<ol>
+<li><em>声明一个引用变量</em> ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。</li>
+<li><em>创建对象</em> ：要求 Java 虚拟机分配 <em>堆空间</em> 给新建立的 Dog <em>对象</em>。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。</li>
+<li>连接对象和引用： 将<em>获取 Dog 对象的方法</em>以字节形式放进引用变量中。<br>换言之，引用变量(遥控器)是获得对象的某种神秘方法，而不是变量本身。</li>
+</ol>
+
+<p>同一个 Java 虚拟机的引用变量是固定大小。</p>
+<hr>
+<h2 id="对象的初始化过程"><a href="#对象的初始化过程" class="headerlink" title="对象的初始化过程"></a>对象的初始化过程</h2><ol>
+<li>调用<code>Object</code>类的非静态初始化块</li>
+<li>调用<code>Object</code>类的构造器</li>
+<li>调用父类的非静态初始化块</li>
+<li>调用父类的构造器</li>
+<li>调用非静态初始化块</li>
+<li>调用构造器</li>
+<li>（如果有super()）根据实参列表决定调用哪个父类构造器</li>
+<li>（如果有this()）调用同类中指定的构造器</li>
+</ol>
+<hr>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><ul>
+<li>对象要先运行构造器，才能赋值给一个引用。</li>
+<li>构造器必须与类同名。</li>
+<li>构造器没有返回值。而函数方法必须有返回值。</li>
+<li>一个类可以有多个构造器：重载构造器</li>
+<li>默认构造器<br><code>public Duck(){}</code></li>
+<li>自定构造器<br><code>public Duck(int duckSize) {}</code></li>
+<li>构造器中的代码可以让对象在被创建时进行一些自定义。如打印信息等。</li>
+<li>对于一个在不同对象中，值会发生变化的实例变量，考虑在构造器中为实例变量赋值，一来可以避免创建对象后还要调用 <code>setter</code> 方法赋值。二来可以使实例变量从出生就有值，避免出现赋值前的“真空期”（未赋值时由系统指定默认值）。</li>
+<li>如果对象必须等待其内部某个实例变量被赋值后才能使用，期待创建对象的人调用 <code>setter</code> 方法来赋值是不靠谱的。应该将这样的变量作为参数传入类的构造器。使得用户在创建实例时，必须传入参数的值才能构造。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 假设该参数必须赋值</span></span><br><span class="line">	<span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 默认构造器（无参构造器）</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 默认值</span></span><br><span class="line">		size = <span class="number">27</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 自定构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">(<span class="keyword">int</span> duckSize)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 通过参数赋值</span></span><br><span class="line">		size = duckSize;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只有当类缺少自定构造器时，编译器才会自动给与默认构造器。换言之，如果有自定构造器，还必须自行编写一个默认构造器。</li>
+<li>创建实例时，对象的继承树上的所有构造器都必须运行。对象的构造器会沿继承树向上调用所有父类的构造器，直到 <code>Object</code> 类的构造器。编译器隐式地使用 <code>super()</code>。</li>
+<li>如果你没有给类提供构造器，编译器会自动提供一个 <code>super()</code>。如果你提供了构造器，编译器会在每个构造器的第一行加入 <code>super()</code>。</li>
+<li>抽象类型也拥有构造器，即使不能创建抽象类型的实例，但创建其子类的实例时还是要运行父类的构造器。因为子类中可能会用到父类中定义的变量的值。</li>
+<li>使用 super() 来调用父类的构造器，<code>super()</code>必须放在构造器的第一行。</li>
+<li>在构造器中调用其他构造器并传入参数：使用 <code>this(arg)</code> 方法。 <code>this(args)</code> 方法只能用在构造器中，且必须是构造器的第一行语句。</li>
+<li>构造器中，<code>super()</code> 和 <code>this()</code> 只能选用其一。</li>
+</ul>
+<hr>
+<h2 id="极端情况下的父类访问子类的实例变量的方法"><a href="#极端情况下的父类访问子类的实例变量的方法" class="headerlink" title="极端情况下的父类访问子类的实例变量的方法"></a>极端情况下的父类访问子类的实例变量的方法</h2><p><code>this</code> 处于构造器中时，代表的是正在初始化的 Java 对象。</p>
+<blockquote>
+<p>子类构造器调用父类构造器，父类构造器中有 <code>this</code>，这个 <code>this</code> 代表的是子类，因为当时父类构造器中的代码是放在子类构造器中执行的。</p>
+</blockquote>
+<p>当变量的编译时类型和运行时类型不同时</p>
+<ul>
+<li>​</li>
+</ul>
+<hr>
+<h2 id="特殊情况下父类调用被子类重写的方法"><a href="#特殊情况下父类调用被子类重写的方法" class="headerlink" title="特殊情况下父类调用被子类重写的方法"></a>特殊情况下父类调用被子类重写的方法</h2>
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/7d9efe37/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/7d9efe37/" itemprop="url">格式指定</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:25:15+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/7d9efe37/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/7d9efe37/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/7d9efe37/" class="leancloud_visitors" data-flag-title="格式指定">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  79
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>格式化字符串</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/7d9efe37/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/dc306f3e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/dc306f3e/" itemprop="url">分支语句</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:25:01+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/dc306f3e/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/dc306f3e/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/dc306f3e/" class="leancloud_visitors" data-flag-title="分支语句">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  905
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="The-break-Statement"><a href="#The-break-Statement" class="headerlink" title="The break Statement"></a>The break Statement</h2><p>The break statement has two forms: labeled and unlabeled. You saw the unlabeled form in the previous discussion of the switch statement. You can also use an unlabeled break to terminate a for, while, or do-while loop, as shown in the following BreakDemo program:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BreakDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] arrayOfInts = </span><br><span class="line">            &#123; <span class="number">32</span>, <span class="number">87</span>, <span class="number">3</span>, <span class="number">589</span>,</span><br><span class="line">              <span class="number">12</span>, <span class="number">1076</span>, <span class="number">2000</span>,</span><br><span class="line">              <span class="number">8</span>, <span class="number">622</span>, <span class="number">127</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> searchfor = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arrayOfInts.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arrayOfInts[i] == searchfor) &#123;</span><br><span class="line">                foundIt = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (foundIt) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Found "</span> + searchfor + <span class="string">" at index "</span> + i);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(searchfor + <span class="string">" not in the array"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This program searches for the number 12 in an array. The break statement, shown in boldface, terminates the for loop when that value is found. Control flow then transfers to the statement after the for loop. This program’s output is:</p>
+<blockquote>
+<p>Found 12 at index 4</p>
+</blockquote>
+<p>An unlabeled break statement terminates the innermost switch, for, while, or do-while statement, but a labeled break terminates an outer statement. The following program, BreakWithLabelDemo, is similar to the previous program, but uses nested for loops to search for a value in a two-dimensional array. When the value is found, a labeled break terminates the outer for loop (labeled “search”):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BreakWithLabelDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[][] arrayOfInts = &#123; </span><br><span class="line">            &#123; <span class="number">32</span>, <span class="number">87</span>, <span class="number">3</span>, <span class="number">589</span> &#125;,</span><br><span class="line">            &#123; <span class="number">12</span>, <span class="number">1076</span>, <span class="number">2000</span>, <span class="number">8</span> &#125;,</span><br><span class="line">            &#123; <span class="number">622</span>, <span class="number">127</span>, <span class="number">77</span>, <span class="number">955</span> &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">int</span> searchfor = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    search:</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arrayOfInts.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; arrayOfInts[i].length;</span><br><span class="line">                 j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arrayOfInts[i][j] == searchfor) &#123;</span><br><span class="line">                    foundIt = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span> search;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (foundIt) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Found "</span> + searchfor + <span class="string">" at "</span> + i + <span class="string">", "</span> + j);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(searchfor + <span class="string">" not in the array"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is the output of the program.</p>
+<blockquote>
+<p>Found 12 at 1, 0</p>
+</blockquote>
+<p>The break statement terminates the labeled statement; it does not transfer the flow of control to the label. Control flow is transferred to the statement immediately following the labeled (terminated) statement.</p>
+<h2 id="The-continue-Statement"><a href="#The-continue-Statement" class="headerlink" title="The continue Statement"></a>The continue Statement</h2><p>The continue statement skips the current iteration of a for, while , or do-while loop. The unlabeled form skips to the end of the innermost loop’s body and evaluates the boolean expression that controls the loop. The following program, ContinueDemo , steps through a String, counting the occurences of the letter “p”. If the current character is not a p, the continue statement skips the rest of the loop and proceeds to the next character. If it is a “p”, the program increments the letter count.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContinueDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        String searchMe = <span class="string">"peter piper picked a "</span> + <span class="string">"peck of pickled peppers"</span>;</span><br><span class="line">        <span class="keyword">int</span> max = searchMe.length();</span><br><span class="line">        <span class="keyword">int</span> numPs = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max; i++) &#123;</span><br><span class="line">            <span class="comment">// interested only in p's</span></span><br><span class="line">            <span class="keyword">if</span> (searchMe.charAt(i) != <span class="string">'p'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// process p's</span></span><br><span class="line">            numPs++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Found "</span> + numPs + <span class="string">" p's in the string."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here is the output of this program:</p>
+<blockquote>
+<p>Found 9 p’s in the string.</p>
+</blockquote>
+<p>To see this effect more clearly, try removing the continue statement and recompiling. When you run the program again, the count will be wrong, saying that it found 35 p’s instead of 9.<br>A labeled continue statement skips the current iteration of an outer loop marked with the given label. The following example program, ContinueWithLabelDemo, uses nested loops to search for a substring within another string. Two nested loops are required: one to iterate over the substring and one to iterate over the string being searched. The following program, ContinueWithLabelDemo, uses the labeled form of continue to skip an iteration in the outer loop.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContinueWithLabelDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        String searchMe = <span class="string">"Look for a substring in me"</span>;</span><br><span class="line">        String substring = <span class="string">"sub"</span>;</span><br><span class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> max = searchMe.length() - </span><br><span class="line">                  substring.length();</span><br><span class="line"></span><br><span class="line">    test:</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= max; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> n = substring.length();</span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (searchMe.charAt(j++) != substring.charAt(k++)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span> test;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            foundIt = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">break</span> test;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(foundIt ? <span class="string">"Found it"</span> : <span class="string">"Didn't find it"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here is the output from this program.</p>
+<blockquote>
+<p>Found it</p>
+</blockquote>
+<h2 id="The-return-Statement"><a href="#The-return-Statement" class="headerlink" title="The return Statement"></a>The return Statement</h2><p>The last of the branching statements is the return statement. <em>The return statement exits from the current method, and control flow returns to where the method was invoked.</em> The return statement has two forms: one that returns a value, and one that doesn’t. To return a value, simply put the value (or an expression that calculates the value) after the return keyword.</p>
+<p><code>return ++count;</code></p>
+<p>The data type of the returned value must match the type of the method’s declared return value. When a method is declared void, use the form of return that doesn’t return a value.</p>
+<p><code>return;</code></p>
+<p>The Classes and Objects lesson will cover everything you need to know about writing methods.</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/8a9fd61b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/8a9fd61b/" itemprop="url">对象的强、软、弱、虚引用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:23:16+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/8a9fd61b/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/8a9fd61b/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/8a9fd61b/" class="leancloud_visitors" data-flag-title="对象的强、软、弱、虚引用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,686
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>在 JDK 1.2 以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从 JDK 1.2 版本开始，把对象的引用分为4种级别，从而使程序能更加灵活地控制对象的生命周期。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
+<h2 id="强引用（StrongReference）"><a href="#强引用（StrongReference）" class="headerlink" title="强引用（StrongReference）"></a>强引用（StrongReference）</h2><ul>
+<li><code>Object obj = new Object();</code></li>
+<li>如果一个对象具有强引用，则 GC(Garbage Collection) 时绝不会回收它。</li>
+<li>当内存空间不足，JVM 宁愿抛出 OutOfMemoryError 错误，使程序异常终止。</li>
+</ul>
+<hr>
+<h2 id="软引用（SoftReference）"><a href="#软引用（SoftReference）" class="headerlink" title="软引用（SoftReference）"></a>软引用（SoftReference）</h2><ul>
+<li><code>java.lang.ref.SoftReference</code></li>
+<li>用于描述还有用，但并非必须的对象。</li>
+<li>当堆将发生 OOM（Out Of Memory）时则会回收软引用所指向的内存空间，若回收后依然空间不足才会抛出 OOM。</li>
+<li>软引用可用来实现内存敏感的高速缓存。(见后例）</li>
+<li>软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被 GC，JVM 就会把这个软引用加入到与之关联的引用队列中。</li>
+</ul>
+<p>示例：实现学生信息查询操作时有两套数据操作的方案（如后退操作，查询上一个刚刚查询过的信息）</p>
+<ol>
+<li>将得到的信息存放在内存中，后续查询则直接读取内存信息。</li>
+</ol>
+<ul>
+<li>优点：读取速度快；</li>
+<li>缺点：内存空间一直被占，若资源访问量不高，则浪费内存空间</li>
+</ul>
+<ol start="2">
+<li>每次查询均从数据库读取，然后填充到 TO 返回。</li>
+</ol>
+<ul>
+<li>优点：内存空间将被 GC 回收，不会一直被占用。</li>
+<li>缺点：在 GC 发生之前已有的 TO 依然存在，但还是执行了一次数据库查询，浪费IO</li>
+</ul>
+<p><em>通过软引用解决</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ReferenceQueue queue = <span class="keyword">new</span> ReferenceQueue();</span><br><span class="line"><span class="comment">// 获取数据并缓存</span></span><br><span class="line">Object object = <span class="keyword">new</span> Object();</span><br><span class="line">SoftReference softRef = <span class="keyword">new</span> SoftReference(object, queue);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下次使用时</span></span><br><span class="line">Object object = (Object)softRef.get();</span><br><span class="line"><span class="keyword">if</span> (object == <span class="keyword">null</span>)&#123;</span><br><span class="line">  <span class="comment">// 当软引用被回收后才重新获取</span></span><br><span class="line">  object = <span class="keyword">new</span> Object();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清理被收回后剩下来的软引用对象</span></span><br><span class="line">SoftReference ref = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">while</span>((ref = queue.poll()) != <span class="keyword">null</span>)&#123;</span><br><span class="line">  <span class="comment">// 清理工作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="弱引用（WeakReference）"><a href="#弱引用（WeakReference）" class="headerlink" title="弱引用（WeakReference）"></a>弱引用（WeakReference）</h2><ul>
+<li><code>java.lang.ref.WeakReference</code></li>
+<li>GC 时必定收回弱引用指向的内存空间</li>
+<li>不过由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。</li>
+<li>弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被 GC，JVM就会把这个弱引用加入到与之关联的引用队列中。 </li>
+</ul>
+<hr>
+<h2 id="虚引用（PhantomReference）"><a href="#虚引用（PhantomReference）" class="headerlink" title="虚引用（PhantomReference）"></a>虚引用（PhantomReference）</h2><ul>
+<li><code>java.lang.ref.PhantomReference</code></li>
+<li>虚引用不会决定对象的生命周期，也无法通过需引用来获取对象实例。仅用于在发生 GC 时接受一个系统通知。</li>
+<li>如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。</li>
+<li>虚引用与软引用和弱引用的一个区别在于：<em>虚引用必须和引用队列 （ReferenceQueue）联合使用。</em>当 GC 准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</li>
+<li><code>ReferenceQueue queue = new ReferenceQueue();</code><br><code>PhantomReference pr = new PhantomReference(object, queue);</code></li>
+</ul>
+<p>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</p>
+<hr>
+<h2 id="引用队列-Reference-Queue"><a href="#引用队列-Reference-Queue" class="headerlink" title="引用队列(Reference Queue)"></a>引用队列(Reference Queue)</h2><ul>
+<li><code>java.lang.ref.ReferenceQueue</code></li>
+<li><p>引用队列配合 Reference 的子类等使用，当引用对象所指向的内存空间被 GC 回收后，该引用对象则被追加到引用队列的末尾（源码中 <code>boolean enqueue(Reference&lt;? extends T&gt; r) { /* Called only by Reference class */</code>说明只供Reference实例调用，且仅能调用一次）。引用队列有如下实例方法：</p>
+</li>
+<li><p><code>Reference&lt;? extends T&gt; ReferenceQueue#poll()</code><br>从队列中出队一个元素，若队列为空则返回null。</p>
+</li>
+<li><code>Reference&lt;? extends T&gt; ReferenceQueue#remove()</code><br>从队列中出队一个元素，若没有则阻塞直到有元素可出队。</li>
+<li><code>Reference&lt;? extends T&gt; ReferenceQueue#remove(long timeout)</code><br>从队列中出队一个元素，若没有则阻塞直到有元素可出队或超过 timeout 指定的毫秒数（由于采用<code>wait(long timeout)</code>方式实现等待，因此时间不能保证）。</li>
+</ul>
+<hr>
+<h2 id="判断可达性-可触及性-Reachable"><a href="#判断可达性-可触及性-Reachable" class="headerlink" title="判断可达性/可触及性(Reachable)"></a>判断可达性/可触及性(Reachable)</h2><ol>
+<li>单条引用链的可达性以最弱的一个引用类型来决定；</li>
+<li>多条引用链的可达性以最强的一个引用类型来决定；</li>
+</ol>
+<p>可达性分析用于判断对象是否存活。</p>
+<p>以 GCRoots 的对象做为起点，从起点开始向下搜索，搜索的走过路径叫引用链，引用链上的对象判断为生存，当一个对象到 GCRoots 没有引用链时，判断对象死亡。</p>
+<p>在 JVM 中，做为 GCRoots 的对象：</p>
+<ul>
+<li>虚拟机栈(栈桢中的本地变量表)中的引用的对象</li>
+<li>方法区中的类/静态属性引用的对象</li>
+<li>方法区中的常量引用的对象</li>
+<li>本地方法栈中 JNI 的引用的对象 </li>
+</ul>
+<hr>
+<h2 id="使用软引用构建敏感数据的缓存"><a href="#使用软引用构建敏感数据的缓存" class="headerlink" title="使用软引用构建敏感数据的缓存"></a>使用软引用构建敏感数据的缓存</h2><h3 id="为什么需要使用软引用"><a href="#为什么需要使用软引用" class="headerlink" title="为什么需要使用软引用"></a>为什么需要使用软引用</h3><p>设想一个雇员信息系统。作为一个用户，我们完全有可能需要回头去查看几分钟甚至几秒钟前查看过的雇员档案信息(同样，我们在浏览 Web 页面的时候也经常会使用“后退”按钮)。<br>这时我们通常会有两种程序实现方式</p>
+<ul>
+<li>是把过去查看过的雇员信息保存在内存中，每一个存储了雇员档案信息的 Java 对象的生命周期贯穿整个应用程序始终。</li>
+<li>是当用户开始查看其他雇员的档案信息的时候，把存储了当前所查看的雇员档案信息的 Java 对象结束引用，使得垃圾收集线程可以回收其所占用的内存空间，当用户再次需要浏览该雇员的档案信息的时候，重新构建该雇员的信息。</li>
+<li>很显然，第一种实现方法将造成大量的内存浪费，而第二种实现的缺陷在于即使垃圾收集线程还没有进行垃圾收集，包含雇员档案信息的对象仍然完好地保存在内存中，应用程序也要重新构建一个对象。</li>
+</ul>
+<p>我们知道，访问磁盘文件、访问网络资源、查询数据库等操作都是影响应用程序执行性能的重要因素，如果能重新获取那些尚未被回收的 Java 对象的引用，必将减少不必要的访问，大大提高程序的运行速度。 </p>
+<h3 id="如何使用软引用"><a href="#如何使用软引用" class="headerlink" title="如何使用软引用"></a>如何使用软引用</h3><p>SoftReference 的特点是它的一个实例保存对一个 Java 对象的软引用，该软引用的存在不妨碍 GC。也就是说，一旦 SoftReference 保存了对一个 Java 对象的软引用后，在垃圾线程对这个 Java 对象回收前，SoftReference 类所提供的 <code>get()</code> 方法返回 Java 对象的强引用。另外，一旦垃圾线程回收该 Java 对象之后，<code>get()</code> 方法将返回 null。</p>
+<p><code>MyObject aRef = new MyObject();</code><br><code>SoftReference aSoftRef = new SoftReference(aRef);</code></p>
+<p>此时，对于这个 MyObject 对象，有两个引用路径，一个是来自 SoftReference 对象的软引用，一个来自变量 aRef 的强引用，所以这个MyObject 对象是强可及对象。 随即，我们可以结束 aReference 对这个MyObjec t实例的强引用:</p>
+<p><code>aRef = null</code></p>
+<p>此后，这个 MyObject 对象成为了软可及对象。如果 GC，并不会因为有一个 SoftReference 的软引用而保留对象。JVM 的垃圾收集线程对软可及对象和其他一般 Java 对象进行了区别对待：软可及对象的清理是由垃圾收集线程根据其特定算法按照内存需求决定的。也就是说，垃圾收集线程会在虚拟机抛出 OutOfMemoryError 之前回收软可及对象，而且虚拟机会尽可能优先回收长时间闲置不用的软可及对象，对那些刚刚构建的或刚刚使用过的“新”软可反对象会被虚拟机尽可能保留。在回收这些对象之前，我们可以通过:</p>
+<p><code>MyObject anotherRef=(MyObject)aSoftRef.get();</code></p>
+<p>重新获得对该实例的强引用。而回收之后，调用get()方法就只能得到null了。</p>
+<h3 id="使用-ReferenceQueue-清除失去了软引用对象的-SoftReference"><a href="#使用-ReferenceQueue-清除失去了软引用对象的-SoftReference" class="headerlink" title="使用 ReferenceQueue 清除失去了软引用对象的 SoftReference"></a>使用 ReferenceQueue 清除失去了软引用对象的 SoftReference</h3><p>作为一个 Java 对象，SoftReference 对象除了具有保存软引用的特殊性之外，也具有 Java 对象的一般性。所以，当软可及对象被回收之后，虽然这个SoftReference 对象的 get() 方法返回 null，但这个 SoftReference 对象已经不再具有存在的价值，需要一个适当的清除机制，避免大量 SoftReference 对象带来的内存泄漏。在 java.lang.ref 包里还提供了 ReferenceQueue。如果在创建 SoftReference 对象的时候，使用了一个 ReferenceQueue 对象作为参数提供给 SoftReference 的构造方法，如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ReferenceQueue queue = <span class="keyword">new</span> ReferenceQueue();</span><br><span class="line">SoftReference ref = <span class="keyword">new</span> SoftReference(aMyObject, queue);</span><br></pre></td></tr></table></figure>
+<p>那么当这个 SoftReference 所软引用的 aMyOhject 被 GC 的同时，ref 所强引用的 SoftReference 对象被列入 ReferenceQueue。也就是说，ReferenceQueue 中保存的对象是 Reference 对象，而且是已经失去了它所软引用的对象的 Reference 对象。另外从ReferenceQueue这个名字也可以看出，它是一个队列，当我们调用它的poll()方法的时候，如果这个队列中不是空队列，那么将返回队列前面的那个Reference对象。</p>
+<p>在任何时候，我们都可以调用ReferenceQueue的poll()方法来检查是否有它所关心的非强可及对象被回收。如果队列为空，将返回一个null,否则该方法返回队列中前面的一个Reference对象。利用这个方法，我们可以检查哪个SoftReference所软引用的对象已经被回收。于是我们可以把这些失去所软引用的对象的SoftReference对象清除掉。常用的方式为:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SoftReference ref = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ((ref = (EmployeeRef)q.poll()) != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清除ref</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/9e6fead7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/9e6fead7/" itemprop="url">抽象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:19:33+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/9e6fead7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/9e6fead7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/9e6fead7/" class="leancloud_visitors" data-flag-title="抽象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  212
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="抽象类-Abstract-class"><a href="#抽象类-Abstract-class" class="headerlink" title="抽象类 Abstract class"></a>抽象类 Abstract class</h2><p>通常，我们需要的是子类的对象，而非父类的对象。为了确保一个父类不被创建实例，可将其变为抽象类</p>
+<ul>
+<li>抽象类仍可以放入引用变量</li>
+<li>抽象类不能用<code>new</code>创建实例</li>
+<li>抽象类必须有子类</li>
+</ul>
+<ul>
+<li>抽象类可以有抽象方法，也可以有具体方法</li>
+</ul>
+<hr>
+<h2 id="抽象方法-Abstract-method"><a href="#抽象方法-Abstract-method" class="headerlink" title="抽象方法 Abstract method"></a>抽象方法 Abstract method</h2><ul>
+<li>抽象方法没有函数体，没有{}，其意义在于为抽象类的子类们定义某种协议（大家都必须实现这些方法）。</li>
+<li>抽象方法必须以被重写的方式来实现。</li>
+<li>继承树中第一个具体类必须实现其顶部所有抽象类的所有抽象方法。</li>
+<li>抽象方法必须放入抽象类内，抽象类内可以有非抽象方法</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/13ffbe88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/13ffbe88/" itemprop="url">变量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:19:11+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/13ffbe88/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/13ffbe88/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/13ffbe88/" class="leancloud_visitors" data-flag-title="变量">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  866
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><ul>
+<li>成员变量(Field) :类体内的变量<ul>
+<li>静态变量：用<code>static</code>修饰，是属于类的。</li>
+<li>实例变量/非静态变量：无<code>static</code>修饰，是属于实例的。</li>
+</ul>
+</li>
+<li>局部变量<ul>
+<li>形参</li>
+<li>方法内的局部变量</li>
+<li>代码块内的局部变量</li>
+</ul>
+</li>
+</ul>
+<p>静态变量的初始化总是先于实例变量的初始化，无关声明顺序，因此：</p>
+<ul>
+<li>两个类变量不能非法向前引用。</li>
+<li>两个实例变量不能非法向前引用。</li>
+<li>但实例变量总是可以引用类变量。</li>
+</ul>
+<hr>
+<h2 id="变量的默认值"><a href="#变量的默认值" class="headerlink" title="变量的默认值"></a>变量的默认值</h2><p>实例变量永远都会有默认值。即声明未赋值时依然可以调用。</p>
+<ul>
+<li>基本类型中的整数类型（byte、short、int和long），则值是0。</li>
+<li>基本类型中的浮点类型（float、double），则值是0.0。</li>
+<li>基本类型中的字符类型（char），则值是’\u0000’。</li>
+<li>基本类型中的布尔类型（boolean），则值是false。</li>
+<li>引用类型（类、接口和数组），则为 null</li>
+</ul>
+<p>局部变量没有默认值<br>不指定初始值是菜鸟行为。</p>
+<hr>
+<h2 id="变量的初始化"><a href="#变量的初始化" class="headerlink" title="变量的初始化"></a>变量的初始化</h2><h3 id="实例变量的初始化"><a href="#实例变量的初始化" class="headerlink" title="实例变量的初始化"></a>实例变量的初始化</h3><ul>
+<li>定义实例变量时指定初始值</li>
+<li>非静态初始化块中对实例变量指定初始值（对未声明变量直接赋值）</li>
+<li>构造器中对实例变量指定初始值<br>前两项先于第三项。<br>前两项的顺序按照代码中的顺序</li>
+</ul>
+<h3 id="静态变量的初始化"><a href="#静态变量的初始化" class="headerlink" title="静态变量的初始化"></a>静态变量的初始化</h3><ul>
+<li>定义类变量时指定初始值</li>
+<li>静态初始化块中对类变量指定初始值</li>
+<li>静态变量没有默认值，必须显示指定初始值</li>
+</ul>
+<h3 id="Final-静态变量的初始化"><a href="#Final-静态变量的初始化" class="headerlink" title="Final 静态变量的初始化"></a>Final 静态变量的初始化</h3><p>1.定义时<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FOO_X = <span class="number">25</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.在静态初始化块内<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> BAR_SIGN;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		BAR_SING = (<span class="keyword">double</span>)Math.random()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>变量的声明类型与对象的实际类型不同时（实际类型是声明类型的子类）<br>当发生上述情况，即变量的编译时类型与运行时类型不同时：</p>
+<ul>
+<li>通过变量访问它引用的对象的实例变量时：该实例变量的值由声明该变量的类型决定。</li>
+<li>通过变量调用它引用的类型的方法时，该方法行为将由它实际引用的对象来决定。</li>
+<li><p>静态变量只有在第一次加载类的时候才会被初始化，而不是每次创建实例都初始化。因此对于该类的所有实例，值都相同。静态变量是所有实例共享的，相同的值。某个对象修改了静态变量的值后，其他对象访问改静态变量得到的是修改后的值。</p>
+</li>
+<li><p>实例变量：每个实例独占一个，1000个对象有1000个实例变量，属于对象。</p>
+</li>
+<li><p>静态变量：每个类只有一个，1000个对象共享同1个，属于类。即使没有对象，也存在着。</p>
+</li>
+<li><p>创建对象前，静态变量必须被初始化完毕。</p>
+</li>
+<li><p>调用类中的静态方法前，静态变量必须被初始化完毕。</p>
+</li>
+<li><p>通过类名（而非对象名）访问静态变量。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> playerCounst; <span class="comment">// int 类型默认值为0</span></span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Player</span><span class="params">(String n)</span> </span>&#123;</span><br><span class="line">		    name = n;</span><br><span class="line">		    playerCount++;</span><br><span class="line">	    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlayerTestDrive</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            System.out.pintln(Player.playerCount);</span><br><span class="line">            Player one = <span class="keyword">new</span> Player(<span class="string">"Tiger Woods"</span>);</span><br><span class="line">            Systen.out.println(Player.playerCount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://crowthek4.github.io/posts/7f22fd31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乌鸦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清梦船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/7f22fd31/" itemprop="url">包装类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T10:18:27+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/7f22fd31/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/7f22fd31/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/7f22fd31/" class="leancloud_visitors" data-flag-title="包装类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  189
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>Java 虽然是面向对象编程语言，但是为了编程的方便引入了基本数据类型。为了能将这些基本数据类型当成对象操作，Java 为每个基本数据类型引入了对应的包装类型。</p>
+<p>Java 5开始引入了自动装箱/拆箱机制，使得二者可以相互转换</p>
+<ul>
+<li>boolean—Boolean</li>
+<li>char—Character</li>
+<li>byte—Byte</li>
+<li>short—Short</li>
+<li>int—Integer</li>
+<li>long—Long</li>
+<li>floate—Float</li>
+<li>double—Double</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoUnboxingTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="keyword">new</span> Integer(<span class="number">3</span>);</span><br><span class="line">        Integer b = <span class="number">3</span>; <span class="comment">// 将 int 类型的3自动装箱成 Integer 类型</span></span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">        System.out.println(a == b); <span class="comment">// false 两个引用没有引用同一对象</span></span><br><span class="line">        System.out.println(a == c); <span class="comment">// true a自动拆箱成 int 类型再和 c 比较</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
     
     
     
@@ -2522,7 +2886,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2572,7 +2936,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2674,7 +3038,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.0k</span>
+    <span title="Site words total count">28.7k</span>
   
 </div>
 
