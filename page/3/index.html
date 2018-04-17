@@ -111,7 +111,7 @@
         </hgroup>
 
         
-        <p class="header-subtitle">醉后不知天在水，满船清梦压星河</p>
+        <p class="header-subtitle">~太阳当空照~</p>
         
 
         
@@ -180,7 +180,7 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="/wangzf04@gmail.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:wangzf04@gmail.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" href="https://www.weibo.com/u/2686087857" title="新浪微博"></a>
                             
@@ -231,7 +231,7 @@
               <h1 class="header-author"><a href="/" title="回到主页">王卓夫</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">醉后不知天在水，满船清梦压星河</p>
+            <p class="header-subtitle">~太阳当空照~</p>
             
             <nav class="header-menu">
                 <ul>
@@ -252,7 +252,7 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="/wangzf04@gmail.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:wangzf04@gmail.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" target="_blank" href="https://www.weibo.com/u/2686087857" title="新浪微博"></a>
                             
@@ -269,155 +269,6 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-接口Interface" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/990f7b7d/" class="article-date">
-      <time datetime="2018-04-12T02:25:45.000Z" itemprop="datePublished">2018-04-12</time>
-</a>
-
- 
-    <a href="/posts/990f7b7d/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="posts/990f7b7d/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/990f7b7d/">接口Interface</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <a id="more"></a>
-<p>接口（Interface），在 JAVA 编程语言中是一个抽象类型，是抽象方法的集合，接口通常以 <code>interface</code> 来声明。一个类通过实现接口的方式，从而实现接口的抽象方法</p>
-<ul>
-<li>用于强调某个类应实现的功能。</li>
-<li>接口并不是类，无法被实例化。</li>
-<li>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。</li>
-<li>接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象。</li>
-</ul>
-<hr>
-<h2 id="接口与抽象类"><a href="#接口与抽象类" class="headerlink" title="接口与抽象类"></a>接口与抽象类</h2><p>一个类只能继承一个抽象类。但可以实现多个接口。</p>
-<h2 id="接口与类相似点："><a href="#接口与类相似点：" class="headerlink" title="接口与类相似点："></a>接口与类相似点：</h2><ul>
-<li>一个接口可以有多个方法</li>
-<li>接口文件保存在 .java 结尾的文件中，文件名使用接口名</li>
-<li>接口的字节码文件保存在 .class 结尾的文件中</li>
-<li>接口相应的字节码文件必须在与包名称相匹配的目录结构中</li>
-</ul>
-<hr>
-<h2 id="接口与类的区别："><a href="#接口与类的区别：" class="headerlink" title="接口与类的区别："></a>接口与类的区别：</h2><ul>
-<li>接口不能用于实例化对象</li>
-<li>接口没有构造方法</li>
-<li>接口中所有的方法必须是抽象方法</li>
-<li>接口不能包含成员变量，除了 <code>static</code> 和 <code>final</code> 变量</li>
-<li>接口不是被类继承了，而是要被类实现</li>
-<li>接口支持多继承</li>
-</ul>
-<hr>
-<h2 id="接口特性"><a href="#接口特性" class="headerlink" title="接口特性"></a>接口特性</h2><ul>
-<li>接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为 <code>public abstract</code>（只能是 <code>public abstract</code>，其他修饰符都会报错）</li>
-<li>接口中可以含有变量，但是接口中的变量会被隐式的指定为 <code>public static final</code> 变量（并且只能是 <code>public</code>，用 <code>private</code> 修饰会报编译错误）</li>
-<li>接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法</li>
-</ul>
-<hr>
-<h2 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h2><ul>
-<li>接口强调要实现的功能，抽象类强调继承（所属）关系。</li>
-<li>抽象类中的方法可以有方法体（非抽象方法），但是接口中的方法不行。</li>
-<li>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 <code>public static final</code> 类型的。</li>
-<li>接口中不能含有静态代码块以及静态方法，而抽象类是可以有静态代码块和静态方法。</li>
-<li>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</li>
-</ul>
-<hr>
-<h2 id="接口的声明"><a href="#接口的声明" class="headerlink" title="接口的声明"></a>接口的声明</h2><p>接口的声明语法格式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;可见度&gt; <span class="class"><span class="keyword">interface</span> 接口名称 <span class="keyword">extends</span> &lt;其他的类名&gt; </span>&#123;</span><br><span class="line"><span class="comment">// 声明变量</span></span><br><span class="line"><span class="comment">// 抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Interface关键字用来声明一个接口。下面是接口声明的一个简单例子。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名 : NameOfInterface.java</span></span><br><span class="line"><span class="comment">// 引入包</span></span><br><span class="line"><span class="keyword">import</span> java.lang.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NameOfInterface</span></span>&#123;</span><br><span class="line"><span class="comment">//任何类型 final, static 字段</span></span><br><span class="line"><span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="接口的实现"><a href="#接口的实现" class="headerlink" title="接口的实现"></a>接口的实现</h2><p>当类实现接口的时候，类要实现接口中所有的方法。否则，类必须声明为抽象的类。<br>类使用implements关键字实现接口。在类声明中，Implements关键字放在class声明后面。<br>实现一个接口的语法，可以使用这个公式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 文件名 : MammalInt.java */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MammalInt</span> <span class="keyword">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Mammal eats"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Mammal travels"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">noOfLegs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">		MammalInt m = <span class="keyword">new</span> MammalInt();</span><br><span class="line">		m.eat();</span><br><span class="line">		m.travel();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>重写接口中声明的方法时，需要注意以下规则：</p>
-<ul>
-<li>类在实现接口的方法时，不能抛出强制性异常，只能在接口中，或者继承接口的抽象类中抛出该强制性异常。</li>
-<li>类在重写方法时要保持一致的方法名，并且应该保持相同或者相兼容的返回值类型。</li>
-<li>如果实现接口的类是抽象类，那么就没必要实现该接口的方法。</li>
-<li>​</li>
-</ul>
-<hr>
-<p>在实现接口的时候，也要注意一些规则：</p>
-<ul>
-<li>一个类可以同时实现多个接口。</li>
-<li>一个类只能继承一个类，但是能实现多个接口。</li>
-<li>一个接口能继承另一个接口，这和类之间的继承比较相似。</li>
-</ul>
-<hr>
-<h2 id="接口的继承"><a href="#接口的继承" class="headerlink" title="接口的继承"></a>接口的继承</h2><p>一个接口能继承另一个接口，和类之间的继承方式比较相似。接口的继承使用<code>extends</code>关键字，子接口继承父接口的方法。<br>下面的Sports接口被Hockey和Football接口继承：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名: Sports.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sports</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHomeTeam</span><span class="params">(String name)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setVisitingTeam</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件名: Football.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Football</span> <span class="keyword">extends</span> <span class="title">Sports</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">homeTeamScored</span><span class="params">(<span class="keyword">int</span> points)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitingTeamScored</span><span class="params">(<span class="keyword">int</span> points)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endOfQuarter</span><span class="params">(<span class="keyword">int</span> quarter)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件名: Hockey.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Hockey</span> <span class="keyword">extends</span> <span class="title">Sports</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">homeGoalScored</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitingGoalScored</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endOfPeriod</span><span class="params">(<span class="keyword">int</span> period)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">overtimePeriod</span><span class="params">(<span class="keyword">int</span> ot)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Hockey 接口自己声明了四个方法，从 Sports 接口继承了两个方法，这样，实现 Hockey 接口的类需要实现六个方法。</p>
-<p>相似的，实现Football接口的类需要实现五个方法，其中两个来自于 Sports 接口。</p>
-<hr>
-<h2 id="接口的多继承"><a href="#接口的多继承" class="headerlink" title="接口的多继承"></a>接口的多继承</h2><p>在 Java 中，类的多继承是不合法，但接口允许多继承。<br>在接口的多继承中<code>extends</code>关键字只需要使用一次，在其后跟着继承接口。如下所示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Hockey</span> <span class="keyword">extends</span> <span class="title">Sports</span>, <span class="title">Event</span></span></span><br></pre></td></tr></table></figure>
-<p>以上的程序片段是合法定义的子接口，与类不同的是，接口允许多继承，而 Sports及 Event 可能定义或是继承相同的方法</p>
-<hr>
-<h2 id="标识接口"><a href="#标识接口" class="headerlink" title="标识接口"></a>标识接口</h2><p>最常用的继承接口是没有包含任何方法的接口，它仅仅表明它的类属于一个特定的类型,供其他代码来测试允许做一些事情。<br>标识接口作用：简单形象的说就是给某个对象打个标（盖个戳），使对象拥有某个或某些特权。<br>例如：java.awt.event 包中的 MouseListener 接口继承的 java.util.EventListener 接口定义如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EventListener</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>没有任何方法的接口被称为标记接口。标记接口主要用于以下两种目的：<br>建立一个公共的父接口：<br>正如 EventListener 接口，这是由几十个其他接口扩展的 Java API，你可以使用一个标记接口来建立一组接口的父接口。例如：当一个接口继承了EventListener 接口，Java 虚拟机(JVM)就知道该接口将要被用于一个事件的代理方案。</p>
-<p>向一个类添加数据类型：<br>这种情况是标记接口最初的目的，实现标记接口的类不需要定义任何接口方法(因为标记接口根本就没有方法)，但是该类通过多态性变成一个接口类型。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-基本类型" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -457,103 +308,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="byte"><a href="#byte" class="headerlink" title="byte"></a>byte</h2><ul>
-<li><code>byte</code>数据类型是8位、有符号的，以二进制补码表示的整数；</li>
-<li>最小值是 -128（-2^7）；</li>
-<li>最大值是 127（2^7-1）；</li>
-<li>默认值是 0；</li>
-<li><code>byte</code>类型用在大型数组中节约空间，主要代替整数，因为<code>byte</code>变量占用的空间只有<code>int</code>类型的四分之一；<blockquote>
-<p>例子：<code>byte a = 10; byte b = -50</code></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="short"><a href="#short" class="headerlink" title="short"></a>short</h2><ul>
-<li>short 数据类型是 16位、有符号的以二进制补码表示的整数</li>
-<li>最小值是 -32768（-2^15）；</li>
-<li>最大值是 32767（2^15 - 1）；</li>
-<li><code>short</code>数据类型也可以像<code>byte</code> 那样节省空间。一个<code>short</code>变量是<code>int</code>型变量所占空间的二分之一；</li>
-<li>默认值是 0；<blockquote>
-<p>例子：<code>short s = 1000; short r = -20000</code></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="int"><a href="#int" class="headerlink" title="int"></a>int</h2><ul>
-<li><code>int</code>数据类型是32位、有符号的以二进制补码表示的整数；</li>
-<li>最小值是 -2,147,483,648（-2^31）；</li>
-<li>最大值是 2,147,483,647（2^31 - 1）；</li>
-<li>通常，整型变量默认为 <code>int</code> 类型；</li>
-<li>默认值是 0 ；<blockquote>
-<p>例子：<code>int a = 100000; int b = -200000</code></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="long"><a href="#long" class="headerlink" title="long"></a>long</h2><ul>
-<li><code>long</code> 数据类型是 64 位、有符号的以二进制补码表示的整数；</li>
-<li>最小值是 -9,223,372,036,854,775,808（-2^63）；</li>
-<li>最大值是 9,223,372,036,854,775,807（2^63 -1）；</li>
-<li>这种类型主要使用在需要比较大整数的系统上；</li>
-<li>默认值是 0L；<blockquote>
-<p>例子： long a = 100000L，Long b = -200000L。</p>
-</blockquote>
-</li>
-</ul>
-<p><em>“L”理论上不分大小写，但是若写成”l”容易与数字”1”混淆，不容易分辩。所以最好大写。</em></p>
-<hr>
-<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2><ul>
-<li><code>float</code> 数据类型是单精度、32位、符合IEEE 754标准的浮点数；</li>
-<li><code>float</code> 在储存大型浮点数组的时候可节省内存空间；</li>
-<li>应加上 f 或 F</li>
-<li>默认值是 0.0f；</li>
-<li>浮点数不能用来表示精确的值，如货币；<blockquote>
-<p>例子：float f1 = 234.5f。</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="double"><a href="#double" class="headerlink" title="double"></a>double</h2><ul>
-<li><code>double</code> 数据类型是双精度、64 位、符合IEEE 754标准的浮点数；</li>
-<li>浮点数的默认类型为<code>double</code>类型；</li>
-<li><code>double</code> 类型同样不能表示精确的值，如货币；</li>
-<li>默认值是 0.0d；<blockquote>
-<p>例子：double d1 = 123.4。</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h2><ul>
-<li><code>boolean</code>数据类型表示一位的信息；</li>
-<li>只有两个取值：<code>true</code> 和 <code>false</code>；</li>
-<li>这种类型只作为一种标志来记录 <code>true/false</code> 情况；</li>
-<li>默认值是 <code>false</code>；<blockquote>
-<p>例子：boolean one = true。</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="char"><a href="#char" class="headerlink" title="char"></a>char</h2><ul>
-<li><code>char</code>类型是一个单一的 16 位 Unicode 字符；</li>
-<li>用单引号赋值</li>
-<li>最小值是 \u0000（即为0）；</li>
-<li>最大值是 \uffff（即为65,535）；</li>
-<li>char 数据类型可以储存任何字符；<blockquote>
-<p>例子：char letter = ‘A’;。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>有些 Unicode 字符可以用一个 <code>char</code> 值描述，另外一些 Unicode 字符则需要两个 char 值</li>
-<li>16位的 <code>char</code> 类型最多只能描述 65536 个代码值，现在已经不够了</li>
-<li><strong>码点</strong> (code point)是编码表中某个字符对应的代码值，采用十六进制书写，前缀 U+。如 A 的码点是 U+0041<ul>
-<li>码点分为17个 <strong>代码级别</strong> (code plane)。第一个代码级别是 <strong>基本的多语言级别</strong> (basic multilingual plane)。码点从 U+0000 到 U+FFFF ，包括经典的 Unicode 代码。其余16个代码级别从 U+10000 到 U+10FFFF，包括一些 <strong>辅助字符</strong> (supplementary character)。</li>
-</ul>
-</li>
-<li>基本的多语言级别中，每个字符用16位表示，称为 <strong>代码单元(code unit)</strong> ，辅助字符采用一对连续的代码单元进行编码。这样构成的编码值落入基本的多语言级别中空闲的 2048 字节内，被称为 <em>替代区域(surrogate area)</em> 。【U+D800 ~ U+DBFF用于第一个代码单元(共1024字节），U+DC00 ~ U+DFFF（共1024字节）用于第二个代码单元】。这样可以知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。</li>
-</ul>
-
+              <p>Java 的8种基本类型</p>
+          
       
     </div>
     
@@ -570,6 +326,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/4d6a6177/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -625,270 +385,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>下面列出了Java保留字。这些保留字不能用于常量、变量、和任何标识符的名称。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">关键字</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">访问控制</td>
-<td style="text-align:center">private</td>
-<td style="text-align:center">私有的</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">protected</td>
-<td style="text-align:center">受保护的</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">public</td>
-<td style="text-align:center">公共的</td>
-</tr>
-<tr>
-<td style="text-align:center">类、方法和变量修饰符</td>
-<td style="text-align:center">abstract</td>
-<td style="text-align:center">声明抽象</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">class</td>
-<td style="text-align:center">类</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">extends</td>
-<td style="text-align:center">扩允,继承</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">final</td>
-<td style="text-align:center">最终值,不可改变的</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">implements</td>
-<td style="text-align:center">实现（接口）</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">interface</td>
-<td style="text-align:center">接口</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">native</td>
-<td style="text-align:center">本地，原生方法（非Java实现）</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">new</td>
-<td style="text-align:center">新,创建</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">static</td>
-<td style="text-align:center">静态</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">strictfp</td>
-<td style="text-align:center">严格,精准</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">synchronized</td>
-<td style="text-align:center">线程,同步</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">transient</td>
-<td style="text-align:center">短暂</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">volatile</td>
-<td style="text-align:center">易失</td>
-</tr>
-<tr>
-<td style="text-align:center">程序控制语句</td>
-<td style="text-align:center">break</td>
-<td style="text-align:center">跳出循环</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">case</td>
-<td style="text-align:center">定义一个值以供switch选择</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">continue</td>
-<td style="text-align:center">继续</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">default</td>
-<td style="text-align:center">默认</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">do</td>
-<td style="text-align:center">运行</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">else</td>
-<td style="text-align:center">否则</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">for</td>
-<td style="text-align:center">循环</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">if</td>
-<td style="text-align:center">如果</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">instanceof</td>
-<td style="text-align:center">实例</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">return</td>
-<td style="text-align:center">返回</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">switch</td>
-<td style="text-align:center">根据值选择执行</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">while</td>
-<td style="text-align:center">循环</td>
-</tr>
-<tr>
-<td style="text-align:center">错误处理</td>
-<td style="text-align:center">assert</td>
-<td style="text-align:center">断言表达式是否为真</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">catch</td>
-<td style="text-align:center">捕捉异常</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">finally</td>
-<td style="text-align:center">有没有异常都执行</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">throw</td>
-<td style="text-align:center">抛出一个异常对象</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">throws</td>
-<td style="text-align:center">声明一个异常可能被抛出</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">try</td>
-<td style="text-align:center">捕获异常</td>
-</tr>
-<tr>
-<td style="text-align:center">包相关</td>
-<td style="text-align:center">import</td>
-<td style="text-align:center">引入</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">package</td>
-<td style="text-align:center">包</td>
-</tr>
-<tr>
-<td style="text-align:center">基本类型</td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">布尔型</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">字节型</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">char</td>
-<td style="text-align:center">字符型</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">double</td>
-<td style="text-align:center">双精度浮点</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">float</td>
-<td style="text-align:center">单精度浮点</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">int</td>
-<td style="text-align:center">整型</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">long</td>
-<td style="text-align:center">长整型</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">short</td>
-<td style="text-align:center">短整型</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">null</td>
-<td style="text-align:center">空</td>
-</tr>
-<tr>
-<td style="text-align:center">变量引用</td>
-<td style="text-align:center">super</td>
-<td style="text-align:center">父类,超类</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">this</td>
-<td style="text-align:center">本类</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">void</td>
-<td style="text-align:center">无返回值</td>
-</tr>
-<tr>
-<td style="text-align:center">保留关键字</td>
-<td style="text-align:center">goto</td>
-<td style="text-align:center">是关键字，但不能使用</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">const</td>
-<td style="text-align:center">是关键字，但不能使用</td>
-</tr>
-</tbody>
-</table>
-
+              <p>Java 关键字列表</p>
+          
       
     </div>
     
@@ -905,6 +403,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/fe7c7d2d/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -960,59 +462,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p><code>Dog myDog = new Dog();</code></p>
-<ol>
-<li><em>声明一个引用变量</em> ：要求 Java 虚拟机分配空间给一个引用变量 ，这个引用变量是 Dog 类型，叫做 myDog。存储在变量所属的方法栈中。</li>
-<li><em>创建对象</em> ：要求 Java 虚拟机分配 <em>堆空间</em> 给新建立的 Dog <em>对象</em>。这里的 new 语法是在调用类的构造器，如果构造器中有代码，可以运行。</li>
-<li>连接对象和引用： 将<em>获取 Dog 对象的方法</em>以字节形式放进引用变量中。<br>换言之，引用变量(遥控器)是获得对象的某种神秘方法，而不是变量本身。</li>
-</ol>
-
-<p>同一个 Java 虚拟机的引用变量是固定大小。</p>
-<hr>
-<h2 id="对象的初始化过程"><a href="#对象的初始化过程" class="headerlink" title="对象的初始化过程"></a>对象的初始化过程</h2><ol>
-<li>调用<code>Object</code>类的非静态初始化块</li>
-<li>调用<code>Object</code>类的构造器</li>
-<li>调用父类的非静态初始化块</li>
-<li>调用父类的构造器</li>
-<li>调用非静态初始化块</li>
-<li>调用构造器</li>
-<li>（如果有super()）根据实参列表决定调用哪个父类构造器</li>
-<li>（如果有this()）调用同类中指定的构造器</li>
-</ol>
-<hr>
-<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><ul>
-<li>对象要先运行构造器，才能赋值给一个引用。</li>
-<li>构造器必须与类同名。</li>
-<li>构造器没有返回值。而函数方法必须有返回值。</li>
-<li>一个类可以有多个构造器：重载构造器</li>
-<li>默认构造器<br><code>public Duck(){}</code></li>
-<li>自定构造器<br><code>public Duck(int duckSize) {}</code></li>
-<li>构造器中的代码可以让对象在被创建时进行一些自定义。如打印信息等。</li>
-<li>对于一个在不同对象中，值会发生变化的实例变量，考虑在构造器中为实例变量赋值，一来可以避免创建对象后还要调用 <code>setter</code> 方法赋值。二来可以使实例变量从出生就有值，避免出现赋值前的“真空期”（未赋值时由系统指定默认值）。</li>
-<li>如果对象必须等待其内部某个实例变量被赋值后才能使用，期待创建对象的人调用 <code>setter</code> 方法来赋值是不靠谱的。应该将这样的变量作为参数传入类的构造器。使得用户在创建实例时，必须传入参数的值才能构造。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 假设该参数必须赋值</span></span><br><span class="line">	<span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 默认构造器（无参构造器）</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 默认值</span></span><br><span class="line">		size = <span class="number">27</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 自定构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">(<span class="keyword">int</span> duckSize)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 通过参数赋值</span></span><br><span class="line">		size = duckSize;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>只有当类缺少自定构造器时，编译器才会自动给与默认构造器。换言之，如果有自定构造器，还必须自行编写一个默认构造器。</li>
-<li>创建实例时，对象的继承树上的所有构造器都必须运行。对象的构造器会沿继承树向上调用所有父类的构造器，直到 <code>Object</code> 类的构造器。编译器隐式地使用 <code>super()</code>。</li>
-<li>如果你没有给类提供构造器，编译器会自动提供一个 <code>super()</code>。如果你提供了构造器，编译器会在每个构造器的第一行加入 <code>super()</code>。</li>
-<li>抽象类型也拥有构造器，即使不能创建抽象类型的实例，但创建其子类的实例时还是要运行父类的构造器。因为子类中可能会用到父类中定义的变量的值。</li>
-<li>使用 super() 来调用父类的构造器，<code>super()</code>必须放在构造器的第一行。</li>
-<li>在构造器中调用其他构造器并传入参数：使用 <code>this(arg)</code> 方法。 <code>this(args)</code> 方法只能用在构造器中，且必须是构造器的第一行语句。</li>
-<li>构造器中，<code>super()</code> 和 <code>this()</code> 只能选用其一。</li>
-</ul>
-<hr>
-<h2 id="极端情况下的父类访问子类的实例变量的方法"><a href="#极端情况下的父类访问子类的实例变量的方法" class="headerlink" title="极端情况下的父类访问子类的实例变量的方法"></a>极端情况下的父类访问子类的实例变量的方法</h2><p><code>this</code> 处于构造器中时，代表的是正在初始化的 Java 对象。</p>
-<blockquote>
-<p>子类构造器调用父类构造器，父类构造器中有 <code>this</code>，这个 <code>this</code> 代表的是子类，因为当时父类构造器中的代码是放在子类构造器中执行的。</p>
-</blockquote>
-<p>当变量的编译时类型和运行时类型不同时</p>
-<ul>
-<li>​</li>
-</ul>
-<hr>
-<h2 id="特殊情况下父类调用被子类重写的方法"><a href="#特殊情况下父类调用被子类重写的方法" class="headerlink" title="特殊情况下父类调用被子类重写的方法"></a>特殊情况下父类调用被子类重写的方法</h2>
+              <p>从内存角度理解对象构造过程</p>
+          
       
     </div>
     
@@ -1029,6 +480,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/92e0508e/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1161,38 +616,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="The-break-Statement"><a href="#The-break-Statement" class="headerlink" title="The break Statement"></a>The break Statement</h2><p>The break statement has two forms: labeled and unlabeled. You saw the unlabeled form in the previous discussion of the switch statement. You can also use an unlabeled break to terminate a for, while, or do-while loop, as shown in the following BreakDemo program:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BreakDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] arrayOfInts = </span><br><span class="line">            &#123; <span class="number">32</span>, <span class="number">87</span>, <span class="number">3</span>, <span class="number">589</span>,</span><br><span class="line">              <span class="number">12</span>, <span class="number">1076</span>, <span class="number">2000</span>,</span><br><span class="line">              <span class="number">8</span>, <span class="number">622</span>, <span class="number">127</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> searchfor = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arrayOfInts.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arrayOfInts[i] == searchfor) &#123;</span><br><span class="line">                foundIt = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (foundIt) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Found "</span> + searchfor + <span class="string">" at index "</span> + i);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(searchfor + <span class="string">" not in the array"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This program searches for the number 12 in an array. The break statement, shown in boldface, terminates the for loop when that value is found. Control flow then transfers to the statement after the for loop. This program’s output is:</p>
-<blockquote>
-<p>Found 12 at index 4</p>
-</blockquote>
-<p>An unlabeled break statement terminates the innermost switch, for, while, or do-while statement, but a labeled break terminates an outer statement. The following program, BreakWithLabelDemo, is similar to the previous program, but uses nested for loops to search for a value in a two-dimensional array. When the value is found, a labeled break terminates the outer for loop (labeled “search”):</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BreakWithLabelDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[][] arrayOfInts = &#123; </span><br><span class="line">            &#123; <span class="number">32</span>, <span class="number">87</span>, <span class="number">3</span>, <span class="number">589</span> &#125;,</span><br><span class="line">            &#123; <span class="number">12</span>, <span class="number">1076</span>, <span class="number">2000</span>, <span class="number">8</span> &#125;,</span><br><span class="line">            &#123; <span class="number">622</span>, <span class="number">127</span>, <span class="number">77</span>, <span class="number">955</span> &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">int</span> searchfor = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    search:</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arrayOfInts.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; arrayOfInts[i].length;</span><br><span class="line">                 j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arrayOfInts[i][j] == searchfor) &#123;</span><br><span class="line">                    foundIt = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span> search;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (foundIt) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Found "</span> + searchfor + <span class="string">" at "</span> + i + <span class="string">", "</span> + j);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(searchfor + <span class="string">" not in the array"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This is the output of the program.</p>
-<blockquote>
-<p>Found 12 at 1, 0</p>
-</blockquote>
-<p>The break statement terminates the labeled statement; it does not transfer the flow of control to the label. Control flow is transferred to the statement immediately following the labeled (terminated) statement.</p>
-<h2 id="The-continue-Statement"><a href="#The-continue-Statement" class="headerlink" title="The continue Statement"></a>The continue Statement</h2><p>The continue statement skips the current iteration of a for, while , or do-while loop. The unlabeled form skips to the end of the innermost loop’s body and evaluates the boolean expression that controls the loop. The following program, ContinueDemo , steps through a String, counting the occurences of the letter “p”. If the current character is not a p, the continue statement skips the rest of the loop and proceeds to the next character. If it is a “p”, the program increments the letter count.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContinueDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        String searchMe = <span class="string">"peter piper picked a "</span> + <span class="string">"peck of pickled peppers"</span>;</span><br><span class="line">        <span class="keyword">int</span> max = searchMe.length();</span><br><span class="line">        <span class="keyword">int</span> numPs = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max; i++) &#123;</span><br><span class="line">            <span class="comment">// interested only in p's</span></span><br><span class="line">            <span class="keyword">if</span> (searchMe.charAt(i) != <span class="string">'p'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// process p's</span></span><br><span class="line">            numPs++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Found "</span> + numPs + <span class="string">" p's in the string."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Here is the output of this program:</p>
-<blockquote>
-<p>Found 9 p’s in the string.</p>
-</blockquote>
-<p>To see this effect more clearly, try removing the continue statement and recompiling. When you run the program again, the count will be wrong, saying that it found 35 p’s instead of 9.<br>A labeled continue statement skips the current iteration of an outer loop marked with the given label. The following example program, ContinueWithLabelDemo, uses nested loops to search for a substring within another string. Two nested loops are required: one to iterate over the substring and one to iterate over the string being searched. The following program, ContinueWithLabelDemo, uses the labeled form of continue to skip an iteration in the outer loop.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContinueWithLabelDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        String searchMe = <span class="string">"Look for a substring in me"</span>;</span><br><span class="line">        String substring = <span class="string">"sub"</span>;</span><br><span class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> max = searchMe.length() - </span><br><span class="line">                  substring.length();</span><br><span class="line"></span><br><span class="line">    test:</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= max; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> n = substring.length();</span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (searchMe.charAt(j++) != substring.charAt(k++)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span> test;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            foundIt = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">break</span> test;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(foundIt ? <span class="string">"Found it"</span> : <span class="string">"Didn't find it"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Here is the output from this program.</p>
-<blockquote>
-<p>Found it</p>
-</blockquote>
-<h2 id="The-return-Statement"><a href="#The-return-Statement" class="headerlink" title="The return Statement"></a>The return Statement</h2><p>The last of the branching statements is the return statement. <em>The return statement exits from the current method, and control flow returns to where the method was invoked.</em> The return statement has two forms: one that returns a value, and one that doesn’t. To return a value, simply put the value (or an expression that calculates the value) after the return keyword.</p>
-<p><code>return ++count;</code></p>
-<p>The data type of the returned value must match the type of the method’s declared return value. When a method is declared void, use the form of return that doesn’t return a value.</p>
-<p><code>return;</code></p>
-<p>The Classes and Objects lesson will cover everything you need to know about writing methods.</p>
-
+              <p>break, continue 与 return</p>
+          
       
     </div>
     
@@ -1209,6 +634,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/dc306f3e/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1264,98 +693,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>在 JDK 1.2 以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从 JDK 1.2 版本开始，把对象的引用分为4种级别，从而使程序能更加灵活地控制对象的生命周期。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
-<h2 id="强引用（StrongReference）"><a href="#强引用（StrongReference）" class="headerlink" title="强引用（StrongReference）"></a>强引用（StrongReference）</h2><ul>
-<li><code>Object obj = new Object();</code></li>
-<li>如果一个对象具有强引用，则 GC(Garbage Collection) 时绝不会回收它。</li>
-<li>当内存空间不足，JVM 宁愿抛出 OutOfMemoryError 错误，使程序异常终止。</li>
-</ul>
-<hr>
-<h2 id="软引用（SoftReference）"><a href="#软引用（SoftReference）" class="headerlink" title="软引用（SoftReference）"></a>软引用（SoftReference）</h2><ul>
-<li><code>java.lang.ref.SoftReference</code></li>
-<li>用于描述还有用，但并非必须的对象。</li>
-<li>当堆将发生 OOM（Out Of Memory）时则会回收软引用所指向的内存空间，若回收后依然空间不足才会抛出 OOM。</li>
-<li>软引用可用来实现内存敏感的高速缓存。(见后例）</li>
-<li>软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被 GC，JVM 就会把这个软引用加入到与之关联的引用队列中。</li>
-</ul>
-<p>示例：实现学生信息查询操作时有两套数据操作的方案（如后退操作，查询上一个刚刚查询过的信息）</p>
-<ol>
-<li>将得到的信息存放在内存中，后续查询则直接读取内存信息。</li>
-</ol>
-<ul>
-<li>优点：读取速度快；</li>
-<li>缺点：内存空间一直被占，若资源访问量不高，则浪费内存空间</li>
-</ul>
-<ol start="2">
-<li>每次查询均从数据库读取，然后填充到 TO 返回。</li>
-</ol>
-<ul>
-<li>优点：内存空间将被 GC 回收，不会一直被占用。</li>
-<li>缺点：在 GC 发生之前已有的 TO 依然存在，但还是执行了一次数据库查询，浪费IO</li>
-</ul>
-<p><em>通过软引用解决</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ReferenceQueue queue = <span class="keyword">new</span> ReferenceQueue();</span><br><span class="line"><span class="comment">// 获取数据并缓存</span></span><br><span class="line">Object object = <span class="keyword">new</span> Object();</span><br><span class="line">SoftReference softRef = <span class="keyword">new</span> SoftReference(object, queue);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下次使用时</span></span><br><span class="line">Object object = (Object)softRef.get();</span><br><span class="line"><span class="keyword">if</span> (object == <span class="keyword">null</span>)&#123;</span><br><span class="line">  <span class="comment">// 当软引用被回收后才重新获取</span></span><br><span class="line">  object = <span class="keyword">new</span> Object();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清理被收回后剩下来的软引用对象</span></span><br><span class="line">SoftReference ref = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">while</span>((ref = queue.poll()) != <span class="keyword">null</span>)&#123;</span><br><span class="line">  <span class="comment">// 清理工作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="弱引用（WeakReference）"><a href="#弱引用（WeakReference）" class="headerlink" title="弱引用（WeakReference）"></a>弱引用（WeakReference）</h2><ul>
-<li><code>java.lang.ref.WeakReference</code></li>
-<li>GC 时必定收回弱引用指向的内存空间</li>
-<li>不过由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。</li>
-<li>弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被 GC，JVM就会把这个弱引用加入到与之关联的引用队列中。 </li>
-</ul>
-<hr>
-<h2 id="虚引用（PhantomReference）"><a href="#虚引用（PhantomReference）" class="headerlink" title="虚引用（PhantomReference）"></a>虚引用（PhantomReference）</h2><ul>
-<li><code>java.lang.ref.PhantomReference</code></li>
-<li>虚引用不会决定对象的生命周期，也无法通过需引用来获取对象实例。仅用于在发生 GC 时接受一个系统通知。</li>
-<li>如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。</li>
-<li>虚引用与软引用和弱引用的一个区别在于：<em>虚引用必须和引用队列 （ReferenceQueue）联合使用。</em>当 GC 准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</li>
-<li><code>ReferenceQueue queue = new ReferenceQueue();</code><br><code>PhantomReference pr = new PhantomReference(object, queue);</code></li>
-</ul>
-<p>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</p>
-<hr>
-<h2 id="引用队列-Reference-Queue"><a href="#引用队列-Reference-Queue" class="headerlink" title="引用队列(Reference Queue)"></a>引用队列(Reference Queue)</h2><ul>
-<li><code>java.lang.ref.ReferenceQueue</code></li>
-<li><p>引用队列配合 Reference 的子类等使用，当引用对象所指向的内存空间被 GC 回收后，该引用对象则被追加到引用队列的末尾（源码中 <code>boolean enqueue(Reference&lt;? extends T&gt; r) { /* Called only by Reference class */</code>说明只供Reference实例调用，且仅能调用一次）。引用队列有如下实例方法：</p>
-</li>
-<li><p><code>Reference&lt;? extends T&gt; ReferenceQueue#poll()</code><br>从队列中出队一个元素，若队列为空则返回null。</p>
-</li>
-<li><code>Reference&lt;? extends T&gt; ReferenceQueue#remove()</code><br>从队列中出队一个元素，若没有则阻塞直到有元素可出队。</li>
-<li><code>Reference&lt;? extends T&gt; ReferenceQueue#remove(long timeout)</code><br>从队列中出队一个元素，若没有则阻塞直到有元素可出队或超过 timeout 指定的毫秒数（由于采用<code>wait(long timeout)</code>方式实现等待，因此时间不能保证）。</li>
-</ul>
-<hr>
-<h2 id="判断可达性-可触及性-Reachable"><a href="#判断可达性-可触及性-Reachable" class="headerlink" title="判断可达性/可触及性(Reachable)"></a>判断可达性/可触及性(Reachable)</h2><ol>
-<li>单条引用链的可达性以最弱的一个引用类型来决定；</li>
-<li>多条引用链的可达性以最强的一个引用类型来决定；</li>
-</ol>
-<p>可达性分析用于判断对象是否存活。</p>
-<p>以 GCRoots 的对象做为起点，从起点开始向下搜索，搜索的走过路径叫引用链，引用链上的对象判断为生存，当一个对象到 GCRoots 没有引用链时，判断对象死亡。</p>
-<p>在 JVM 中，做为 GCRoots 的对象：</p>
-<ul>
-<li>虚拟机栈(栈桢中的本地变量表)中的引用的对象</li>
-<li>方法区中的类/静态属性引用的对象</li>
-<li>方法区中的常量引用的对象</li>
-<li>本地方法栈中 JNI 的引用的对象 </li>
-</ul>
-<hr>
-<h2 id="使用软引用构建敏感数据的缓存"><a href="#使用软引用构建敏感数据的缓存" class="headerlink" title="使用软引用构建敏感数据的缓存"></a>使用软引用构建敏感数据的缓存</h2><h3 id="为什么需要使用软引用"><a href="#为什么需要使用软引用" class="headerlink" title="为什么需要使用软引用"></a>为什么需要使用软引用</h3><p>设想一个雇员信息系统。作为一个用户，我们完全有可能需要回头去查看几分钟甚至几秒钟前查看过的雇员档案信息(同样，我们在浏览 Web 页面的时候也经常会使用“后退”按钮)。<br>这时我们通常会有两种程序实现方式</p>
-<ul>
-<li>是把过去查看过的雇员信息保存在内存中，每一个存储了雇员档案信息的 Java 对象的生命周期贯穿整个应用程序始终。</li>
-<li>是当用户开始查看其他雇员的档案信息的时候，把存储了当前所查看的雇员档案信息的 Java 对象结束引用，使得垃圾收集线程可以回收其所占用的内存空间，当用户再次需要浏览该雇员的档案信息的时候，重新构建该雇员的信息。</li>
-<li>很显然，第一种实现方法将造成大量的内存浪费，而第二种实现的缺陷在于即使垃圾收集线程还没有进行垃圾收集，包含雇员档案信息的对象仍然完好地保存在内存中，应用程序也要重新构建一个对象。</li>
-</ul>
-<p>我们知道，访问磁盘文件、访问网络资源、查询数据库等操作都是影响应用程序执行性能的重要因素，如果能重新获取那些尚未被回收的 Java 对象的引用，必将减少不必要的访问，大大提高程序的运行速度。 </p>
-<h3 id="如何使用软引用"><a href="#如何使用软引用" class="headerlink" title="如何使用软引用"></a>如何使用软引用</h3><p>SoftReference 的特点是它的一个实例保存对一个 Java 对象的软引用，该软引用的存在不妨碍 GC。也就是说，一旦 SoftReference 保存了对一个 Java 对象的软引用后，在垃圾线程对这个 Java 对象回收前，SoftReference 类所提供的 <code>get()</code> 方法返回 Java 对象的强引用。另外，一旦垃圾线程回收该 Java 对象之后，<code>get()</code> 方法将返回 null。</p>
-<p><code>MyObject aRef = new MyObject();</code><br><code>SoftReference aSoftRef = new SoftReference(aRef);</code></p>
-<p>此时，对于这个 MyObject 对象，有两个引用路径，一个是来自 SoftReference 对象的软引用，一个来自变量 aRef 的强引用，所以这个MyObject 对象是强可及对象。 随即，我们可以结束 aReference 对这个MyObjec t实例的强引用:</p>
-<p><code>aRef = null</code></p>
-<p>此后，这个 MyObject 对象成为了软可及对象。如果 GC，并不会因为有一个 SoftReference 的软引用而保留对象。JVM 的垃圾收集线程对软可及对象和其他一般 Java 对象进行了区别对待：软可及对象的清理是由垃圾收集线程根据其特定算法按照内存需求决定的。也就是说，垃圾收集线程会在虚拟机抛出 OutOfMemoryError 之前回收软可及对象，而且虚拟机会尽可能优先回收长时间闲置不用的软可及对象，对那些刚刚构建的或刚刚使用过的“新”软可反对象会被虚拟机尽可能保留。在回收这些对象之前，我们可以通过:</p>
-<p><code>MyObject anotherRef=(MyObject)aSoftRef.get();</code></p>
-<p>重新获得对该实例的强引用。而回收之后，调用get()方法就只能得到null了。</p>
-<h3 id="使用-ReferenceQueue-清除失去了软引用对象的-SoftReference"><a href="#使用-ReferenceQueue-清除失去了软引用对象的-SoftReference" class="headerlink" title="使用 ReferenceQueue 清除失去了软引用对象的 SoftReference"></a>使用 ReferenceQueue 清除失去了软引用对象的 SoftReference</h3><p>作为一个 Java 对象，SoftReference 对象除了具有保存软引用的特殊性之外，也具有 Java 对象的一般性。所以，当软可及对象被回收之后，虽然这个SoftReference 对象的 get() 方法返回 null，但这个 SoftReference 对象已经不再具有存在的价值，需要一个适当的清除机制，避免大量 SoftReference 对象带来的内存泄漏。在 java.lang.ref 包里还提供了 ReferenceQueue。如果在创建 SoftReference 对象的时候，使用了一个 ReferenceQueue 对象作为参数提供给 SoftReference 的构造方法，如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ReferenceQueue queue = <span class="keyword">new</span> ReferenceQueue();</span><br><span class="line">SoftReference ref = <span class="keyword">new</span> SoftReference(aMyObject, queue);</span><br></pre></td></tr></table></figure>
-<p>那么当这个 SoftReference 所软引用的 aMyOhject 被 GC 的同时，ref 所强引用的 SoftReference 对象被列入 ReferenceQueue。也就是说，ReferenceQueue 中保存的对象是 Reference 对象，而且是已经失去了它所软引用的对象的 Reference 对象。另外从ReferenceQueue这个名字也可以看出，它是一个队列，当我们调用它的poll()方法的时候，如果这个队列中不是空队列，那么将返回队列前面的那个Reference对象。</p>
-<p>在任何时候，我们都可以调用ReferenceQueue的poll()方法来检查是否有它所关心的非强可及对象被回收。如果队列为空，将返回一个null,否则该方法返回队列中前面的一个Reference对象。利用这个方法，我们可以检查哪个SoftReference所软引用的对象已经被回收。于是我们可以把这些失去所软引用的对象的SoftReference对象清除掉。常用的方式为:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SoftReference ref = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ((ref = (EmployeeRef)q.poll()) != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清除ref</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+              <p>在 JDK 1.2 以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从 JDK 1.2 版本开始，把对象的引用分为4种级别，从而使程序能更加灵活地控制对象的生命周期。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
+          
       
     </div>
     
@@ -1372,6 +711,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/8a9fd61b/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1427,24 +770,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="抽象类-Abstract-class"><a href="#抽象类-Abstract-class" class="headerlink" title="抽象类 Abstract class"></a>抽象类 Abstract class</h2><p>通常，我们需要的是子类的对象，而非父类的对象。为了确保一个父类不被创建实例，可将其变为抽象类</p>
-<ul>
-<li>抽象类仍可以放入引用变量</li>
-<li>抽象类不能用<code>new</code>创建实例</li>
-<li>抽象类必须有子类</li>
-</ul>
-<ul>
-<li>抽象类可以有抽象方法，也可以有具体方法</li>
-</ul>
-<hr>
-<h2 id="抽象方法-Abstract-method"><a href="#抽象方法-Abstract-method" class="headerlink" title="抽象方法 Abstract method"></a>抽象方法 Abstract method</h2><ul>
-<li>抽象方法没有函数体，没有{}，其意义在于为抽象类的子类们定义某种协议（大家都必须实现这些方法）。</li>
-<li>抽象方法必须以被重写的方式来实现。</li>
-<li>继承树中第一个具体类必须实现其顶部所有抽象类的所有抽象方法。</li>
-<li>抽象方法必须放入抽象类内，抽象类内可以有非抽象方法</li>
-</ul>
-
+              <p>抽象类与抽象方法</p>
+          
       
     </div>
     
@@ -1461,6 +788,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/9e6fead7/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1516,68 +847,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><ul>
-<li>成员变量(Field) :类体内的变量<ul>
-<li>静态变量：用<code>static</code>修饰，是属于类的。</li>
-<li>实例变量/非静态变量：无<code>static</code>修饰，是属于实例的。</li>
-</ul>
-</li>
-<li>局部变量<ul>
-<li>形参</li>
-<li>方法内的局部变量</li>
-<li>代码块内的局部变量</li>
-</ul>
-</li>
-</ul>
-<p>静态变量的初始化总是先于实例变量的初始化，无关声明顺序，因此：</p>
-<ul>
-<li>两个类变量不能非法向前引用。</li>
-<li>两个实例变量不能非法向前引用。</li>
-<li>但实例变量总是可以引用类变量。</li>
-</ul>
-<hr>
-<h2 id="变量的默认值"><a href="#变量的默认值" class="headerlink" title="变量的默认值"></a>变量的默认值</h2><p>实例变量永远都会有默认值。即声明未赋值时依然可以调用。</p>
-<ul>
-<li>基本类型中的整数类型（byte、short、int和long），则值是0。</li>
-<li>基本类型中的浮点类型（float、double），则值是0.0。</li>
-<li>基本类型中的字符类型（char），则值是’\u0000’。</li>
-<li>基本类型中的布尔类型（boolean），则值是false。</li>
-<li>引用类型（类、接口和数组），则为 null</li>
-</ul>
-<p>局部变量没有默认值<br>不指定初始值是菜鸟行为。</p>
-<hr>
-<h2 id="变量的初始化"><a href="#变量的初始化" class="headerlink" title="变量的初始化"></a>变量的初始化</h2><h3 id="实例变量的初始化"><a href="#实例变量的初始化" class="headerlink" title="实例变量的初始化"></a>实例变量的初始化</h3><ul>
-<li>定义实例变量时指定初始值</li>
-<li>非静态初始化块中对实例变量指定初始值（对未声明变量直接赋值）</li>
-<li>构造器中对实例变量指定初始值<br>前两项先于第三项。<br>前两项的顺序按照代码中的顺序</li>
-</ul>
-<h3 id="静态变量的初始化"><a href="#静态变量的初始化" class="headerlink" title="静态变量的初始化"></a>静态变量的初始化</h3><ul>
-<li>定义类变量时指定初始值</li>
-<li>静态初始化块中对类变量指定初始值</li>
-<li>静态变量没有默认值，必须显示指定初始值</li>
-</ul>
-<h3 id="Final-静态变量的初始化"><a href="#Final-静态变量的初始化" class="headerlink" title="Final 静态变量的初始化"></a>Final 静态变量的初始化</h3><p>1.定义时<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FOO_X = <span class="number">25</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.在静态初始化块内<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> BAR_SIGN;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		BAR_SING = (<span class="keyword">double</span>)Math.random()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>变量的声明类型与对象的实际类型不同时（实际类型是声明类型的子类）<br>当发生上述情况，即变量的编译时类型与运行时类型不同时：</p>
-<ul>
-<li>通过变量访问它引用的对象的实例变量时：该实例变量的值由声明该变量的类型决定。</li>
-<li>通过变量调用它引用的类型的方法时，该方法行为将由它实际引用的对象来决定。</li>
-<li><p>静态变量只有在第一次加载类的时候才会被初始化，而不是每次创建实例都初始化。因此对于该类的所有实例，值都相同。静态变量是所有实例共享的，相同的值。某个对象修改了静态变量的值后，其他对象访问改静态变量得到的是修改后的值。</p>
-</li>
-<li><p>实例变量：每个实例独占一个，1000个对象有1000个实例变量，属于对象。</p>
-</li>
-<li><p>静态变量：每个类只有一个，1000个对象共享同1个，属于类。即使没有对象，也存在着。</p>
-</li>
-<li><p>创建对象前，静态变量必须被初始化完毕。</p>
-</li>
-<li><p>调用类中的静态方法前，静态变量必须被初始化完毕。</p>
-</li>
-<li><p>通过类名（而非对象名）访问静态变量。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> playerCounst; <span class="comment">// int 类型默认值为0</span></span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Player</span><span class="params">(String n)</span> </span>&#123;</span><br><span class="line">		    name = n;</span><br><span class="line">		    playerCount++;</span><br><span class="line">	    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlayerTestDrive</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            System.out.pintln(Player.playerCount);</span><br><span class="line">            Player one = <span class="keyword">new</span> Player(<span class="string">"Tiger Woods"</span>);</span><br><span class="line">            Systen.out.println(Player.playerCount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+              <p>Java 变量的类型、默认值与初始化</p>
+          
       
     </div>
     
@@ -1594,6 +865,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/13ffbe88/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1649,20 +924,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>Java 虽然是面向对象编程语言，但是为了编程的方便引入了基本数据类型。为了能将这些基本数据类型当成对象操作，Java 为每个基本数据类型引入了对应的包装类型。</p>
-<p>Java 5开始引入了自动装箱/拆箱机制，使得二者可以相互转换</p>
-<ul>
-<li>boolean—Boolean</li>
-<li>char—Character</li>
-<li>byte—Byte</li>
-<li>short—Short</li>
-<li>int—Integer</li>
-<li>long—Long</li>
-<li>floate—Float</li>
-<li>double—Double</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoUnboxingTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="keyword">new</span> Integer(<span class="number">3</span>);</span><br><span class="line">        Integer b = <span class="number">3</span>; <span class="comment">// 将 int 类型的3自动装箱成 Integer 类型</span></span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">        System.out.println(a == b); <span class="comment">// false 两个引用没有引用同一对象</span></span><br><span class="line">        System.out.println(a == c); <span class="comment">// true a自动拆箱成 int 类型再和 c 比较</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              <p>Java 虽然是面向对象编程语言，但是为了编程的方便引入了基本数据类型。为了能将这些基本数据类型当成对象操作，Java 为每个基本数据类型引入了对应的包装类型。</p>
+          
       
     </div>
     
@@ -1679,6 +942,87 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/7f22fd31/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-偷资源" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/efaa62e3/" class="article-date">
+      <time datetime="2018-04-12T02:10:11.000Z" itemprop="datePublished">2018-04-12</time>
+</a>
+
+ 
+    <a href="/posts/efaa62e3/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="posts/efaa62e3/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/efaa62e3/">偷资源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>舰C偷资源</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/舰队-Collection/">舰队 Collection</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/舰队-Collection/">舰队 Collection</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/posts/efaa62e3/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1747,7 +1091,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 6;
+                var backgroundnum = 7;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
@@ -1775,6 +1119,19 @@
         </script>
      
 
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117693132-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
 
 
 

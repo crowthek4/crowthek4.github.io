@@ -111,7 +111,7 @@
         </hgroup>
 
         
-        <p class="header-subtitle">醉后不知天在水，满船清梦压星河</p>
+        <p class="header-subtitle">~太阳当空照~</p>
         
 
         
@@ -180,7 +180,7 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="/wangzf04@gmail.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:wangzf04@gmail.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" href="https://www.weibo.com/u/2686087857" title="新浪微博"></a>
                             
@@ -231,7 +231,7 @@
               <h1 class="header-author"><a href="/" title="回到主页">王卓夫</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">醉后不知天在水，满船清梦压星河</p>
+            <p class="header-subtitle">~太阳当空照~</p>
             
             <nav class="header-menu">
                 <ul>
@@ -252,7 +252,7 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="/wangzf04@gmail.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:wangzf04@gmail.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" target="_blank" href="https://www.weibo.com/u/2686087857" title="新浪微博"></a>
                             
@@ -458,43 +458,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
-<p>将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。</p>
-<p>整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以在另一个完全不同的平台上反序列化该对象。</p>
-<p>类 ObjectInputStream 和 ObjectOutputStream 是高层次的数据流，它们包含序列化和反序列化对象的方法。<br>ObjectOutputStream 类包含很多写方法来写各种数据类型，但是一个特别的方法例外：<br>public final void writeObject(Object x) throws IOException</p>
-<p>上面的方法序列化一个对象，并将它发送到输出流。相似的 ObjectInputStream 类包含如下反序列化一个对象的方法：<br>public final Object readObject() throws IOException, ClassNotFoundException</p>
-<p>该方法从流中取出下一个对象，并将对象反序列化。它的返回值为Object，因此，你需要将它转换成合适的数据类型。</p>
-<p>为了演示序列化在Java中是怎样工作的，我将使用之前教程中提到的Employee类，假设我们定义了如下的Employee类，该类实现了Serializable 接口。</p>
-<h2 id="Employee-java-文件代码："><a href="#Employee-java-文件代码：" class="headerlink" title="Employee.java 文件代码："></a>Employee.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> String address;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">transient</span> <span class="keyword">int</span> SSN;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> number;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mailCheck</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Mailing a check to "</span> + name + <span class="string">" "</span> + address);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个类的对象要想序列化成功，必须满足两个条件：</p>
-<ul>
-<li>该类必须实现 java.io.Serializable 对象。</li>
-<li>该类的所有属性必须是可序列化的。如果有一个属性不是可序列化的，则该属性必须注明是短暂的(transient)。短暂的属性在反序列化时，其值变为类型的默认值。</li>
-</ul>
-<p>如果你想知道一个 Java 标准类是否是可序列化的，请查看该类的文档。检验一个类的实例是否能序列化十分简单， 只需要查看该类有没有实现 java.io.Serializable接口。</p>
-<hr>
-<h2 id="序列化对象"><a href="#序列化对象" class="headerlink" title="序列化对象"></a>序列化对象</h2><p>ObjectOutputStream 类用来序列化一个对象，如下的 SerializeDemo 例子实例化了一个 Employee 对象，并将该对象序列化到一个文件中。</p>
-<p>该程序执行后，就创建了一个名为 employee.ser 的文件。该程序没有任何输出，但是你可以通过代码研读来理解程序的作用。<br>注意： 当序列化一个对象到文件时， 按照 Java 的标准约定是给文件一个 .ser 扩展名。</p>
-<h2 id="SerializeDemo-java-文件代码："><a href="#SerializeDemo-java-文件代码：" class="headerlink" title="SerializeDemo.java 文件代码："></a>SerializeDemo.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerializeDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        Employee e = <span class="keyword">new</span> Employee();</span><br><span class="line">    </span><br><span class="line">        e.name = <span class="string">"Reyan Ali”;</span></span><br><span class="line"><span class="string">        e.address = "</span>Phokka Kuan, Ambehta Peer”;</span><br><span class="line">        e.SSN = <span class="number">11122333</span>;</span><br><span class="line">        e.number = <span class="number">101</span>;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileOutputStream fileOut = <span class="keyword">new</span> FileOutputStream(<span class="string">"/tmp/employee.ser"</span>);</span><br><span class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream(fileOut);</span><br><span class="line">            </span><br><span class="line">            out.writeObject(e);</span><br><span class="line">            </span><br><span class="line">            out.close();</span><br><span class="line">            fileOut.close();</span><br><span class="line">            </span><br><span class="line">            System.out.printf(<span class="string">"Serialized data is saved in /tmp/employee.ser"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(IOException i) &#123; i.printStackTrace(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="反序列化对象"><a href="#反序列化对象" class="headerlink" title="反序列化对象"></a>反序列化对象</h2><p>下面的 DeserializeDemo 程序实例了反序列化，/tmp/employee.ser 存储了 Employee 对象。</p>
-<h2 id="DeserializeDemo-java-文件代码："><a href="#DeserializeDemo-java-文件代码：" class="headerlink" title="DeserializeDemo.java 文件代码："></a>DeserializeDemo.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeserializeDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Employee e = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileInputStream fileIn = <span class="keyword">new</span> FileInputStream(<span class="string">"/tmp/employee.ser"</span>);</span><br><span class="line">        ObjectInputStream in = <span class="keyword">new</span> ObjectInputStream(fileIn);</span><br><span class="line">        </span><br><span class="line">        e = (Employee) in.readObject();</span><br><span class="line">        </span><br><span class="line">        in.close();</span><br><span class="line">        fileIn.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span>(IOException i) &#123;</span><br><span class="line">        i.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span>(ClassNotFoundException c) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Employee class not found"</span>);</span><br><span class="line">        c.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"Deserialized Employee..."</span>);</span><br><span class="line">    System.out.println(<span class="string">"Name: "</span> + e.name);</span><br><span class="line">    System.out.println(<span class="string">"Address: "</span> + e.address);</span><br><span class="line">    System.out.println(<span class="string">"SSN: "</span> + e.SSN);</span><br><span class="line">    System.out.println(<span class="string">"Number: "</span> + e.number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上程序编译运行结果如下所示：</p>
-<blockquote>
-<p>Deserialized Employee…<br>Name: Reyan Ali<br>Address:Phokka Kuan, Ambehta Peer<br>SSN: 0<br>Number:101</p>
-</blockquote>
-<ul>
-<li>反序列化不会调用构造器，防止属性被初始化</li>
-<li>如果对象的继承树上有某个类是不可序列化的，该不可序列化类及继承树向上所有类的构造器会被调用</li>
-<li><p>readObject() 方法中的 try/catch代码块尝试捕获 ClassNotFoundException 异常。对于 JVM 可以反序列化对象，它必须是能够找到字节码的类。如果JVM在反序列化对象的过程中找不到该类，则抛出一个 ClassNotFoundException 异常。</p>
-</li>
-<li><p>注意，readObject() 方法的返回值被转化成 Employee 引用。</p>
-</li>
-<li><p>当对象被序列化时，属性 SSN 的值为 111222333，但是因为该属性是短暂的，该值没有被发送到输出流。所以反序列化后 Employee 对象的 SSN 属性为 0。</p>
-</li>
-</ul>
-
+              <p>Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
+          
       
     </div>
     
@@ -511,6 +476,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/83d613f6/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -566,20 +535,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h2><ul>
-<li>方法名</li>
-<li>参数类型</li>
-<li>（注意，不包含返回类型）</li>
-<li>不包括参数名称</li>
-</ul>
-<hr>
-<h2 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h2><ul>
-<li>参数个数</li>
-<li>参数类型</li>
-<li>参数顺序</li>
-</ul>
-
+              <p>Java 方法</p>
+          
       
     </div>
     
@@ -596,6 +553,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/ad01bc3e/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -651,19 +612,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h1 id="公用方法："><a href="#公用方法：" class="headerlink" title="公用方法："></a>公用方法：</h1><ul>
-<li><p><code>boolean equals(Object otherObject)</code><br>检测两个对象是否指向同一块存储区域。<br>该方法是非常重要的一个方法。 <em>一般equals和==是不一样的，但是在Object中两者是一样的</em> 。子类、自定义的类中一般都要重写这个方法。</p>
-</li>
-<li><p><code>.clone()</code><br>对象拷贝<br>保护方法，实现对象的浅复制，只有实现了 Cloneable 接口才可以调用该方法，否则抛出 CloneNotSupportedException 异常。</p>
-</li>
-<li><code>Class getClass()</code><br>返回和当前对象相关的 Class 对象<br>final 方法，获得运行时类型</li>
-<li><code>.notify()</code><br><code>.notifyally()</code><br>对给定对象进行线程同步</li>
-<li><code>String toString()</code><br>返回描述该对象值的字符串，在自定义的类中，应该重写这个方法。</li>
-<li><code>.hashCode()</code><br>哈希查找，可以减少在查找中使用 equals 的次数，重写了 equals 的方法一般都要重写 hashCode 方法。<br>这个方法在一些具有哈希功能的 Collection 中用到。<br>一般必须满足 <code>obj1.equals(obj2) == true</code>。可以推出 <code>obj1.hashCode() == obj2.hashCode()</code>，但是hashCode相等不一定就满足 equals。不过为了提高效率，应该尽量使上面两个条件接近等价。<br>如果不重写 hashcode()，在 HashSet 中添加两个 equals 的对象，会将两个对象都加入进去。</li>
-<li><code>.wait()</code><br><code>.wait()</code> 方法就是使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。<br>线程会释放对象锁<br><code>.wait()</code> 方法一直等待，直到获得锁或者被中断。<br><code>.wait(long timeout)</code> 设定一个超时间隔，如果在规定时间内没有获得锁就返回。<br>调用该方法后当前线程进入睡眠状态，直到以下事件发生。<br>（1）其他线程调用了该对象的 <code>.notify()</code> 方法。<br>（2）其他线程调用了该对象的 <code>.notifyAll()</code> 方法。<br>（3）其他线程调用了 interrupt 中断该线程。<br>（4）时间间隔到了。<br>此时该线程就可以被调度了，如果是被中断的话就抛出一个InterruptedException 异常。</li>
-</ul>
-
+              <p>Object 类的公用方法</p>
+          
       
     </div>
     
@@ -680,6 +630,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/351cfb72/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -735,127 +689,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>异常是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。<br>比如说，你的代码少了一个分号，那么运行出来结果是提示是错误 <code>java.lang.Error</code>；如果你用 <code>System.out.println(11/0)</code> ，那么你是因为你用0做了除数，会抛出 <code>java.lang.ArithmeticException</code> 的异常。</p>
-<p>异常发生的原因有很多，通常包含以下几大类：</p>
-<ul>
-<li>用户输入了非法数据。</li>
-<li>要打开的文件不存在。</li>
-<li>网络通信时连接中断，或者 JVM 内存溢出。</li>
-<li>这些异常有的是因为用户错误引起，有的是程序错误引起的，还有其它一些是因为物理错误引起的。-</li>
-</ul>
-<p>要理解 Java 异常处理是如何工作的，你需要掌握以下三种类型的异常：</p>
-<p>检查性异常<br>:    最具代表的检查性异常是用户错误或问题引起的异常，这是程序员无法预见的。例如要打开一个不存在文件时，一个异常就发生了，这些异常在编译时不能被简单地忽略。</p>
-<p>运行时异常<br>:    运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。</p>
-<p>错误<br>:    错误不是异常，而是脱离程序员控制的问题。错误在代码中通常被忽略。例如，当栈溢出时，一个错误就发生了，它们在编译也检查不到的。</p>
-<hr>
-<h1 id="Exception-类的层次"><a href="#Exception-类的层次" class="headerlink" title="Exception 类的层次"></a>Exception 类的层次</h1><p>所有的异常类是从 <code>java.lang.Exception</code> 类继承的子类。<br><code>Exception</code> 类是 <code>Throwable</code> 类的子类。除了 <code>Exception</code> 类外，<code>Throwable</code> 还有一个子类 <code>Error</code> 。</p>
-<p>Java 程序通常不捕获错误。错误一般发生在严重故障时，它们在 Java 程序处理的范畴之外。</p>
-<p>Error 用来指示运行时环境发生的错误。</p>
-<p>例如，JVM 内存溢出。一般地，程序不会从错误中恢复。</p>
-<p>异常类有两个主要的子类：<code>IOException</code> 类和 <code>RuntimeException</code> 类。</p>
-<p><img src="https://leanote.com/api/file/getImage?fileId=5aaa4d43ab644125360028fc" alt=""></p>
-<p>在 Java 内置类中(接下来会说明)，有大部分常用检查性和非检查性异常。</p>
-<hr>
-<h1 id="Java-内置异常类"><a href="#Java-内置异常类" class="headerlink" title="Java 内置异常类"></a>Java 内置异常类</h1><p>Java 语言定义了一些异常类在 java.lang 标准包中。</p>
-<p>标准运行时异常类的子类是最常见的异常类。由于 java.lang 包是默认加载到所有的 Java 程序的，所以大部分从运行时异常类继承而来的异常都可以直接使用。</p>
-<p>Java 根据各个类库也定义了一些其他的异常，下面的表中列出了 Java 的非检查性异常。</p>
-<p><code>ArithmeticException</code><br>:    当出现异常的运算条件时，抛出此异常。例如，一个整数”除以零”时，抛出此类的一个实例。</p>
-<p><code>ArrayIndexOutOfBoundsException</code><br>:    用非法索引访问数组时抛出的异常。如果索引为负或大于等于数组大小，则该索引为非法索引。</p>
-<p><code>ArrayStoreException</code><br>:    试图将错误类型的对象存储到一个对象数组时抛出的异常。</p>
-<p><code>ClassCastException</code><br>:    当试图将对象强制转换为不是实例的子类时，抛出该异常。</p>
-<p><code>IllegalArgumentException</code><br>:    抛出的异常表明向方法传递了一个不合法或不正确的参数。</p>
-<p><code>IllegalMonitorStateException</code><br>:    抛出的异常表明某一线程已经试图等待对象的监视器，或者试图通知其他正在等待对象的监视器而本身没有指定监视器的线程。</p>
-<p><code>IllegalStateException</code><br>:    在非法或不适当的时间调用方法时产生的信号。换句话说，即 Java 环境或 Java 应用程序没有处于请求操作所要求的适当状态下。</p>
-<p><code>IllegalThreadStateException</code><br>:    线程没有处于请求操作所要求的适当状态时抛出的异常。</p>
-<p><code>IndexOutOfBoundsException</code><br>:    指示某排序索引（例如对数组、字符串或向量的排序）超出范围时抛出。</p>
-<p><code>NegativeArraySizeException</code><br>:    如果应用程序试图创建大小为负的数组，则抛出该异常。</p>
-<p><code>NullPointerException</code><br>:    当应用程序试图在需要对象的地方使用 null 时，抛出该异常</p>
-<p><code>NumberFormatException</code><br>:    当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常。</p>
-<p><code>SecurityException</code><br>:    由安全管理器抛出的异常，指示存在安全侵犯。</p>
-<p><code>StringIndexOutOfBoundsException</code><br>:    此异常由 String 方法抛出，指示索引或者为负，或者超出字符串的大小。</p>
-<p><code>UnsupportedOperationException</code><br>:    当不支持请求的操作时，抛出该异常。</p>
-<p><strong>下面的表中列出了 Java 定义在 java.lang 包中的检查性异常类。</strong></p>
-<p><code>ClassNotFoundException</code><br>:    应用程序试图加载类时，找不到相应的类，抛出该异常。</p>
-<p><code>CloneNotSupportedException</code><br>:    当调用 Object 类中的 clone 方法克隆对象，但该对象的类无法实现 Cloneable 接口时，抛出该异常。</p>
-<p><code>IllegalAccessException</code><br>:    拒绝访问一个类的时候，抛出该异常。</p>
-<p><code>InstantiationException</code><br>:    当试图使用 Class 类中的 newInstance 方法创建一个类的实例，而指定的类对象因为是一个接口或是一个抽象类而无法实例化时，抛出该异常。</p>
-<p><code>InterruptedException</code><br>:     一个线程被另一个线程中断，抛出该异常。NoSuchFieldException请求的变量不存在NoSuchMethodException请求的方法不存在</p>
-<hr>
-<h1 id="异常方法"><a href="#异常方法" class="headerlink" title="异常方法"></a>异常方法</h1><p>下面的列表是 Throwable 类的主要方法:</p>
-<p><code>.public String getMessage()</code><br>:    返回关于发生的异常的详细信息。这个消息在Throwable 类的构造函数中初始化了。</p>
-<p><code>.public Throwable getCause()</code><br>:    返回一个Throwable 对象代表异常原因。<br><code>.public String toString()</code><br>:    使用getMessage()的结果返回类的串级名字。</p>
-<p><code>.public void printStackTrace()</code><br>:    打印toString()结果和栈层次到System.err，即错误输出流。</p>
-<p><code>.public StackTraceElement [] getStackTrace()</code><br>:    返回一个包含堆栈层次的数组。下标为0的元素代表栈顶，最后一个元素代表方法调用堆栈的栈底。</p>
-<p><code>.public Throwable fillInStackTrace()</code><br>:    用当前的调用栈层次填充Throwable 对象栈层次，添加到栈层次任何先前信息中。</p>
-<hr>
-<h1 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h1><p>使用 try 和 catch 关键字可以捕获异常。try/catch 代码块放在异常可能发生的地方。<br>try/catch代码块中的代码称为保护代码，使用 try/catch 的语法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">    &#125; <span class="keyword">catch</span>(ExceptionName e1) &#123;</span><br><span class="line">    <span class="comment">//Catch 块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Catch 语句包含要捕获异常类型的声明。当保护代码块中发生一个异常时，try 后面的 catch 块就会被检查。<br>如果发生的异常包含在 catch 块中，异常会被传递到该 catch 块，这和传递一个参数到方法是一样。</p>
-<p> <strong>实例</strong></p>
-<p>下面的例子中声明有两个元素的一个数组，当代码试图访问数组的第三个元素的时候就会抛出一个异常。</p>
-<h2 id="ExcepTest-java-文件代码："><a href="#ExcepTest-java-文件代码：" class="headerlink" title="ExcepTest.java 文件代码："></a>ExcepTest.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名 : ExcepTest.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Exception thrown :"</span> + e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"Out of the block"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码编译运行输出结果如下：</p>
-<blockquote>
-<p>Exception thrown :java.lang.ArrayIndexOutOfBoundsException: 3<br>Out of the block</p>
-</blockquote>
-<hr>
-<h2 id="多重捕获块"><a href="#多重捕获块" class="headerlink" title="多重捕获块"></a>多重捕获块</h2><p>一个 try 代码块后面跟随多个 catch 代码块的情况就叫多重捕获。<br>多重捕获块的语法如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码段包含了 3 个 catch块。</p>
-<p>可以在 try 语句后面添加任意数量的 catch 块。</p>
-<p>如果保护代码中发生异常，异常被抛给第一个 catch 块。</p>
-<p>如果抛出异常的数据类型与 ExceptionType1 匹配，它在这里就会被捕获。</p>
-<p>如果不匹配，它会被传递给第二个 catch 块。</p>
-<p>如此，直到异常被捕获或者通过所有的 catch 块。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>该实例展示了怎么使用多重 try/catch。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    file = <span class="keyword">new</span> FileInputStream(fileName);</span><br><span class="line">    x = (<span class="keyword">byte</span>) file.read();</span><br><span class="line">&#125; <span class="keyword">catch</span>(IOException i)&#123;</span><br><span class="line">    i.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">catch</span>(FileNotFoundException f) <span class="comment">//Not valid! &#123; </span></span><br><span class="line">    f.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## throws/throw 关键字：</span><br><span class="line"></span><br><span class="line">如果一个方法没有捕获一个检查性异常，那么该方法必须使用 `<span class="keyword">throws</span>` 关键字来声明。`<span class="keyword">throws</span>` 关键字放在方法签名的尾部。</span><br><span class="line"></span><br><span class="line">也可以使用 `<span class="keyword">throw</span>` 关键字抛出一个异常，无论它是新实例化的还是刚捕获到的。</span><br><span class="line">下面方法的声明抛出一个 RemoteException 异常：</span><br><span class="line"></span><br><span class="line">​```java</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">        <span class="comment">// Method implementation</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RemoteException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Remainder of class definition</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。<br>例如，下面的方法声明抛出 <code>RemoteException</code> 和 <code>InsufficientFundsException</code>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException, InsufficientFundsException </span>&#123;</span><br><span class="line">        <span class="comment">// Method implementation</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Remainder of class definition</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="finally关键字"><a href="#finally关键字" class="headerlink" title="finally关键字"></a><code>finally</code>关键字</h2><p><code>finally</code> 关键字用来创建在 <code>try</code> 代码块后面执行的代码块。</p>
-<p>无论是否发生异常，<code>finally</code> 代码块中的代码总会被执行。</p>
-<p>在 <code>finally</code> 代码块中，可以运行清理类型等收尾善后性质的语句。</p>
-<p><code>finally</code> 代码块出现在 <code>catch</code> 代码块最后，语法如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><h2 id="ExcepTest-java-文件代码：-1"><a href="#ExcepTest-java-文件代码：-1" class="headerlink" title="ExcepTest.java 文件代码："></a>ExcepTest.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Exception thrown :"</span> + e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a[<span class="number">0</span>] = <span class="number">6</span>;</span><br><span class="line">            System.out.println(<span class="string">"First element value: "</span> +a[<span class="number">0</span>]);</span><br><span class="line">            System.out.println(<span class="string">"The finally statement is executed"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>Exception thrown :java.lang.ArrayIndexOutOfBoundsException: 3<br>First element value: 6<br>The finally statement is executed</p>
-</blockquote>
-<p>注意下面事项：<br><code>catch</code> 不能独立于 <code>try</code> 存在。<br>在 <code>try/catch</code> 后面添加 <code>finally</code> 块并非强制性要求的。<br><code>try</code> 代码后不能既没 <code>catch</code> 块也没 <code>finally</code> 块。</p>
-<h2 id="try-catch-finally-块之间不能添加任何代码。"><a href="#try-catch-finally-块之间不能添加任何代码。" class="headerlink" title="try, catch, finally 块之间不能添加任何代码。"></a><code>try</code>, <code>catch</code>, <code>finally</code> 块之间不能添加任何代码。</h2><h2 id="声明自定义异常"><a href="#声明自定义异常" class="headerlink" title="声明自定义异常"></a>声明自定义异常</h2><p>在 Java 中你可以自定义异常。编写自己的异常类时需要记住下面的几点。</p>
-<p>所有异常都必须是 <code>Throwable</code> 的子类。<br>如果希望写一个检查性异常类，则需要继承 <code>Exception</code> 类。<br>如果你想写一个运行时异常类，那么需要继承 <code>RuntimeException</code> 类。<br>可以像下面这样定义自己的异常类：</p>
-<p><code>class MyException extends Exception{}</code></p>
-<p>只继承 <code>Exception</code> 类来创建的异常类是检查性异常类。<br>下面的 <code>InsufficientFundsException</code> 类是用户定义的异常类，它继承自 <code>Exception</code>。<br>一个异常类和其它任何类一样，包含有变量和方法。</p>
-<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><p>以下实例是一个银行账户的模拟，通过银行卡的号码完成识别，可以进行存钱和取钱的操作。</p>
-<h2 id="InsufficientFundsException-java-文件代码："><a href="#InsufficientFundsException-java-文件代码：" class="headerlink" title="InsufficientFundsException.java 文件代码："></a>InsufficientFundsException.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名InsufficientFundsException.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义异常类，继承Exception类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsufficientFundsException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    <span class="comment">//此处的amount用来储存当出现异常（取出钱多于余额时）所缺乏的钱</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InsufficientFundsException</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了展示如何使用我们自定义的异常类，<br>在下面的 <code>CheckingAccount</code> 类中包含一个 <code>withdraw()</code> 方法抛出一个 <code>InsufficientFundsException</code> 异常。</p>
-<h2 id="CheckingAccount-java-文件代码："><a href="#CheckingAccount-java-文件代码：" class="headerlink" title="CheckingAccount.java 文件代码："></a>CheckingAccount.java 文件代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名称 CheckingAccount.java</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此类模拟银行账户</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckingAccount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//balance为余额，number为卡号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CheckingAccount</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//方法：存钱</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</span><br><span class="line">        balance += amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：取钱</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> InsufficientFundsException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(amount &lt;= balance) &#123;</span><br><span class="line">            balance -= amount;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">double</span> needs = amount - balance;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InsufficientFundsException(needs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：返回余额</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> balance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法：返回卡号</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面的 BankDemo 程序示范了如何调用 CheckingAccount 类的 deposit() 和 withdraw() 方法。</p>
-<h2 id="BankDemo-java-文件代码："><a href="#BankDemo-java-文件代码：" class="headerlink" title="BankDemo.java 文件代码："></a>BankDemo.java 文件代码：</h2><p>//文件名称 BankDemo.java</p>
-<p>public class BankDemo{</p>
-<pre><code>public static void main(String [] args) {
-    CheckingAccount c = new CheckingAccount(101);
-    System.out.println(&quot;Depositing $500...&quot;);
-    c.deposit(500.00);
-
-    try {
-        System.out.println(&quot;\nWithdrawing $100...&quot;);
-        c.withdraw(100.00);
-        System.out.println(&quot;\nWithdrawing $600...&quot;);
-        c.withdraw(600.00);
-    } catch(InsufficientFundsException e) {
-        System.out.println(&quot;Sorry, but you are short $&quot; + e.getAmount());
-        e.printStackTrace();
-    }
-}
-</code></pre><p>}</p>
-<p>编译上面三个文件，并运行程序 BankDemo，得到结果如下所示：</p>
-<blockquote>
-<p>Depositing $500…<br>Withdrawing $100…<br>Withdrawing $600…<br>Sorry, but you are short $200.0<br>InsufficientFundsException<br>at CheckingAccount.withdraw(CheckingAccount.java:25)<br>at BankDemo.main(BankDemo.java:13)</p>
-</blockquote>
-<hr>
-<h2 id="通用异常"><a href="#通用异常" class="headerlink" title="通用异常"></a>通用异常</h2><p>在Java中定义了两种类型的异常和错误。<br>JVM(Java虚拟机) 异常<br>：    由 JVM 抛出的异常或错误。例如：<code>NullPointerException</code> 类，<code>ArrayIndexOutOfBoundsException</code> 类，<code>ClassCastException</code> 类。<br>程序级异常<br>：    由程序或者API程序抛出的异常。例如 <code>IllegalArgumentException</code> 类，<code>IllegalStateException</code> 类。</p>
-
+              <p>异常的分类与处理</p>
+          
       
     </div>
     
@@ -872,6 +707,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/28877bf/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -927,33 +766,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="HashCode的特性"><a href="#HashCode的特性" class="headerlink" title="HashCode的特性"></a>HashCode的特性</h2><p>（1）HashCode的存在主要是用于查找的快捷性，如 Hashtable，HashMap 等，HashCode 经常用于确定对象的存储地址。<br>（2）两个对象相同，则 <code>.equals()</code> 方法返回 true ，HashCode 相同。<br>（3）两个对象的 HashCode 相同，两个对象却不一定相同， <code>.equals()</code> 不一定为 true。<br>（4）如果对象的 <code>.equals()</code> 方法被重写，那么对象的 HashCode 也尽量重写。</p>
-<hr>
-<h2 id="HashCode作用"><a href="#HashCode作用" class="headerlink" title="HashCode作用"></a>HashCode作用</h2><p>Java中的集合有两类，一类是List，再有一类是Set。前者集合内的元素是有序的，元素可以重复；后者元素无序，但元素不可重复。 </p>
-<p><code>.equals()</code> 方法可用于保证元素不重复，但如果每增加一个元素就检查一次，若集合中现在已经有1000个元素，那么第1001个元素加入集合时，就要调用1000次 <code>.equals()</code> 方法。这显然会大大降低效率。 于是，Java 采用了哈希表的原理。</p>
-<p>哈希算法也称为散列算法，是将数据依特定算法直接指定到一个地址上。<br>这样一来，当集合要添加新的元素时，先调用这个元素的 HashCode 方法，就一下子能定位到它应该放置的物理位置上。</p>
-<p>（1）如果这个位置上没有元素，它就可以直接存储在这个位置上；<br>（2）如果这个位置上已经有元素了，就调用它的 <code>.equals()</code> 方法与新元素进行比较，相同的话就不存了，散列到其他地址上；<br>（3）（HashCode 相同，<code>.equals()</code> 的结果）不相同的话，也就是发生了Hash key 相同导致冲突的情况，那么就在这个 Hash key 的地方产生一个链表，将所有产生相同 HashCode 的对象放到这个单链表上去，串在一起（很少出现）。这样一来实际调用 <code>.equals()</code> 方法的次数就大大降低了，几乎只需要一两次。 </p>
-<p>从 Object 角度看，JVM 每 <code>new</code> 一个 Object，它都会将这个 Object 丢到一个 Hash 表中去，这样的话，下次做 Object 的比较或者取这个对象的时候（读取过程），它会根据对象的 HashCode 再从 Hash 表中取这个对象。这样做的目的是提高取对象的效率。若 HashCode 相同再去调用 <code>.equals()</code>。</p>
-<hr>
-<h2 id="HashCode实践"><a href="#HashCode实践" class="headerlink" title="HashCode实践"></a>HashCode实践</h2><p>HashCode 是用于查找使用的，而 <code>.equals()</code> 是用于比较两个对象是否相等的。</p>
-<p>例如内存中有这样的位置 ：<br><code>0  1  2  3  4  5  6  7</code><br>而我有个类，这个类有个字段叫ID，我要把这个类存放在以上8个位置之一，如果不用 HashCode 而任意存放，那么当查找时就需要到这八个位置里挨个去找，或者用二分法一类的算法。  </p>
-<p>但以上问题如果用 HashCode 就会使效率提高很多。  定义我们的 HashCode 为 ID％8，比如我们的 ID 为9，9除8的余数为1，那么我们就把该类存在1这个位置，如果 ID 是13，求得的余数是5，那么我们就把该类放在5这个位置。依此类推。  </p>
-<p>但是如果两个类有相同的 HashCode ，例如9除以8和17除以8的余数都是1，也就是说，我们先通过 HashCode 来判断两个类是否存放某个桶里，但这个桶里可能有很多类，那么我们就需要再通过 <code>.equals()</code> 在这个桶里找到我们要的类。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashTest</span> </span>&#123;    </span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getI</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">		<span class="keyword">return</span> i;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setI</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;    </span><br><span class="line">		<span class="keyword">this</span>.i = i;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">		<span class="keyword">return</span> i % <span class="number">10</span>;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;    </span><br><span class="line">		HashTest a = <span class="keyword">new</span> HashTest();    </span><br><span class="line">		HashTest b = <span class="keyword">new</span> HashTest();    </span><br><span class="line">		a.setI(<span class="number">1</span>);    </span><br><span class="line">		b.setI(<span class="number">1</span>);    </span><br><span class="line">		Set&lt;HashTest&gt; set = <span class="keyword">new</span> HashSet&lt;HashTest&gt;();    </span><br><span class="line">		set.add(a);    </span><br><span class="line">		set.add(b);    </span><br><span class="line">		System.out.println(a.hashCode() == b.hashCode());    </span><br><span class="line">		System.out.println(a.equals(b));    </span><br><span class="line">		System.out.println(set);    </span><br><span class="line">	&#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<blockquote>
-<p>true<br>false  </p>
-</blockquote>
-<p>以上这个示例，我们只是重写了 HashCode 方法，从上面的结果可以看出，虽然两个对象的 HashCode 相等，但是实际上两个对象并不是相等，因为我们没有重写 <code>.equals()</code> 方法，那么就会调用 Object 默认的 <code>.equals()</code> 方法，显示这是两个不同的对象。</p>
-<p>这里我们将生成的对象放到了 HashSet 中，而 HashSet 中只能够存放唯一的对象，也就是相同的（适用于 <code>.equals()</code> 方法）的对象只会存放一个，但是这里实际上是两个对象ab都被放到了 HashSet 中，这样 HashSet 就失去了他本身的意义了。</p>
-<p>下面我们继续重写equals方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashTest</span> </span>&#123;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getI</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">return</span> i;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setI</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">this</span>.i = i;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object object)</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">if</span> (object == <span class="keyword">null</span>) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">if</span> (object == <span class="keyword">this</span>) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">if</span> (!(object <span class="keyword">instanceof</span> HashTest)) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        HashTest other = (HashTest) object;    </span><br><span class="line">        <span class="keyword">if</span> (other.getI() == <span class="keyword">this</span>.getI()) &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">return</span> i % <span class="number">10</span>;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;    </span><br><span class="line">        HashTest a = <span class="keyword">new</span> HashTest();    </span><br><span class="line">        HashTest b = <span class="keyword">new</span> HashTest();    </span><br><span class="line">        a.setI(<span class="number">1</span>);    </span><br><span class="line">        b.setI(<span class="number">1</span>);    </span><br><span class="line">        Set&lt;HashTest&gt; set = <span class="keyword">new</span> HashSet&lt;HashTest&gt;();    </span><br><span class="line">        set.add(a);    </span><br><span class="line">        set.add(b);    </span><br><span class="line">        System.out.println(a.hashCode() == b.hashCode());    </span><br><span class="line">        System.out.println(a.equals(b));    </span><br><span class="line">        System.out.println(set);    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果如下所示。<br>从结果我们可以看出，现在两个对象就完全相等了，HashSet中也只存放了一份对象。</p>
-<blockquote>
-<p>true<br>true  </p>
-</blockquote>
-
+              <p>在Java中，哈希码是对象的一种标记符，有时可以用来区分对象，就像是门牌号一样。</p>
+          
       
     </div>
     
@@ -970,6 +784,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/600c4239/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1025,25 +843,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<h2 id="字符串-String类"><a href="#字符串-String类" class="headerlink" title="字符串 String类"></a>字符串 String类</h2><ul>
-<li>不可变的，不能修改。以便于编译器可以实现字符串共享</li>
-<li>通过提取子串再拼接新串的方法间接修改。</li>
-<li>检测字符串相等使用<code>s.equals(t)</code>方法</li>
-<li>不区分大小写检测字符串相等使用 <code>s.equalsIgnoreCase(t)</code> 方法</li>
-<li>不能用 <code>==</code> 检测字符串是否相等。<code>==</code> 只检测两个字符串是否在内存的同一个位置上。<code>.equals()</code> 检测二者在内存中的值是否相同。</li>
-<li><code>.length()</code> 方法返回字符串所需的代码单元数量</li>
-<li><code>.codePointCound(0, s.length())</code> 返回码点数量，即实际长度。</li>
-<li><code>.charAt(n)</code> 返回位置 n 的代码单元</li>
-</ul>
-<hr>
-<h2 id="String、StringBuffer与StringBuilder的区别"><a href="#String、StringBuffer与StringBuilder的区别" class="headerlink" title="String、StringBuffer与StringBuilder的区别"></a>String、StringBuffer与StringBuilder的区别</h2><ul>
-<li>String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象</li>
-<li>StringBuffer 和 StringBuilder 底层是 char[] 实现的</li>
-<li>StringBuffer 是线程安全的，而 StringBuilder 是线程不安全的</li>
-<li>StringBuilder 比 StringBuffer 有速度优势</li>
-</ul>
-
+              <p>String类，StringBuffer与StringBuilder的区别</p>
+          
       
     </div>
     
@@ -1060,6 +861,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/fc81fbfd/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1115,10 +920,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>Java 中的 int 总共就 32 位，正数上限的情况首位也只能是 0，其他位都可以是 1（就是 2^31-1 的情况）。但是如果正数过大了，例如 2^31，计算机不得不把首位变成 1，并且很快就忘了这是溢出情况，把它按照正常的方式输出了，于是就成了负的。其实也不能怪它，它没有办法自动处理超过溢出的情况，因为 32 位是固定的，它不能因为溢出而临时扩展到 33 位之类的。</p>
-<p>防止溢出的办法是无符号右移一位？？</p>
-
+              <p>整数溢出的原理以及解决方法</p>
+          
       
     </div>
     
@@ -1135,6 +938,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/704e6497/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1152,20 +959,20 @@
 
 
   
-    <article id="post-栈帧" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-堆栈" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/posts/e29258ce/" class="article-date">
-      <time datetime="2018-04-12T02:27:30.000Z" itemprop="datePublished">2018-04-12</time>
+      <a href="/posts/af55460a/" class="article-date">
+      <time datetime="2018-04-12T02:27:15.000Z" itemprop="datePublished">2018-04-12</time>
 </a>
 
  
-    <a href="/posts/e29258ce/#comments" title="查看评论">
+    <a href="/posts/af55460a/#comments" title="查看评论">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="posts/e29258ce/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="posts/af55460a/"></span>
         
     </a>
 
@@ -1180,7 +987,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/e29258ce/">栈帧</a>
+      <a class="article-title" href="/posts/af55460a/">堆栈</a>
     </h1>
   
 
@@ -1190,9 +997,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>一个方法从调用开始到执行完成，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。<br>栈帧不会被线程共享，也就是说当前栈帧中存在的对象就可以判定为是不会回收的对象</p>
-
+              <p>Java 内存</p>
+          
       
     </div>
     
@@ -1209,6 +1015,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/posts/af55460a/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1277,7 +1087,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 6;
+                var backgroundnum = 7;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
@@ -1305,6 +1115,19 @@
         </script>
      
 
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-117693132-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
 
 
 
