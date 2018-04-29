@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="垃圾回收的方法">
-<meta name="keywords" content="Java">
+<meta name="description" content="名称 类型 秘书舰 公式 数量 备注     烈风 舰上战斗机   9    流星改 舰上攻击机   4    彗星一二型甲 舰上爆击机 CV 20/30/10/40 12    零式舰战62型（爆战） 舰上爆击机   2    彩云 舰上侦察机   1    二式舰上侦察机 舰上侦察机       零式水上观测机 舰上侦察机 CV 20/11/10/20 4    瑞云 水上爆击机   4">
+<meta name="keywords" content="舰队 Collection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="垃圾回收器">
-<meta property="og:url" content="https://crowzf.com/posts/fe8a6aab/index.html">
+<meta property="og:title" content="开发">
+<meta property="og:url" content="https://crowzf.com/posts/5b1f4da1/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="垃圾回收的方法">
+<meta property="og:description" content="名称 类型 秘书舰 公式 数量 备注     烈风 舰上战斗机   9    流星改 舰上攻击机   4    彗星一二型甲 舰上爆击机 CV 20/30/10/40 12    零式舰战62型（爆战） 舰上爆击机   2    彩云 舰上侦察机   1    二式舰上侦察机 舰上侦察机       零式水上观测机 舰上侦察机 CV 20/11/10/20 4    瑞云 水上爆击机   4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T05:59:15.000Z">
+<meta property="og:updated_time" content="2018-04-29T02:38:46.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="垃圾回收器">
-<meta name="twitter:description" content="垃圾回收的方法">
+<meta name="twitter:title" content="开发">
+<meta name="twitter:description" content="名称 类型 秘书舰 公式 数量 备注     烈风 舰上战斗机   9    流星改 舰上攻击机   4    彗星一二型甲 舰上爆击机 CV 20/30/10/40 12    零式舰战62型（爆战） 舰上爆击机   2    彩云 舰上侦察机   1    二式舰上侦察机 舰上侦察机       零式水上观测机 舰上侦察机 CV 20/11/10/20 4    瑞云 水上爆击机   4">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>垃圾回收器 | 清梦船</title>
+<title>开发 | 清梦船</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-垃圾回收器" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-开发" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/posts/fe8a6aab/" class="article-date">
-      <time datetime="2018-04-12T02:26:15.000Z" itemprop="datePublished">2018-04-12</time>
+      <a href="/posts/5b1f4da1/" class="article-date">
+      <time datetime="2018-04-29T02:06:17.000Z" itemprop="datePublished">2018-04-29</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      垃圾回收器
+      开发
     </h1>
   
 
@@ -286,7 +286,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/舰队-Collection/">舰队 Collection</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -296,15 +296,155 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>垃圾回收的方法</p>
-<a id="more"></a>
-<p>失去引用的对象将被 GC 列入“可回收名单”，但不一定立即回收。</p>
-<p>1.标记回收法：遍历对象图并且记录可到达的对象，以便删除不可到达的对象，一般使用单线程工作并且可能产生内存碎片</p>
-<p>2.标记-压缩回收法：前期与第一种方法相同，只是多了一步，将所有的存活对象压缩到内存的一端，这样内存碎片就可以合成一大块可再利用的内存区域，提高了内存利用率</p>
-<p>3.复制回收法：把现有内存空间分成两部分，GC 运行时，它把可到达对象复制到另一半空间，再清空正在使用的空间的全部对象。这种方法适用于短生存期的对象，持续复制长生存期的对象则导致效率降低。</p>
-<p>4.分代回收发：把内存空间分为两个或者多个域，如年轻代和老年代，年轻代的特点是对象会很快被回收，因此在年轻代使用效率比较高的算法。当一个对象经过几次回收后依然存活，对象就会被放入称为老年的内存空间，老年代则采取标记-压缩算法</p>
-<p>5.引用计数（最简单古老的方法）：指将资源（可以是对象、内存或磁盘空间等等）的被引用次数保存起来，当被引用次数变为零时就将其释放的过程</p>
-<p>6.对象引用遍历（现在大多数 JVM 使用的方法）：对象引用遍历从一组对象开始，沿着整个对象图上的每条链接，递归确定可到达（reachable）的对象。如果某对象不能从这些根对象的一个（至少一个）到达，则将它作为垃圾收集</p>
+        <table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">秘书舰</th>
+<th style="text-align:center">公式</th>
+<th style="text-align:center">数量</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">烈风</td>
+<td style="text-align:center">舰上战斗机</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">9</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">流星改</td>
+<td style="text-align:center">舰上攻击机</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">彗星一二型甲</td>
+<td style="text-align:center">舰上爆击机</td>
+<td style="text-align:center">CV</td>
+<td style="text-align:center">20/30/10/40</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">零式舰战62型（爆战）</td>
+<td style="text-align:center">舰上爆击机</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">彩云</td>
+<td style="text-align:center">舰上侦察机</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">二式舰上侦察机</td>
+<td style="text-align:center">舰上侦察机</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">零式水上观测机</td>
+<td style="text-align:center">舰上侦察机</td>
+<td style="text-align:center">CV</td>
+<td style="text-align:center">20/11/10/20</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">瑞云</td>
+<td style="text-align:center">水上爆击机</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">46cm三连装炮</td>
+<td style="text-align:center">大口径主炮</td>
+<td style="text-align:center">BB</td>
+<td style="text-align:center">10/251/250/10</td>
+<td style="text-align:center">6(+4)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">三式弹</td>
+<td style="text-align:center">对空强化弹</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10/90/90/30</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">对陆基2.5倍</td>
+</tr>
+<tr>
+<td style="text-align:center">九一式彻甲弹</td>
+<td style="text-align:center">对舰强化弹</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10/251/250/10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">15.5cm三连装炮（副炮）</td>
+<td style="text-align:center">副炮</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10/251/250/10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">夜战地图、CLT装备</td>
+</tr>
+<tr>
+<td style="text-align:center">32号对水上电探</td>
+<td style="text-align:center">大型电探</td>
+<td style="text-align:center">CV</td>
+<td style="text-align:center">20/20/250/250</td>
+<td style="text-align:center">2~4(+8)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14号对空电探</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">CV</td>
+<td style="text-align:center">20/20/250/250</td>
+<td style="text-align:center">0~2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">33号对水上电探</td>
+<td style="text-align:center">小型电探</td>
+<td style="text-align:center">CV</td>
+<td style="text-align:center">20/20/250/250</td>
+<td style="text-align:center">2(4)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">三式水中探信仪</td>
+<td style="text-align:center">声呐</td>
+<td style="text-align:center">CL/DD</td>
+<td style="text-align:center">10/10/10/20</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">三式爆雷投射机</td>
+<td style="text-align:center">爆雷</td>
+<td style="text-align:center">CL</td>
+<td style="text-align:center">10/30/10/10</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -313,13 +453,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/posts/fe8a6aab/">垃圾回收器</a></p>
+        <p><span>本文标题:</span><a href="/posts/5b1f4da1/">开发</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">王卓夫</a></p>
-        <p><span>发布时间:</span>2018-04-12, 10:26:15</p>
-        <p><span>最后更新:</span>2018-04-17, 13:59:15</p>
+        <p><span>发布时间:</span>2018-04-29, 10:06:17</p>
+        <p><span>最后更新:</span>2018-04-29, 10:38:46</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/posts/fe8a6aab/" title="垃圾回收器">https://crowzf.com/posts/fe8a6aab/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://crowzf.com/posts/fe8a6aab/　　作者: 王卓夫" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/posts/5b1f4da1/" title="开发">https://crowzf.com/posts/5b1f4da1/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://crowzf.com/posts/5b1f4da1/　　作者: 王卓夫" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -331,16 +471,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/posts/79666db/">
-                    数据结构
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/posts/179f63b0/">
-                    静态变量
+                <a href="/posts/0/">
+                    
                 </a>
             </div>
         
@@ -388,7 +522,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"垃圾回收器　| 清梦船　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"开发　| 清梦船　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -407,8 +541,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'https://crowzf.com/posts/fe8a6aab/';
-            this.page.identifier = 'posts/fe8a6aab/';
+            this.page.url = 'https://crowzf.com/posts/5b1f4da1/';
+            this.page.identifier = 'posts/5b1f4da1/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -430,15 +564,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/posts/79666db/" title="上一篇: 数据结构">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/posts/179f63b0/" title="下一篇: 静态变量">
+            <a href="/posts/0/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
