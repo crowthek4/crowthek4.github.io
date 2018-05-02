@@ -9,11 +9,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2Fposts%2F0%2F</url>
-    <content type="text"><![CDATA[流库借助 java.util.stream包，您可以简明地、声明性地表达集合、数组和其他数据源上可能的并行批量操作。 &lt;!—more—&gt; Lambda 表达式使行为表达为数据更为容易，从而可以开发具有更强表达能力、更强大的库。 流库就充分利用了这种“行为及数据”的特性。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[+= 操作符实质]]></title>
     <url>%2Fposts%2F3ddc283%2F</url>
     <content type="text"><![CDATA[+= 操作符实质i += j等同于i = i + j吗？ 1234int i = 5;long j = 8;i = i + j; // 不能编译i += j; // 可以编译 对符合赋值表达式来说，E1 op= E2等同于E1 = (T)((E1) op (E2))，其中 T 是 E1 的类型。]]></content>
