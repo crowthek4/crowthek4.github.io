@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="重载 VS 重写">
-<meta name="keywords" content="Java">
+<meta name="description" content="舰娘特别能力">
+<meta name="keywords" content="舰队 Collection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重载与重写">
-<meta property="og:url" content="https://crowzf.com/posts/d1132592/index.html">
+<meta property="og:title" content="舰娘">
+<meta property="og:url" content="https://crowzf.com/posts/e012b259/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="重载 VS 重写">
+<meta property="og:description" content="舰娘特别能力">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T06:01:02.000Z">
+<meta property="og:updated_time" content="2018-05-03T06:50:37.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重载与重写">
-<meta name="twitter:description" content="重载 VS 重写">
+<meta name="twitter:title" content="舰娘">
+<meta name="twitter:description" content="舰娘特别能力">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>重载与重写 | 清梦船</title>
+<title>舰娘 | 清梦船</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-重载与重写" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-舰娘" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/posts/d1132592/" class="article-date">
-      <time datetime="2018-04-12T03:17:27.000Z" itemprop="datePublished">2018-04-12</time>
+      <a href="/posts/e012b259/" class="article-date">
+      <time datetime="2018-05-03T06:47:01.000Z" itemprop="datePublished">2018-05-03</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      重载与重写
+      舰娘
     </h1>
   
 
@@ -286,7 +286,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/舰队-Collection/">舰队 Collection</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -296,31 +296,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>重载 VS 重写</p>
-<a id="more"></a>
-<h2 id="重载overload"><a href="#重载overload" class="headerlink" title="重载overload"></a>重载overload</h2><ul>
-<li>与继承无关、与多态无关</li>
-<li>一系列同名、同时存在的方法。</li>
-<li>参数列表必须不同，依据参数列表决定调用哪个方法。</li>
-<li>重载不必遵守父类的多态合同，更加灵活。最常用的是构造器的重载，即一个类有多个构造器（自定构造器，默认构造器等）</li>
-<li>返回值类型可以不同</li>
-<li>访问修饰符可以不同</li>
-<li>可以声明新的或更广泛的检查异常</li>
-<li>能够在同一个类中重载方法，也可以在子类中重载方法</li>
+        <h2 id="驱逐舰-DD"><a href="#驱逐舰-DD" class="headerlink" title="驱逐舰 DD"></a>驱逐舰 DD</h2><h3 id="阳炎改二"><a href="#阳炎改二" class="headerlink" title="阳炎改二"></a>阳炎改二</h3><ul>
+<li>装备【12.7cm连装炮C型改二】和【61cm四连装(酸素)鱼类】战力额外增强</li>
 </ul>
-<hr>
-<h2 id="重写-Override"><a href="#重写-Override" class="headerlink" title="重写 Override"></a>重写 Override</h2><p>子类对父类中某个允许访问的方法进行重新编写，得到自己的实现过程。</p>
-<ul>
-<li>返回值类型不变，可以是原返回值类型的子类</li>
-<li>参数列表不变</li>
-<li>访问级别的权限不能比原方法的权限更低</li>
-<li>不能抛出新的检查性异常或比原方法更宽泛的异常</li>
-<li>声明为 <code>final</code> 的方法不能被重写</li>
-<li>声明为 <code>static</code> 的方法不能被重写</li>
-<li>同一包中，子类不能重写父类的 <code>private</code> 和 <code>final</code> 方法</li>
-<li>不同包中，子类只能重写父类的 非 final 的 public 和 protected 方法</li>
-<li>构造方法不能被重写</li>
-<li>使用 <code>super</code> 关键字调用父类中的原方法</li>
+<h2 id="轻巡洋舰"><a href="#轻巡洋舰" class="headerlink" title="轻巡洋舰"></a>轻巡洋舰</h2><h3 id="五十铃改二"><a href="#五十铃改二" class="headerlink" title="五十铃改二"></a>五十铃改二</h3><ul>
+<li>自带开幕反潜，无对潜值要求</li>
 </ul>
 
       
@@ -330,13 +310,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/posts/d1132592/">重载与重写</a></p>
+        <p><span>本文标题:</span><a href="/posts/e012b259/">舰娘</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">王卓夫</a></p>
-        <p><span>发布时间:</span>2018-04-12, 11:17:27</p>
-        <p><span>最后更新:</span>2018-04-17, 14:01:02</p>
+        <p><span>发布时间:</span>2018-05-03, 14:47:01</p>
+        <p><span>最后更新:</span>2018-05-03, 14:50:37</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/posts/d1132592/" title="重载与重写">https://crowzf.com/posts/d1132592/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://crowzf.com/posts/d1132592/　　作者: 王卓夫" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/posts/e012b259/" title="舰娘">https://crowzf.com/posts/e012b259/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://crowzf.com/posts/e012b259/　　作者: 王卓夫" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,16 +328,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/posts/b6159bfb/">
-                    Hexo 搭建博客
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/posts/83d613f6/">
-                    序列化和反序列化
+                <a href="/posts/5b1f4da1/">
+                    开发
                 </a>
             </div>
         
@@ -369,7 +343,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#重载overload"><span class="toc-number">1.</span> <span class="toc-text">重载overload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重写-Override"><span class="toc-number">2.</span> <span class="toc-text">重写 Override</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#驱逐舰-DD"><span class="toc-number">1.</span> <span class="toc-text">驱逐舰 DD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#阳炎改二"><span class="toc-number">1.1.</span> <span class="toc-text">阳炎改二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轻巡洋舰"><span class="toc-number">2.</span> <span class="toc-text">轻巡洋舰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#五十铃改二"><span class="toc-number">2.1.</span> <span class="toc-text">五十铃改二</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -405,7 +379,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"重载与重写　| 清梦船　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"舰娘　| 清梦船　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,8 +398,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'https://crowzf.com/posts/d1132592/';
-            this.page.identifier = 'posts/d1132592/';
+            this.page.url = 'https://crowzf.com/posts/e012b259/';
+            this.page.identifier = 'posts/e012b259/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -447,15 +421,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/posts/b6159bfb/" title="上一篇: Hexo 搭建博客">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/posts/83d613f6/" title="下一篇: 序列化和反序列化">
+            <a href="/posts/5b1f4da1/" title="下一篇: 开发">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://crowzf.com/"/>
-  <updated>2018-05-02T03:07:53.187Z</updated>
+  <updated>2018-05-03T06:50:37.261Z</updated>
   <id>https://crowzf.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>舰娘</title>
+    <link href="https://crowzf.com/posts/e012b259/"/>
+    <id>https://crowzf.com/posts/e012b259/</id>
+    <published>2018-05-03T06:47:01.000Z</published>
+    <updated>2018-05-03T06:50:37.261Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="驱逐舰-DD"><a href="#驱逐舰-DD" class="headerlink" title="驱逐舰 DD"></a>驱逐舰 DD</h2><h3 id="阳炎改二"><a href="#阳炎改二" class="headerlink" title="阳炎改二"></a>阳炎改二</h3><ul><li>装备【12.7cm连装炮C型改二】和【61cm四连装(酸素)鱼类】战力额外增强</li></ul><h2 id="轻巡洋舰"><a href="#轻巡洋舰" class="headerlink" title="轻巡洋舰"></a>轻巡洋舰</h2><h3 id="五十铃改二"><a href="#五十铃改二" class="headerlink" title="五十铃改二"></a>五十铃改二</h3><ul><li>自带开幕反潜，无对潜值要求</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      舰娘特别能力
+    
+    </summary>
+    
+    
+      <category term="舰队 Collection" scheme="https://crowzf.com/tags/%E8%88%B0%E9%98%9F-Collection/"/>
+    
+  </entry>
   
   <entry>
     <title>开发</title>

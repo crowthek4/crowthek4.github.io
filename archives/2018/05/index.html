@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="重载 VS 重写">
-<meta name="keywords" content="Java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="重载与重写">
-<meta property="og:url" content="https://crowzf.com/posts/d1132592/index.html">
+<meta name="description" content="Dive in Code">
+<meta name="keywords" content="清梦船">
+<meta property="og:type" content="website">
+<meta property="og:title" content="清梦船">
+<meta property="og:url" content="https://crowzf.com/archives/2018/05/index.html">
 <meta property="og:site_name" content="清梦船">
-<meta property="og:description" content="重载 VS 重写">
+<meta property="og:description" content="Dive in Code">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T06:01:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重载与重写">
-<meta name="twitter:description" content="重载 VS 重写">
+<meta name="twitter:title" content="清梦船">
+<meta name="twitter:description" content="Dive in Code">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>重载与重写 | 清梦船</title>
+<title>Archives: 2018/5 | 清梦船</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -68,8 +67,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
-        isArchive: false,
+        isPost: false,
+        isArchive: true,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -256,219 +255,56 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-重载与重写" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/posts/d1132592/" class="article-date">
-      <time datetime="2018-04-12T03:17:27.000Z" itemprop="datePublished">2018-04-12</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/posts/e012b259/" class="archive-article-date">
+      <time datetime="2018-05-03T06:47:01.000Z" itemprop="datePublished">05-03</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      重载与重写
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/posts/e012b259/">舰娘</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <p>重载 VS 重写</p>
-<a id="more"></a>
-<h2 id="重载overload"><a href="#重载overload" class="headerlink" title="重载overload"></a>重载overload</h2><ul>
-<li>与继承无关、与多态无关</li>
-<li>一系列同名、同时存在的方法。</li>
-<li>参数列表必须不同，依据参数列表决定调用哪个方法。</li>
-<li>重载不必遵守父类的多态合同，更加灵活。最常用的是构造器的重载，即一个类有多个构造器（自定构造器，默认构造器等）</li>
-<li>返回值类型可以不同</li>
-<li>访问修饰符可以不同</li>
-<li>可以声明新的或更广泛的检查异常</li>
-<li>能够在同一个类中重载方法，也可以在子类中重载方法</li>
-</ul>
-<hr>
-<h2 id="重写-Override"><a href="#重写-Override" class="headerlink" title="重写 Override"></a>重写 Override</h2><p>子类对父类中某个允许访问的方法进行重新编写，得到自己的实现过程。</p>
-<ul>
-<li>返回值类型不变，可以是原返回值类型的子类</li>
-<li>参数列表不变</li>
-<li>访问级别的权限不能比原方法的权限更低</li>
-<li>不能抛出新的检查性异常或比原方法更宽泛的异常</li>
-<li>声明为 <code>final</code> 的方法不能被重写</li>
-<li>声明为 <code>static</code> 的方法不能被重写</li>
-<li>同一包中，子类不能重写父类的 <code>private</code> 和 <code>final</code> 方法</li>
-<li>不同包中，子类只能重写父类的 非 final 的 public 和 protected 方法</li>
-<li>构造方法不能被重写</li>
-<li>使用 <code>super</code> 关键字调用父类中的原方法</li>
-</ul>
 
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/posts/d1132592/">重载与重写</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">王卓夫</a></p>
-        <p><span>发布时间:</span>2018-04-12, 11:17:27</p>
-        <p><span>最后更新:</span>2018-04-17, 14:01:02</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/posts/d1132592/" title="重载与重写">https://crowzf.com/posts/d1132592/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://crowzf.com/posts/d1132592/　　作者: 王卓夫" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/舰队-Collection/">舰队 Collection</a></li></ul>
     </div>
 
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/posts/b6159bfb/">
-                    Hexo 搭建博客
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/posts/83d613f6/">
-                    序列化和反序列化
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#重载overload"><span class="toc-number">1.</span> <span class="toc-text">重载overload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重写-Override"><span class="toc-number">2.</span> <span class="toc-text">重写 Override</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"重载与重写　| 清梦船　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function(){
-            this.page.url = 'https://crowzf.com/posts/d1132592/';
-            this.page.identifier = 'posts/d1132592/';
-        };
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = '//crowthek4.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <script> loadComment(); </script>
-
-</section>
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/posts/b6159bfb/" title="上一篇: Hexo 搭建博客">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/posts/83d613f6/" title="下一篇: 序列化和反序列化">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/e012b259/">舰娘</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5b1f4da1/">开发</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3ddc283/">+= 操作符实质</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7bca204e/">JavaIO</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2ef061ea/">运行 java 代码时提示找不到或无法加载主类</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/889824bc/">lambda 表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b6159bfb/">Hexo 搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d1132592/">重载与重写</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/83d613f6/">序列化和反序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ad01bc3e/">方法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/351cfb72/">Object类</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/28877bf/">异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/600c4239/">HashCode</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fc81fbfd/">字符串 String 类型</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/704e6497/">整数溢出</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/af55460a/">堆栈</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/63441ac3/">源文件的声明规则</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/9cc58f5a/">修饰符</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/15fc6e8c/">线程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/95495db/">文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6a503052/">位操作</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/28239a8d/">面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/79666db/">数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fe8a6aab/">垃圾回收器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/179f63b0/">静态变量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/990f7b7d/">接口Interface</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4d6a6177/">基本类型Primitive_type</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fe7c7d2d/">关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/92e0508e/">构造过程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7d9efe37/">格式指定</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/dc306f3e/">分支语句</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8a9fd61b/">对象的强、软、弱、虚引用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/9e6fead7/">抽象</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/13ffbe88/">变量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7f22fd31/">包装类型</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/efaa62e3/">偷资源</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a32fa04c/">建造配方</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e305fe87/">支援舰队</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d84d1c15/">练级</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5ee7f95d/">任务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6104db5e/">远征</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/71d2d6e7/">阵型</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f5e02980/">带路</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
