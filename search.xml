@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[舰娘特殊能力]]></title>
+    <url>%2Fposts%2Fb693a5cf%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[power]]></title>
+    <url>%2Fposts%2Fundefined%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[编程词典]]></title>
+    <url>%2Fposts%2F48262c44%2F</url>
+    <content type="text"><![CDATA[HHTTP : (Hyper Text Transfer Protocol 超文本传输协议)]]></content>
+      <tags>
+        <tag>CS通识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[舰娘]]></title>
     <url>%2Fposts%2Fe012b259%2F</url>
-    <content type="text"><![CDATA[驱逐舰 DD阳炎改二 装备【12.7cm连装炮C型改二】和【61cm四连装(酸素)鱼类】战力额外增强 轻巡洋舰五十铃改二 自带开幕反潜，无对潜值要求]]></content>
+    <content type="text"><![CDATA[驱逐舰 DD阳炎改二 装备【12.7cm连装炮C型改二】和【61cm四连装(酸素)鱼雷】战力额外增强 不知火改二 装备【12.7cm连装炮C型改二】和【61cm四连装(酸素)鱼雷】战力额外增强 轻巡洋舰五十铃改二 自带开幕反潜，无对潜值要求]]></content>
       <tags>
         <tag>舰队 Collection</tag>
       </tags>
